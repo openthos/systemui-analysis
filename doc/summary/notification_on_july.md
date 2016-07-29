@@ -58,14 +58,11 @@
     * 实现的function 有我的电脑，设置，电源中的关机，重启，和锁定。
 
 # 存在问题
-| 简述  | 类别  | 备注 |
+| 简述  | 类别  | Url链接地址 |
 | ---- |------- |:---------|
-| 调用系统锁屏功能在同方笔记本T43u 和同方台式机精锐x700无效（待调研） | bug | https://dev.openthos.org/zentao/zentao/bug-view-182.html |
-|  开始菜单点击电源弹出的dialog无法覆盖全屏(同多窗口有关待调研) | bug | https://dev.openthos.org/zentao/zentao/bug-view-194.html |
-|  Systemui 状态栏中源WIFI逻辑比较复杂需要调研 	| bug | https://dev.openthos.org/zentao/zentao/bug-view-100.html
-| Systemui与DocumentsUI 需要进行跨项目数据交互 并变更DocumentsUI数据库的内容 功能难度系数高比较耗时 | bug |	https://dev.openthos.org/zentao/zentao/bug-view-56.html |
-| 重置Systemui通知栏 	| 功能 | 功能优先级未开始，需要底层人员协助|
-| 扩展Systemui 输入法 	| 功能 |	功能优先级未开始|
-| 扩展Systemui 电量 	| 功能 | 功能优先级未开始|
+| 通知栏中弹出的通知呈重叠式出现 | bug | https://dev.openthos.org/zentao/zentao/bug-view-26.html |
+| 通知栏有通知显示时，最顶端仍显示“ 没有通知” | bug | https://dev.openthos.org/zentao/zentao/bug-view-38.html |
+| 20160616-4-eng版本, 通知栏四个按钮有两个无图标.需增加 | bug |	https://dev.openthos.org/zentao/zentao/bug-view-99.html |
+|  WIFI开启时，通知栏弹出区域有框无AP列表，需等待一会AP列表才会显示出来（刷新存在问题） 	| bug | 
 
 # 设计实现
