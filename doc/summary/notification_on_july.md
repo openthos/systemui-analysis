@@ -63,6 +63,6 @@
 | 通知栏中弹出的通知呈重叠式出现 | bug | https://dev.openthos.org/zentao/zentao/bug-view-26.html |
 | 通知栏有通知显示时，最顶端仍显示“ 没有通知” | bug | https://dev.openthos.org/zentao/zentao/bug-view-38.html |
 | 20160616-4-eng版本, 通知栏四个按钮有两个无图标.需增加 | bug |	https://dev.openthos.org/zentao/zentao/bug-view-99.html |
-|  WIFI开启时，通知栏弹出区域有框无AP列表，需等待一会AP列表才会显示出来（刷新存在问题） 	| bug | 
+|  WIFI开启时，通知栏弹出区域有框无AP列表，需等待一会AP列表才会显示出来（刷新存在问题） 	| bug | https://dev.openthos.org/zentao/zentao/bug-view-126.html　 |　
 
 # 设计实现
