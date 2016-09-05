@@ -178,6 +178,6 @@
 请查看： [trace function.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/trace%20function.md)
 ##　如何进行跨项目间的数据传输
  项目中之间数据传输是通过有序广播来实现接受和处理的，请查看 ：
- [systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/trace%20function.md)
+ [systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)
 ##　如何弹系统级的dialog
 ##　如何进行数据长久存储
