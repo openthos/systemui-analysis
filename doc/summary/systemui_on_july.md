@@ -173,7 +173,7 @@
 分别叙述整体的模块和技术要点。
 
 ##　systemui整体模块叙述
-请查看：[systemui_module_narrative.md](https://github.com/openthos/setting-analysis/edit/master/specialIntroduce.md)
+请查看：[systemui_module_narrative.md](https://github.com/openthos/systemui-analysis/edit/master/doc/summary/systemui_module_narrative.md)
 ##　如何集成代码到systemui
 ##　如何进行跨项目间的数据传输
 ##　如何弹系统级的dialog
