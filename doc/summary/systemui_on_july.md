@@ -180,4 +180,7 @@
  项目中之间数据传输是通过有序广播来实现接受和处理的，请查看 ：
  [systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)
 ##　如何弹系统级的dialog
+systemui apk 整个宽度为不大于100单位值，如果在这里弹出一个dialog是无法看到的，</br >因为其父布局的高度只有不到100单位值，
+如何弹出一个同父布局一个等级的dialog：</br >请查看：
+[system_dialog.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)
 ##　如何进行数据长久存储
