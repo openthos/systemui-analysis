@@ -173,7 +173,7 @@
 分别叙述整体的模块和技术要点。
 
 ##　systemui整体模块叙述
-- 请查看：[systemui_module_narrative.md](https://github.com/openthos/systemui-analysis/edit/master/doc/summary/systemui_module_narrative.md)
+- 请查看：[systemui_module_narrative.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)
 
 ##　以status bar为入口，查看各个模块所在位置。
 - 请查看： [trace function.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/trace%20function.md)
