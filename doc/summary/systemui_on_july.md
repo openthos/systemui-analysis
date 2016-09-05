@@ -172,7 +172,9 @@
 
 分别叙述整体的模块和技术要点。
 
-##　当前开发人员 (20160801-20160831)
-##　当前开发人员 (20160801-20160831)
-##　当前开发人员 (20160801-20160831)
-##　当前开发人员 (20160801-20160831)
+##　systemui整体模块叙述
+请查看：[systemui_module_narrative.md](https://github.com/openthos/setting-analysis/edit/master/specialIntroduce.md)
+##　如何集成代码到systemui
+##　如何进行跨项目间的数据传输
+##　如何弹系统级的dialog
+##　如何进行数据长久存储
