@@ -14,7 +14,7 @@
 本项目属于openthos项目的一部分，提供 [Openthos](https://github.com/openthos/openthos/wiki) 对原SystemUI状态栏系统信息显示位置重定制，以及对现有的功能扩展，并且追加新的功能开始菜单，和常用软件。
 
 ##　当前开发人员 (20160801-20160831)
-董鹏 
+董鹏 卢宁 曹永韧 王利峰
 
 ## 功能需求
 
