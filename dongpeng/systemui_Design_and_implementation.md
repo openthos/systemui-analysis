@@ -188,3 +188,14 @@
 如何弹出一个同父布局一个等级的dialog：</br >请查看：
 [system_dialog.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_dialog.md)
 
+##  如何通过监听keycode值进行事件的处理
+
+##  如何通过监听keycode值进行事件的处理
+
+##  如何通过监听keycode值进行事件的处理
+
+##  如何通过监听keycode值进行事件的处理
+
+##  如何通过监听keycode值进行事件的处理
+
+##  如何通过监听keycode值进行事件的处理
