@@ -21,4 +21,20 @@ root@23fd8597edf2:~/dongpeng/lollipop-x86/frameworks/base# ^C
 
 ##  以status bar 为入口了解整个systemui 模块
   首先我们已经确定了，status bar 对应布局为packages/SystemUI/res/layout/status_bar.xml 也就是sysytem整个模块的入口
-  - vim 打开status_bar.xml布局可以看到各个模块的id,通过 字段搜索  可以查看到各个模块的位置，可以进行深入的了解。
+  - vim 打开status_bar.xml布局可以看到各个模块的id 如下：
+  - 
+     @+id/status_bar_startup_menu   开始菜单按钮
+
+     @+id/status_bar_scroll_view    常用软件
+
+     @+id/status_bar_input_method  输入法按钮
+
+     @+id/status_bar_battery       电量按钮
+
+     @+id/status_bar_wifi          wifi按钮
+
+     @+id/status_bar_sound         声音
+
+     @+id/clock                    时间
+ 
+     @+id/status_bar_home          home 按键
