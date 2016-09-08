@@ -20,7 +20,7 @@
                           RadioButton按钮的单独监听（new OnClickListener（)）;
 
 
-    1.2 app自启管理
+###    1.2 app自启管理
         1.location: packages/apps/Settings/src/com/android/settings/AutoStartSettings.java 
         2.介绍：利用ListView显示第三方应用，对app启动方式设置，支持两种设置方式，开机时自动启动和开机时不启动。
         3.开发中遇到的问题 1.Settings模块中，布局基本使用的是Preference及其子类。应用开发布局用的是View及其子类，在Seting
