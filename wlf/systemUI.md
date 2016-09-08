@@ -1,4 +1,4 @@
-﻿1.Settings 模块工作总结
+## 1.Settings 模块工作总结
    1.1 app运行模式选择
        1.location:  packages/apps/Settings/src/com/android/settings/RunModeSertings.java
                     frameWorks/base/packages/OtoSetupWizard/src/com/otosoft/MyProvider.java
