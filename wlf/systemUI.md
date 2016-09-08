@@ -33,8 +33,8 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
 
               单一控件：
                         Preference 控件家庭          View控件家庭       控件含义
-                          Preference                  TextView           文本框
-                          CheckPreference             CheckBox           单选框
+                          Preference                  TextView          文本框
+                          CheckPreference             CheckBox          单选框
                           EditTextPreference          EditText          输入文本框 
                           ListPreference              ListView          列表框
                          
