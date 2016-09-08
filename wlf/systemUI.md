@@ -16,10 +16,9 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
 
                   final String AUTHORITY="com.otosoft.tools.myprovider";
                   new UriMatcher.addURI(AUTHORITY,"tablename",0);
-<br \>                  
-              3.2.对于Radiogroup监听方法的选择,按钮组常用的监听方法(newOnqingkuangCheckedChangedListener(){})
-             操作简便，然而在ListView中使用该监听方法，当item复用的时候会自动触发该监听事件，所以应选择
-             按钮的单独监听（new OnClickListener（)）;
+                  
+3.2.对于Radiogroup监听方法的选择,按钮组常用的监听方法(newOnqingkuangCheckedChangedListener(){})操作简便，
+然而在ListView中使用该监听方法，当item复用的时候会自动触发该监听事件，所以应选择按钮的单独监听（new OnClickListener（)）;
 
 
 ###    1.2 app自启管理
@@ -42,19 +41,19 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
            详细了解可参考：http://blog.csdn.net/qinjuning/article/details/6710003
 
 ##2.StartupMenu 模块工作总结
-###   2.1 app的升降序排序
-       1.location：frameworks/base/packages/DocumentUI/src/com/android/documnetui/StartMenuActivity.java
-       2.介绍：调用系统应用管理者，获得所有应用的信息（包名，app图标，app名称等），通过GridView将所有app的基本信息展示出来，再对app
-       的展示顺序调整。关键代码：
+###   2.1 app的升降序排序<br \>
+1.location：<br \>
+frameworks/base/packages/DocumentUI/src/com/android/documnetui/StartMenuActivity.java<br \>
+2.介绍：调用系统应用管理者，获得所有应用的信息（包名，app图标，app名称等），通过GridView将所有app的基本信息展示出来，再对app
+的展示顺序调整。关键代码：<br>
 
                           PackagerManager pm=activity.getPackagerManager();
                           Intent mainIntent=new Intent(Intent.ACTION_MAIN,null);
                           mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                           List list=pm.queryIntentActivities(mainIntent,0);
                           Collection.reverse(list);
-
-       3.开发中遇到的问题 1.点击开始菜单，个别机型存在延迟显示现象。点击开始菜单加载界面的时候，会进行数据库的查询方法，查询为耗时
+3.开发中遇到的问题:<br \>
+3,1.点击开始菜单，个别机型存在延迟显示现象。点击开始菜单加载界面的时候，会进行数据库的查询方法，查询为耗时
        操作，致使界面加载变慢，出现延迟。解决思路为，利用广播让数据先于界面提前加载，详细了解可请教本组卢宁。
 
-    总体而言，安卓框架层的代码比较抽象，涉及到的知识面非常广，需要有扎实的Java和安卓基础。和应用开发常用的布局逻辑等区别很大，是对应
-    用层的一种提升，需要对核心模块熟练掌握，才能运用自如，这需要一点点的积累！
+总体而言，安卓框架层的代码比较抽象，涉及到的知识面非常广，需要有扎实的Java和安卓基础。和应用开发常用的布局逻辑等区别很大，是对应用层的一种提升，需要对核心模块熟练掌握，才能运用自如，这需要一点点的积累！
