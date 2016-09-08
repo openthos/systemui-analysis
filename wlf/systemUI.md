@@ -23,9 +23,11 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
 
 
 ###    1.2 app自启管理
-        1.location: packages/apps/Settings/src/com/android/settings/AutoStartSettings.java 
-        2.介绍：利用ListView显示第三方应用，对app启动方式设置，支持两种设置方式，开机时自动启动和开机时不启动。
-        3.开发中遇到的问题 1.Settings模块中，布局基本使用的是Preference及其子类。应用开发布局用的是View及其子类，在Seting
+ 1.location:<br \>
+ packages/apps/Settings/src/com/android/settings/AutoStartSettings.java<br \> 
+        2.介绍：<br \>
+        利用ListView显示第三方应用，对app启动方式设置，支持两种设置方式，开机时自动启动和开机时不启动。<br \>
+        3.开发中遇到的问题:<br \> 3.1.Settings模块中，布局基本使用的是Preference及其子类。应用开发布局用的是View及其子类，在Seting
         的界面布局中使用前者，归根到底，Preference的优点在于布局界面的可控性和高效率以及可存储值的简洁性(每个
         PreferenPreferencece存储在相对应下的SharedPreference文件夹下)。Preference布局结构和View布局结构相似，单一控件的
         比较如下：                                
@@ -36,7 +38,7 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
                           CheckPreference             CheckBox           单选框
                           EditTextPreference          EditText          输入文本框 
                           ListPreference              ListView          列表框
-          
+<br \>                          
            详细了解可参考：http://blog.csdn.net/qinjuning/article/details/6710003
 
 ##2.StartupMenu 模块工作总结
