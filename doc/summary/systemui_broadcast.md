@@ -16,7 +16,8 @@ IntentFilter filter = new IntentFilter();
 filter.addAction("android.intent.MY_BROADCAST");  
 registerReceiver(receiver, filter);
 ``````
-     * 发送方核心代码
+     * 发送方核心代码 
+     * 项目中对应的位置为： 
 ```
              Intent intentSend = new Intent();
              intentSend.putExtra("XXXX",xxxx); // 发送广播需要带的数据
