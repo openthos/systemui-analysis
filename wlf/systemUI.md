@@ -1,5 +1,5 @@
 ## 1.Settings 模块工作总结
-   1.1 app运行模式选择
+### 1.1 app运行模式选择
        1.location:  packages/apps/Settings/src/com/android/settings/RunModeSertings.java
                     frameWorks/base/packages/OtoSetupWizard/src/com/otosoft/MyProvider.java
        2.介绍：界面布局使用ListView展示系统所有app，itm中使用Radiogroup实现运行模式的切换。通过读取数据库，系统为每个应用都指定了
