@@ -36,8 +36,8 @@
           
            详细了解可参考：http://blog.csdn.net/qinjuning/article/details/6710003
 
-2.StartupMenu 模块工作总结
-   2.1 app的升降序排序
+##2.StartupMenu 模块工作总结
+###   2.1 app的升降序排序
        1.location：frameworks/base/packages/DocumentUI/src/com/android/documnetui/StartMenuActivity.java
        2.介绍：调用系统应用管理者，获得所有应用的信息（包名，app图标，app名称等），通过GridView将所有app的基本信息展示出来，再对app
        的展示顺序调整。关键代码：
