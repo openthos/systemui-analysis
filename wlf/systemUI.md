@@ -37,8 +37,8 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
                           CheckPreference             CheckBox           单选框
                           EditTextPreference          EditText          输入文本框 
                           ListPreference              ListView          列表框
-<br \>                          
-           详细了解可参考：http://blog.csdn.net/qinjuning/article/details/6710003
+                         
+ 详细了解可参考：http://blog.csdn.net/qinjuning/article/details/6710003
 
 ##2.StartupMenu 模块工作总结
 ###   2.1 app的升降序排序<br \>
