@@ -2,11 +2,11 @@
 ### 1.1 app运行模式选择
        1.location:  packages/apps/Settings/src/com/android/settings/RunModeSertings.java
                     frameWorks/base/packages/OtoSetupWizard/src/com/otosoft/MyProvider.java
-       2.介绍：界面布局使用ListView展示系统所有app，itm中使用Radiogroup实现运行模式的切换。通过读取数据库，系统为每个应用都指定了
-       默认的运行模式，用户可根据需要切换     模式运行程序。
-       3.开发中遇到的问题 1.由于需要和系统公共的数据库交互，因此将数据库以ContentProvider接口的形式暴露出来，在自定义的ContentProvider 
-       中要注意路径匹配者（UriMatcher）添加的路径一定要和配置文件的标识(authority)内容一致，否则，别的应用访问不到该接口的数据。关键
-       代码：
+       2.介绍：界面布局使用ListView展示系统所有app，itm中使用Radiogroup实现运行模式的切换。通过读取数据库，系统为每个应用都
+       指定了默认的运行模式，用户可根据需要切换模式运行程序。
+       3.开发中遇到的问题 1.由于需要和系统公共的数据库交互，因此将数据库以ContentProvider接口的形式暴露出来，在自定义的
+       ContentProvider 中要注意路径匹配者（UriMatcher）添加的路径一定要和配置文件的标识(authority)内容一致，否则，别的应用
+       访问不到该接口的数据。关键代码：
                                        
                   <provider  
                        android:authority="com.otosoft.tools.myprovider"
