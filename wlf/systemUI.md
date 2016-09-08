@@ -19,7 +19,7 @@ packages/apps/Settings/src/com/android/settings/RunModeSertings.java<br \>      
 <br \>                  
               3.2.对于Radiogroup监听方法的选择,按钮组常用的监听方法(newOnqingkuangCheckedChangedListener(){})
              操作简便，然而在ListView中使用该监听方法，当item复用的时候会自动触发该监听事件，所以应选择
-             RadioButton按钮的单独监听（new OnClickListener（)）;
+             按钮的单独监听（new OnClickListener（)）;
 
 
 ###    1.2 app自启管理
