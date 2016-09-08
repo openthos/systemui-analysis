@@ -191,7 +191,7 @@
 ##  如何通过监听keycode值进行事件的处理
 - 一个view 想要处理点击事件  一种是写一个onClick函数 ，一种是实现onClick监听事件
 	      今天给大家说一下android中   通过监听keycode值进行事件的处理：</br >请查看：
-[system_keycode.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_dialog.md)
+[system_keycode.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_keycode.md)
 ##  如何隐士启动一个activity
 
 ##  如何通过标记flg值启动acticity
