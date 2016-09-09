@@ -194,7 +194,8 @@
 [system_keycode.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_keycode.md)
 
 ##  如何隐士启动一个activity
-
+- 请查看： [system_intent.md]()
+    
 ##  如何通过标记flg值启动acticity
 
 ##  如何实现鼠标右键的功能
