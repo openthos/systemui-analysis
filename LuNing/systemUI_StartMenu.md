@@ -55,15 +55,15 @@ StartupMenu每次关闭都被System.exit(0),整个应用被结束，无法保存
 - 安装后第一次打开开始菜单，不需要数据库数据，直接从系统获取应用信息，展示到右侧，代码如下：<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java
 ``` 
-  PackageManager pm = this.getPackageManager();
-  Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-  mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-  List<ResolveInfo> resolveInfos = pm.queryIntentActivities(mainIntent, 0);
+    PackageManager pm = this.getPackageManager();
+    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+    List<ResolveInfo> resolveInfos = pm.queryIntentActivities(mainIntent, 0);
 ``` 
 - 通过SharedPreferences存储本地数据判断是否为第一次打开;<br \>
 - 在用户可能对开始菜单进行操作时，才填充数据库，监听鼠标移动（setOnHoverListener(this)）到开始菜单界面上，发送广播，向数据库存储应用信息，此时并不影响开始菜单加载；<br \>
 ``` 
-  @Override
+    @Override
         public boolean onHover(View view, MotionEvent motionEvent) {
             int what = motionEvent.getAction();
             int isSql = sharedPreference.getInt("isSql", 0);
