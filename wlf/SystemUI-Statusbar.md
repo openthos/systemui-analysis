@@ -20,34 +20,35 @@ frameworks/base/packages/SystemUI/res/status_bar.xml<br \>
 
                             </LinearLayout>
                         </HorizontalScrollView>
-     1.3 分析: HorizontalScrollView是一个 FrameLayout，这意味着你只能在它下面放置一个子控件(这里的LinearLayout),这个子控件可以
-     包含很多数据内容.当用户选择打开或者将应用固定到任务栏的时候,填充的view(FrameLayout)会放入LinearLayout中,此时的Linearlayout
-     中存在多个应用的图标.当用户关闭应用或者解除固定的时候,LinearLayout会将该View移除掉,再将剩余的View展示出来,关键代码如下:
-            打开或固定:
-             LayoutInflater li =(LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            PackageManager pm = getPackageManagerForUser(-1);
-            ApplicationInfo ai = pm.getApplicationInfo(pkg, 0);
-            Drawable pkgicon = pm.getApplicationIcon(ai);
-            FrameLayout ll = (FrameLayout) li.inflate(R.layout.statusbar_activity_button, null);
-            StatusbarActivity sa = new StatusbarActivity(ActivityManager.NOT_RUNNING_STACK_ID, pkg,
-                                                         true, false);
-            ActivityKeyView akv = (ActivityKeyView) ll.getChildAt(0);
-            akv.setStatusbarActivity(sa);
-            akv.setFocusedView(ll.findViewById(R.id.activity_focused));
-            ((ImageView)akv).setImageDrawable(pkgicon);
-            ll.setVisibility(View.VISIBLE);
-            mStatusBarActivities.addView(ll);
-           关闭或解除固定
-           if (mStatusBarActivities.getChildAt(i) instanceof FrameLayout) {
-                ActivityKeyView kbv = getActivityKeyView(i);
-                if(kbv.getVisibility() == View.GONE) {
-                    mStatusBarActivities.removeView(kbv);
-                    //continue;
-                }
+  1.3 分析:<br \>
+  HorizontalScrollView是一个 FrameLayout，这意味着你只能在它下面放置一个子控件(这里的LinearLayout),这个子控件可以   包含很多数据内容.当用户选择打开或者将应用固定到任务栏的时候,填充的view(FrameLayout)会放入LinearLayout中,此时的
+  Linearlayout中存在多个应用的图标.当用户关闭应用或者解除固定的时候,LinearLayout会将该View移除掉,再将剩余的View展 示出来,关键代码如下:
+                         打开或固定:
+                         LayoutInflater li =(LayoutInflater) mContext.
+                                            getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                         PackageManager pm = getPackageManagerForUser(-1);
+                         ApplicationInfo ai = pm.getApplicationInfo(pkg, 0);
+                         Drawable pkgicon = pm.getApplicationIcon(ai);
+                         FrameLayout ll = (FrameLayout) li.inflate(R.layout.statusbar_activity_button, null);
+                         StatusbarActivity sa = new StatusbarActivity(
+                                                ActivityManager.NOT_RUNNING_STACK_ID, pkg,true, false);
+                         ActivityKeyView akv = (ActivityKeyView) ll.getChildAt(0);
+                         akv.setStatusbarActivity(sa);
+                         akv.setFocusedView(ll.findViewById(R.id.activity_focused));
+                         ((ImageView)akv).setImageDrawable(pkgicon);
+                         ll.setVisibility(View.VISIBLE);
+                         mStatusBarActivities.addView(ll);
+                         关闭或解除固定
+                         if (mStatusBarActivities.getChildAt(i) instanceof FrameLayout) {
+                         ActivityKeyView kbv = getActivityKeyView(i);
+                             if(kbv.getVisibility() == View.GONE) {
+                             mStatusBarActivities.removeView(kbv);
+                             //continue;
+                             }
+                         }     
         
      
-
-     2.任务栏常用app之间距离的调整
+##2.任务栏常用app之间距离的调整
 <FrameLayout
     		android:id="@+id/statusbar_activity_button"
     		xmlns:android="http://schemas.android.com/apk/res/android"
