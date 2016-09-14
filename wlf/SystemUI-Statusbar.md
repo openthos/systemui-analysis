@@ -50,5 +50,33 @@ frameworks/base/packages/SystemUI/res/status_bar.xml<br \>
                          }     
         
      
-##2.任务栏常用app之间距离的调整
+1.4:遇到的问题:<br \>
+.任务栏常用app之间距离的调整
+
+
+       <FrameLayout
+    		   android:id="@+id/statusbar_activity_button"
+    		   xmlns:android="http://schemas.android.com/apk/res/android"
+    		   ...
+    		   android:layout_width="@dimen/status_bar_icon_size_big"
+    		   android:layout_height="@dimen/status_bar_icon_size_big"
+    	     />
+    	     <com.android.systemui.statusbar.policy.ActivityKeyView
+        	     android:id="@+id/activity_key_view"
+        	     ...
+        	     android:layout_width="38dp"
+        	     android:layout_height="match_parent"
+        	     />
+    	     <View
+        	     android:id="@+id/activity_focused"
+        	     ...
+        	     android:layout_width="match_parent"
+        	     android:layout_height="match_parent"
+        	     android:visibility="gone"/>
+       </FrameLayout>
+  布局加载和代码添加的比较:<br />
+      Framelayout 使用layout_Margin属性的时候,不显示效果.调查发现,原因如下:<br \>
+      framelayout 是在java代码里动态添加的,一般加载布局的使用的是setContentView(R.layout.framelayout)
+      setContentView方法会逐行加载xml文件,所以使用该方法,设置的属性会全部读取.
+      而在代码里动态添加View的时候,会自适应布局,所以你添加的属性不一定全部有效,所以属性限制的时候,应该具体到控件中.     
 
