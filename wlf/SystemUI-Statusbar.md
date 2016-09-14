@@ -1,7 +1,8 @@
- SystemUI 工作总结:
-     1.任务栏控件之--HorizontalScrollView的总结
-     1.1 location:frameworks/base/packages/SystemUI/res/status_bar.xml
-                  frameworks/base/packages/SystemUI# cd src/com/android/systemui/statusbar/phone/PhoneStatusBar.java 
+## SystemUI 工作总结:
+###     1.任务栏控件之--HorizontalScrollView的总结
+1.1 location:<br \>
+frameworks/base/packages/SystemUI/res/status_bar.xml<br \>
+                  frameworks/base/packages/SystemUI# cd src/com/android/systemui/statusbar/phone/PhoneStatusBar.java<br \>
      1.2 需求:在任务栏中显示已锁定和正在运行的应用,由于任务栏长度有限,要全部展示,需要用到HorzontalScrollView控件,代码如下:
 <HorizontalScrollView
             android:id="@+id/status_bar_scroll_view"
