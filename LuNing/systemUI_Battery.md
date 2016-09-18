@@ -1,4 +1,4 @@
-#系统电源功能实现总结
+＃状态栏系统电量功能实现总结
 - 布局文件SystemUI/res/layout/status_bar.xml <include/>复用布局代码
 ``` 
     <include layout="@layout/system_icons" />
