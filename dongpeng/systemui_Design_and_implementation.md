@@ -83,7 +83,7 @@
 #9月份任务计划
 | 时间节点 | 任务 
 |---|---|
-|2016/09/18-2016-/09/23 |修复禅道bug（共22个）平均每人4-5个 分配如下： <br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/%20fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_dp.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)|
+|2016/09/18-2016-/09/23 |修复禅道bug（共22个）平均每人4-5个 分配如下： <br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/%20fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_dp.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/wlf/fix_bug_wlf.md)|
 |2016/09/26-2016-/09/30 |1.根据上周修复bug的情况在具体安排任务 ，主要还是修复systemui 相关bug<br />2.如果Systemui 组bug修复完成 董鹏/卢宁/曹永韧/侧支援multiwindow bug修复
 
 
