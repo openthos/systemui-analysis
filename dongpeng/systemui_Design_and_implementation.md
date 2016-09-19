@@ -79,6 +79,14 @@
 |2016/08/08-2016-/08/14 |1 开始菜单页面图片修改。 <br />2开始菜单页面图片修改 <br />3 开始菜单布局修改 <br />4 开始菜单电源功能布局 图片修改<br /> 5 状态栏左边常用软件图片修改 <br />6 状态栏右边系统<br />7个信息（通知栏，电量，输入法，wifi，时间 ，声音，home键）图片修改|
 |2016/08/15-2016-/08/21 | 1 开始菜单右边鼠标右键可卸载可运行功能<br /> 2 开始菜单左边鼠标右键可取消功能| 
 |2016/08/22-2016-/08/26 |一. 图片替换 <br />1.电源,设置,文件管理器 图标大<br /> 2.菜单选项上三角不明显,需重新提供<br />3.鼠标滑过及点击效果,图片一天切换.<br />4.底部任务栏鼠标事件未替换成效果图<br />5.Startmenu-电源 背景黑色太浅 ;home加一个白线 ;<br />6.输入法 ，电量 ，wifi， 声音，时间<br />7.多窗口三个图标： 关闭 最大化 隐藏<br />二. 布局修改 <br />  1 .左侧(常用软件)与右侧(app列表)比例不对,需修改<br /> 2 wifi 和声音 布局 调整 修改背影<br /> 3.-周一确认返回按钮,及位置<br /> 4.startmenu点击效果位置偏移<br />三. 现有功能扩展 <br /> 1.以手机模式运行<br />2.以桌面模式运行<br />  3.从此列表中移除<br />4.分类排序，升序降序<br />5.电源<br /> 6.输入法<br />|
+
+#9月份任务计划
+| 时间节点 | 任务 
+|---|---|
+|2016/09/18-2016-/09/23 |修复禅道bug（共22个）平均每人4-5个 分配如下： <br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)|
+|2016/09/26-2016-/09/30 |1.根据上周修复bug的情况在具体安排任务 ，主要还是修复systemui 相关bug<br />2.如果Systemui 组bug修复完成 董鹏/卢宁/曹永韧/侧支援multiwindow bug修复
+
+
 # 项目进展
 
 - 2016/03/21-2016/04/15
