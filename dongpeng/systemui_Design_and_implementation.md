@@ -86,7 +86,10 @@
 |2016/09/18-2016-/09/23 |修复禅道bug（共22个）平均每人4-5个 分配如下： <br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_ln.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/wlf/fix_bug_wlf.md)|
 |2016/09/26-2016-/09/30 |Systemui组 上周解决bug 9个，新增3个，重复bug2个(已关闭)， 目前剩余bug14个 以下为本周任务分配和bug分类综述：<br />本周平均每人3-4个bug 分配如下：<br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_ln.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/wlf/fix_bug_wlf.md)<br />Systemui bug 分类综述[bug_classify.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/bug_classify.md)<br />
 
-
+#10月份任务计划
+| 时间节点 | 任务 
+|---|---|
+|2016/10/8-2016-/10/21 |本月主要任务为：优化现有功能，实现8月遗留的function,任务分配如下： <br />1.独立Startmenu （董鹏） <br /> 2.电量 （卢宁）<br />3.通知栏 布局优化/逻辑调整   （曹永韧， 董鹏协助）<br />4. 输入法    （王利峰， 董鹏协助）|
 
 
 # 项目进展
