@@ -1,19 +1,19 @@
 ##Terminal_Emulator 分析:
 openthos 项目中,Terminal_Emulator应用不存在源码,以第三方apk的方式存在,源码可以在github下载.具体下载地址为:
 https://github.com/jackpal/Android-Terminal-Emulator
-<br \>Terminal_Emulator应用在android_x86 平台存在的问题:
-1.以多窗口的形式打开该应用,应用无法识别窗口的下边缘和右边缘;
-问题分析:
-应用主布局路径:
-Android-Terminal-Emulator-master/term/src/main/res/layout/term_activity.xml
-该应用的整体布局为:
-    <jackpal.androidterm.TermViewFlipper
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/view_flipper"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/black"
-    />
+<br \>Terminal_Emulator应用在android_x86 平台存在的问题:<br \>
+1.以多窗口的形式打开该应用,应用无法识别窗口的下边缘和右边缘;<br \>
+问题分析:<br \>
+应用主布局路径:<br \>
+Android-Terminal-Emulator-master/term/src/main/res/layout/term_activity.xml<br \>
+该应用的整体布局为:<br \>
+                    <jackpal.androidterm.TermViewFlipper
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/view_flipper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    />
 其中自定义的TermViewFilpper继承自ViewFilpper.该控件的用法和ViewPager类似,可实现页面的增加和切换等,ViewFilpper学习可参考:
 http://www.android100.org/html/201403/08/5835.html
 java代码中可动态给TermViewFilpper添加TermView,代码逻辑如下:
