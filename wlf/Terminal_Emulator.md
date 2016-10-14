@@ -16,10 +16,11 @@ Android-Terminal-Emulator-master/term/src/main/res/layout/term_activity.xml<br \
                     />
 其中自定义的TermViewFilpper继承自ViewFilpper.该控件的用法和ViewPager类似,可实现页面的增加和切换等,ViewFilpper学习可参考:
 http://www.android100.org/html/201403/08/5835.html
-java代码中可动态给TermViewFilpper添加TermView,代码逻辑如下:
-            TermView view = createEmulatorView(session);
-            view.updatePrefs(mSettings);
-            mViewFlipper.addView(view); 
+<br \>java代码中可动态给TermViewFilpper添加TermView,代码逻辑如下:
+
+                    TermView view = createEmulatorView(session);
+                    view.updatePrefs(mSettings);
+                    mViewFlipper.addView(view); 
 具体逻辑可参考:
 Android-Terminal-Emulator-master/term/src/main/java/jackpal/androidterm/Term.java
 这里的TermView就是Terminal_Emulator应用的核心部分,可参考:
