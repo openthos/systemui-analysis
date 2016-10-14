@@ -1,4 +1,4 @@
-Terminal_Emulator 分析:
+##Terminal_Emulator 分析:
 openthos 项目中,Terminal_Emulator应用不存在源码,以第三方apk的方式存在,源码可以在github下载.具体下载地址为:
 https://github.com/jackpal/Android-Terminal-Emulator
 Terminal_Emulator应用在android_x86 平台存在的问题:
