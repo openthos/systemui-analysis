@@ -1,8 +1,7 @@
 ##Terminal_Emulator 分析:
 openthos 项目中,Terminal_Emulator应用不存在源码,以第三方apk的方式存在,源码可以在github下载.具体下载地址为:
 https://github.com/jackpal/Android-Terminal-Emulator
-
-Terminal_Emulator应用在android_x86 平台存在的问题:
+<br \>Terminal_Emulator应用在android_x86 平台存在的问题:
 1.以多窗口的形式打开该应用,应用无法识别窗口的下边缘和右边缘;
 问题分析:
 应用主布局路径:
