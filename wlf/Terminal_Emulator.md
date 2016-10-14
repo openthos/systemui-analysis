@@ -8,7 +8,6 @@ https://github.com/jackpal/Android-Terminal-Emulator
 Android-Terminal-Emulator-master/term/src/main/res/layout/term_activity.xml<br \>
 该应用的整体布局为:<br \>
                     <jackpal.androidterm.TermViewFlipper
-                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/view_flipper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
