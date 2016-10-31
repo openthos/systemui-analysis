@@ -17,6 +17,9 @@
 ##　当前开发人员 (20160801-20160831)
 董鹏 卢宁 曹永韧 王利峰
 
+##　当前开发人员 (20160801-20160831)
+董鹏 曹永韧 刘晓旭 卢宁
+
 ## 功能需求
 
 |完成|描述|模块|完成度|
@@ -90,6 +93,12 @@
 | 时间节点 | 任务 
 |---|---|
 |2016/10/8-2016-/10/21 |本月主要任务为：优化现有功能，实现8月遗留的function,任务分配如下： <br />1.独立Startmenu （董鹏） <br /> 2.电量 （卢宁）<br />3.通知栏 布局优化/逻辑调整   （曹永韧， 董鹏协助）<br />4. 输入法    （王利峰， 董鹏协助）|
+|2016/10/24-2016-/10/28 | <br />1.Startupmenu 最新dpi适配工作 （董鹏） <br /> 2.Systemui 最新dpi适配工作 （卢宁）<br />3.通知栏 最新dpi适配工作  （曹永韧）<br />4. 熟悉openthos项目，掌握基本的vim git 指令  解决1-2 bug（刘晓旭， 董鹏协助）|
+
+#11月份任务计划
+| 时间节点 | 任务 
+|---|---|
+|2016/11/1-2016-/10/31 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />1.董鹏    [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md) <br /> 2.曹永韧  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)  <br />3.刘晓旭  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md) <br />|
 
 
 # 项目进展
