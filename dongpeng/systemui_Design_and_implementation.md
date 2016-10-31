@@ -98,7 +98,7 @@
 #11月份任务计划
 | 时间节点 | 任务 
 |---|---|
-|2016/11/1-2016-/10/31 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />1.董鹏    [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md) <br /> 2.曹永韧  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)  <br />3.刘晓旭  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md) <br />|
+|2016/11/1-2016-/10/31 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />1.董鹏    [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br /> 2.曹永韧  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md)  <br />3.刘晓旭  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br />|
 
 
 # 项目进展
