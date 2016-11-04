@@ -1,7 +1,7 @@
 # 2016-10-31~11-04 Systemui周计划工作安排
 # 董鹏
 ## 本周任务
-  - 1） 特征：Startup Menu: Sometimes, the startup menu displaying is very slow, especially when IO is busy.结果：董鹏改进， 韩辉+王建兴分析
+  - 1） 解决bug533/534/535 日历中日期调整后没有即使跟新等问题
   - 2） 解决 bug503 : 鼠标点击任务栏应用右键的选项时会触发桌面最大化窗口的应用。
   - 3)  解决 bug443: 睡眠首次会调超级用户权限.如图(修改睡眠回来四项仍显示出现的新问题)
   - 3)  最新dpi同邬设计师沟通如需调整的，对其在进行优化。
@@ -11,6 +11,7 @@
 ## 下周计划任务
   - 1） 进行创建系统数据库，来优化低配pc上开始菜单延时的问题。
   - 2） 解决真机上使用openthos办公，出现的bug.
+  - 3）特征：Startup Menu: Sometimes, the startup menu displaying is very slow, especially when IO is busy.结果：董鹏改进， 韩辉+王建兴分析
   
 #
 # 曹永韧
