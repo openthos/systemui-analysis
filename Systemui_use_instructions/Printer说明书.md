@@ -41,6 +41,6 @@
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/create%20word.png)
       - 点击文件： 选择打印 --> 对页码范围和打印范围和版数进行选择(通常选择默认) --> 点击打印 
           --> 选择打印服务  -- > 选择系统打印服务  --> 点击打印的图标 --> 打印完成。
-
+![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/osprint.png)
                                              
 
