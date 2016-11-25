@@ -1,5 +1,28 @@
 # 通知栏使用说明书：
- ![整体效果图](https://github.com/openthos/systemui-analysis/blob/master/ImageView/notification.png)
+
+## Note:
+  - 通知栏属于Openthos模块之一。它的加入使阁下对系统消息和应用消息的查看操作变得更加方便快捷。
+  - 了解更多请查看下方（通知栏功能详情介绍）
+  
+***
+## 整体效果图
+ ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/notification.png)
+ 
+***
+## 功能模块
+  - 通知管理
+  - 清除所有
+  - 通知消息
+  - 打印管理
+  - 打印消息
+  - 截屏
+  - 隔离模式
+  - 投影
+  - 设置
+  
+***
+
+## 具体介绍  
   - 通知管理 --（*屏蔽和优先*）
     - 点击通知管理：显示所有发送通知的应用，然后你点击列表中的应用，进行屏蔽操作和优先操作。
   - 清除所有 --（*清楚通知*）
