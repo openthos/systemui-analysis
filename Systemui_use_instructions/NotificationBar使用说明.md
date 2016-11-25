@@ -1,5 +1,5 @@
 # 通知栏使用说明书：
-![这里写图片描述]()
+ ![整体效果图](https://github.com/openthos/systemui-analysis/blob/master/ImageView/notification.png)
   - 通知管理 --（*屏蔽和优先*）
     - 点击通知管理：显示所有发送通知的应用，然后你点击列表中的应用，进行屏蔽操作和优先操作。
   - 清除所有 --（*清楚通知*）
