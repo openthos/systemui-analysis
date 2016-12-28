@@ -106,9 +106,21 @@
 
 - **音乐**
 
+- 1.音乐
+  - 播放：可正常播放
+  - 显示：可正常显示
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/music.png)
+
+- 2.网易云音乐
+  - 播放：可正常播放
+  - 显示：可正常显示
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/cloudmusic.png)
 
 - **视频**
 
+- 1.vlc
+  - 播放：可正常播放
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/vlc.png)
 
 - **图片**
 
