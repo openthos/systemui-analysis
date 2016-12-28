@@ -90,7 +90,6 @@
     ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Share.png)
     
     - 文件夹不能发送
-
     ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Sendfile.png)
   
   - 排序    (任意处单击鼠标右键，选择“排序“，在弹出的对话框中选择排序的方式)
