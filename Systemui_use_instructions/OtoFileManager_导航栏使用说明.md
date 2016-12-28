@@ -67,9 +67,9 @@
   - 复制    (选择文件或者文件夹，使用快捷键CTRL+C)
   - 粘贴    (进入要粘贴的目录,使用快捷键CTRL+V)
   - 剪切    (选择文件或者文件夹，使用快捷键CTRL+X)
-  - 多选    (按住Ctrl键，选择多个文件)
+  - 多选    (按住Ctrl键，选择多个文件或者Ctrl+A进行全选)
     - 可用快捷键进行复制、剪切
-    - 存在的bug：选中多个文件，通过右键复制、剪切时，仅有右键选中的文件有效
+    - 单击右键可以进行复制、剪切
 
 ## 文件菜单   (单击鼠标右键，打开文件菜单)
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/filemanager1.png)
