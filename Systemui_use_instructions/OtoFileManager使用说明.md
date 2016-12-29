@@ -1,11 +1,5 @@
 # openthos 文件管理器
 
-## Note:
-  - 文件管理器导航栏包括菜单栏和左侧导航栏。
-  - 了解更多请查看下方
-  
-## 文件管理器效果图
-
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/filemanager.png)
 
 ## 常见任务
