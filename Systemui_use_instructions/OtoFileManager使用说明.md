@@ -23,11 +23,11 @@
 预览文件和文件夹
 
 ## 更多主题
-使用其他应用程序打开文件
+[使用其他应用程序打开文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.md)
 
 共享和传输文件
 
-寻找丢失的文件
+[寻找丢失的文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AF%BB%E6%89%BE%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%96%87%E4%BB%B6.md)
 
 将文件写入 CD 或 DVD
 
