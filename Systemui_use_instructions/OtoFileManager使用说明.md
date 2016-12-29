@@ -65,11 +65,7 @@
     
     - 文件夹不能发送
     ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Sendfile.png)
-  
-  - 排序    (任意处单击鼠标右键，选择“排序“，在弹出的对话框中选择排序的方式)
-  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Sort.png)
-  - 复制路径    (选择文件或者文件夹，单机鼠标右键，选择"复制路径"，可复制路径，在相应的地方使用CTRL+V可粘贴复制的路径)
-  - 新建文件夹    (任意处单击鼠标右键，选择"新建文件夹"，在弹出的对话框中输入新建文件夹的名称，点击确认(取消)来创建文件夹(取消创建))
+ 
   - 创建文件    (任意处单击鼠标右键，选择"创建文件"，在弹出的对话框中输入新建文件的名称，点击确认(取消)来创建文件(取消创建))
     - 可选择创建文件的类型(.doc\.xls\.ppt\.txt)
     ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/creatfile.png)
