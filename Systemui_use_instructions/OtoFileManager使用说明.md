@@ -8,11 +8,11 @@
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/filemanager.png)
 
 ## 常见任务
-浏览文件和文件夹
+[浏览文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%B5%8F%E8%A7%88%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-删除文件和文件夹
+[删除文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-复制或移动文件和文件夹
+[复制或移动文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%A4%8D%E5%88%B6%E6%88%96%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
 对文件和文件夹进行排序
 
