@@ -7,73 +7,37 @@
 ## 文件管理器效果图
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/filemanager.png)
 
+# openthos 文件管理器
 ## 常见任务
-[浏览文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%B5%8F%E8%A7%88%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-[删除文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
+- [浏览文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%B5%8F%E8%A7%88%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-[复制或移动文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%A4%8D%E5%88%B6%E6%88%96%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
+- [删除文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-[对文件和文件夹进行排序](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AF%B9%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F.md)
+- [复制或移动文件和文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%A4%8D%E5%88%B6%E6%88%96%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9.md)
+     
+- [对文件和文件夹进行排序](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AF%B9%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F.md)
 
-[搜索文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6.md)
-
-[重命名文件或文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9.md)
-
-预览文件和文件夹
+- [搜索文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6.md)
+  
+- [重命名文件或文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
 ## 更多主题
-[使用其他应用程序打开文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.md)
 
-共享和传输文件
+- [使用其他应用程序打开文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.md)
 
-[寻找丢失的文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AF%BB%E6%89%BE%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%96%87%E4%BB%B6.md)
+- [寻找丢失的文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AF%BB%E6%89%BE%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%96%87%E4%BB%B6.md)
 
-将文件写入 CD 或 DVD
-
-文件属性
-
-浏览服务器或网络共享中的文件
-
-还原您删除的文件
-
-文件管理器首选项
+- [文件属性](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7.md)
 
 ## 可移动驱动器和外部磁盘
 
-安全删除外部设备
-
-弹出或卸载 USB 闪存驱动器、CD、DVD 或其他设备。
-
- 
---------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------
-  - 打开    (选择文件或者文件夹，单击鼠标右键，选择“打开“，可打开文件或者文件夹)
-  - 打开方式    (选择文件，单击鼠标右键，选择“打开方式“，可选择文件的打开方式)
-  - 压缩    (选择文件或者文件夹，单击鼠标右键，选择“压缩“，在弹出的对话框中选择压缩格式，点击确定(取消)来压缩(取消压缩)文件或者文件夹)
-    - 压缩格式支持zip\tar
-    ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/ziptar.png)
-  - 解压缩    (选择压缩文件，单击鼠标右键，选择“解压缩“，可解压缩该文件至当前目录)
-  - 复制    (选择文件或者文件夹，单击鼠标右键，选择"复制")
-  - 粘贴    (进入要粘贴的目录，单击鼠标右键，选择"粘贴")
-  - 重命名    (选择文件或者文件夹，单击鼠标右键，选择"重命名"，在弹出的对话框中输入新的文件(夹)的名称，点击确认(取消)来执行重命名(取消)的操作)
-  - 删除    (选择文件或者文件夹，单击鼠标右键，选择"删除"，在弹出的对话框中选择确认(取消)来执行删除(取消)操作)
-  - 剪切    (选择文件或者文件夹，单击鼠标右键，选择"剪切")
-  - 发送    (选择文件，单击鼠标右键，选择“发送“，在弹出的对话框中选择分享方式)
-    - 可选择某个方式分享仅此一次或者始终
-    ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Share.png)
-    
-    - 文件夹不能发送
-    ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/Sendfile.png)
- 
-  - 创建文件    (任意处单击鼠标右键，选择"创建文件"，在弹出的对话框中输入新建文件的名称，点击确认(取消)来创建文件(取消创建))
-    - 可选择创建文件的类型(.doc\.xls\.ppt\.txt)
-    ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/creatfile.png)
-  - 显示隐藏文件    (暂不支持)
-    
+- [安全删除外部设备](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AE%89%E5%85%A8%E5%88%A0%E9%99%A4%E5%A4%96%E9%83%A8%E8%AE%BE%E5%A4%87.md)
 
 ## FileManager input
 
+
+-----------------------------------------------------------------------------------------------------------------
 - **音乐**
 
 - 1.音乐
