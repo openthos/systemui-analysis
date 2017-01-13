@@ -28,6 +28,10 @@
 
 - [安全删除外部设备](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E5%AE%89%E5%85%A8%E5%88%A0%E9%99%A4%E5%A4%96%E9%83%A8%E8%AE%BE%E5%A4%87.md)
 
+## 云服务
+
+- [点此查看云服务](https://github.com/openthos/desktop-analysis/blob/master/instructions/seafile.md)
+
 ## FileManager 功能点
 
 - [点此查看功能点](https://github.com/openthos/desktop-analysis/blob/master/instructions/filemanager_gongnengdian.md)
