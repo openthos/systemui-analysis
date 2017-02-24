@@ -16,6 +16,8 @@
   
 - [重命名文件或文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
+- [框选文件]（https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%A1%86%E9%80%89%E6%96%87%E4%BB%B6.md）
+
 ## 更多主题
 
 - [使用其他应用程序打开文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.md)
