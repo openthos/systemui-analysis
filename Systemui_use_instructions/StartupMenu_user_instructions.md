@@ -1,8 +1,8 @@
 # 开始菜单说明书
 
 ## Note:
-  - 开始菜单属于Openthos模块之一。它的加入使阁下对系统App进行，检索、办公等操作变得更加方便快捷；  
-  - 了解更多请查看下方（开始菜单功能详情介绍）；
+  - 开始菜单属于Openthos模块之一。它的加入使阁下对系统App进行，检索、办公等操作变得更加方便快捷；  
+  - 了解更多请查看下方（开始菜单功能详情介绍）；
   
 ## 开始菜单效果图
   - ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/startMenu.png)
