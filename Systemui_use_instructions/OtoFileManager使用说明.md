@@ -16,7 +16,7 @@
   
 - [重命名文件或文件夹](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9.md)
 
-- [框选文件]（https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%A1%86%E9%80%89%E6%96%87%E4%BB%B6.md）
+- [框选文件](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E6%A1%86%E9%80%89%E6%96%87%E4%BB%B6.md)
 
 ## 更多主题
 
