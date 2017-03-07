@@ -1,4 +1,4 @@
-# openthos 文件管理器
+# OpenThos 文件管理器
 
 ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/filemanager.png)
 
