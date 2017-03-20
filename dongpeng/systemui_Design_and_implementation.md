@@ -270,3 +270,7 @@
 ##  如何实现鼠标划过获取对应apk信息
 
 ##  项目res资源文件调研
+
+## 任务栏显示和隐藏的控制逻辑
+请查看：[StatusBar_Show_Hide.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/StatusBar_Show_Hide.md)
+
