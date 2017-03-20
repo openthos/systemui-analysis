@@ -76,7 +76,7 @@
 |状态栏的自动显示与隐藏屏幕遮盖|功能|https://dev.openthos.org/zentao/zentao/bug-view-752.html|
 |开始菜单的延迟需要优化|功能|功能优先级未开始|
 |开始菜单app分类|功能|功能优先级未开始|
-|状态栏的状态保存|功能|优先级较高|
+|状态栏的状态保存|功能|优先级较高已开始|
 
 ## 16-08月存在问题
 
@@ -90,7 +90,14 @@
 |扩展Systemui 输入法|功能|功能优先级未开始|
 |扩展Systemui 电量|功能|功能优先级未开始|
 
-#8月需求
+## 17-03月需求
+- 1.任务栏保存显示或隐藏的状态。
+- 2.任务栏电源图标的修改。
+- 3.通知栏的布局优化。
+- 4.任务栏以太网的图标变换bug的解决。
+- 5.开始菜单右键Dialog的优化。
+
+## 16-08月需求
 - 1.开始菜单字体支持中文英文
 - 2.开始菜单页面图片修改
 - 3.开始菜单布局修改
@@ -101,7 +108,7 @@
 - 8.开始菜单左边鼠标右键可取消功能
 - 9.状态栏 电量 输入法 功能实现
 
-#8月份任务计划
+## 16-08月份任务计划
 | 时间节点 | 任务 
 |---|---|
 |2016/08/01-2016-/08/07 |1 .开始菜单字体支持中文英文 <br />2.实现鼠标右键功能|
@@ -109,19 +116,19 @@
 |2016/08/15-2016-/08/21 | 1 开始菜单右边鼠标右键可卸载可运行功能<br /> 2 开始菜单左边鼠标右键可取消功能| 
 |2016/08/22-2016-/08/26 |一. 图片替换 <br />1.电源,设置,文件管理器 图标大<br /> 2.菜单选项上三角不明显,需重新提供<br />3.鼠标滑过及点击效果,图片一天切换.<br />4.底部任务栏鼠标事件未替换成效果图<br />5.Startmenu-电源 背景黑色太浅 ;home加一个白线 ;<br />6.输入法 ，电量 ，wifi， 声音，时间<br />7.多窗口三个图标： 关闭 最大化 隐藏<br />二. 布局修改 <br />  1 .左侧(常用软件)与右侧(app列表)比例不对,需修改<br /> 2 wifi 和声音 布局 调整 修改背影<br /> 3.-周一确认返回按钮,及位置<br /> 4.startmenu点击效果位置偏移<br />三. 现有功能扩展 <br /> 1.以手机模式运行<br />2.以桌面模式运行<br />  3.从此列表中移除<br />4.分类排序，升序降序<br />5.电源<br /> 6.输入法<br />|
 
-#9月份任务计划
+## 16-09月份任务计划
 | 时间节点 | 任务 
 |---|---|
 |2016/09/18-2016-/09/23 |修复禅道bug（共22个）平均每人4-5个 分配如下： <br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_ln.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/wlf/fix_bug_wlf.md)|
 |2016/09/26-2016-/09/30 |Systemui组 上周解决bug 9个，新增3个，重复bug2个(已关闭)， 目前剩余bug14个 以下为本周任务分配和bug分类综述：<br />本周平均每人3-4个bug 分配如下：<br />1.董鹏 [fix_bug_dp.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/fix_bug_dp.md)<br /> 2.卢宁[fix_bug_ln.md](https://github.com/openthos/systemui-analysis/blob/master/LuNing/fix_bug_ln.md)<br />3.曹永韧 [fix_bug_cyr.md](https://github.com/openthos/systemui-analysis/blob/master/CYR/fix_bug_cyr.md)<br />4. 王利峰[fix_bug_wlf.md](https://github.com/openthos/systemui-analysis/blob/master/wlf/fix_bug_wlf.md)<br />Systemui bug 分类综述[bug_classify.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/bug_classify.md)<br />
 
-#10月份任务计划
+## 16-10月份任务计划
 | 时间节点 | 任务 
 |---|---|
 |2016/10/8-2016-/10/21 |本月主要任务为：优化现有功能，实现8月遗留的function,任务分配如下： <br />1.独立Startmenu （董鹏） <br /> 2.电量 （卢宁）<br />3.通知栏 布局优化/逻辑调整   （曹永韧， 董鹏协助）<br />4. 输入法    （王利峰， 董鹏协助）|
 |2016/10/24-2016-/10/28 | <br />1.Startupmenu 最新dpi适配工作 （董鹏） <br /> 2.Systemui 最新dpi适配工作 （卢宁）<br />3.通知栏 最新dpi适配工作  （曹永韧）<br />4. 熟悉openthos项目，掌握基本的vim git 指令  解决1-2 bug（刘晓旭， 董鹏协助）|
 
-#11月份任务计划
+## 16-11月份任务计划
 | 时间节点 | 任务 
 |---|---|
 |2016/11/1-2016-/11/30 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />1.董鹏    [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br /> 2.曹永韧  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md)  <br />3.刘晓旭  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br />|
