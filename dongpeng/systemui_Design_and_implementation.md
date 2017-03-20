@@ -5,8 +5,6 @@
 - 项目简介
 - 功能需求
 - 存在问题
-- 3月需求
-- 3月计划
 - 项目进展
 - 设计实现
 
@@ -240,17 +238,17 @@
 
 分别叙述整体的模块和技术要点。
 
-##　systemui整体模块叙述
+## systemui整体模块叙述
 - 请查看：[systemui_module_narrative.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)
 
-##　以status bar为入口，查看各个模块所在位置。
+## 以status bar为入口，查看各个模块所在位置。
 - 请查看： [trace function.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/trace%20function.md)
  
-##　如何进行跨项目间的数据传输
+## 如何进行跨项目间的数据传输
  - 项目中之间数据传输是通过有序广播来实现接受和处理的 </br >请查看 ：
  [systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)
 
-##　如何弹系统级的dialog
+## 如何弹系统级的dialog
 - systemui apk 整个宽度为不大于100单位值，如果在这里弹出一个dialog是无法看到的，</br >因为其父布局的高度只有不到100单位值，
 如何弹出一个同父布局一个等级的dialog：</br >请查看：
 [system_dialog.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_dialog.md)
@@ -262,8 +260,6 @@
 
 ##  如何隐士启动一个activity
 - 请查看： [system_intent.md]()
-    
-##  如何通过标记flg值启动acticity
 
 ##  如何实现鼠标右键的功能
 请查看：[mouse_right_click.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/mouse_right_click.md)
