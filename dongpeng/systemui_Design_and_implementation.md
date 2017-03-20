@@ -134,6 +134,12 @@
 |2016/11/1-2016-/11/30 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />1.董鹏    [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br /> 2.曹永韧  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md)  <br />3.刘晓旭  [work_plan.md](https://github.com/openthos/systemui-analysis/blob/master/dongpeng/work_plan.md) <br />|
 
 
+## 17-03月份任务计划
+| 时间节点 | 任务 
+|---|---|
+|2017/03/1-2017/3/31 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />曹永韧    [work_plan.md](https://github.com/openthos/community-analysis/blob/master/weekly%20report/Weekly_report_about_SystemUI.md) <br /> |
+
+
 # 项目进展
 
 - 2016/03/21-2016/04/15
@@ -222,8 +228,14 @@
 - 2016/08/27-2016-/08/30
   * 董鹏 
   * bug  修复
-    
-
+  
+- 17/03/01 - 17/03/16
+  - 曹永韧
+  - 锁屏bug 已修复。
+  - 休眠因存在问题暂时禁用。
+  - 日历的bug 已修复.
+  - 以太网的图标变换问题解决。
+   
 # 设计与实现
 
 分别叙述整体的模块和技术要点。
