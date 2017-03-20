@@ -268,7 +268,7 @@
 ##  如何实现鼠标右键的功能
 
 ##  如何实现鼠标划过获取对应apk信息
-
+请查看：[get_apk_info.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/get_apk_info.md)
 ##  项目res资源文件调研
 
 ## 任务栏显示和隐藏的控制逻辑
