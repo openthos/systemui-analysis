@@ -266,7 +266,7 @@
 ##  如何通过标记flg值启动acticity
 
 ##  如何实现鼠标右键的功能
-
+请查看：[mouse_right_click.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/mouse_right_click.md)
 ##  如何实现鼠标划过获取对应apk信息
 请查看：[get_apk_info.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/get_apk_info.md)
 ##  项目res资源文件调研
