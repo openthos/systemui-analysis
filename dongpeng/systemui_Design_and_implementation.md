@@ -10,7 +10,7 @@
 - 项目进展
 - 设计实现
 
-# 项目简介
+## 项目简介
 
 本项目属于openthos项目的一部分，提供 [Openthos](https://github.com/openthos/openthos/wiki) 对原SystemUI状态栏系统信息显示位置重定制，以及对现有的功能扩展，并且追加新的功能开始菜单，和常用软件。
 
@@ -47,7 +47,7 @@
 |√| 开始菜单左边常用软件鼠标右键|功能|100%|
 |√| 开始菜单右边app鼠标右键可运行可卸载|功能|100%|
 |√| 开始菜单电源：关机 重启 锁平 |功能|100%|
-|×| 开始菜单电源：锁屏|功能|0%|
+|×| 开始菜单电源：休眠|功能|0%|
 |√| 开始菜单电源 键盘控制|功能|100%|
 |√| 开始菜单我的电脑 设置|功能|100%|
 |√| 状态栏常用软件|功能|100%|
@@ -74,6 +74,8 @@
 |状态栏上的图标不能移动|bug|https://dev.openthos.org/zentao/zentao/bug-view-660.html|
 |状态栏日历有时显示不全|bug|https://dev.openthos.org/zentao/zentao/bug-view-1171.html|
 |状态栏的自动显示与隐藏屏幕遮盖|功能|https://dev.openthos.org/zentao/zentao/bug-view-752.html|
+|锁屏界面不会自动显示，启动后进入一个无法操作的桌面|功能|https://dev.openthos.org/zentao/zentao/bug-view-1209.html|
+|通知栏在有通知的情况下，清楚所有的按钮置灰不可用|功能|https://dev.openthos.org/zentao/zentao/bug-view-1183.html|
 |开始菜单的延迟需要优化|功能|功能优先级未开始|
 |开始菜单app分类|功能|功能优先级未开始|
 |状态栏的状态保存|功能|优先级较高已开始|
