@@ -142,7 +142,7 @@
 |2017/03/1-2017/3/31 |本月主要任务为：强化现有功能,解决最新openthos使用发现影响性能优先级高的bug <br />任务分配如下： <br />曹永韧    [work_plan.md](https://github.com/openthos/community-analysis/blob/master/weekly%20report/Weekly_report_about_SystemUI.md) <br /> |
 
 
-# 项目进展
+## 项目进展
 
 - 2016/03/21-2016/04/15
   * 董鹏
@@ -238,21 +238,21 @@
   - 日历的bug 已修复.
   - 以太网的图标变换问题解决。
    
-# 设计与实现
+## 设计与实现
 
 分别叙述整体的模块和技术要点。
 
-## systemui整体模块叙述
+### systemui整体模块叙述
 - 请查看：[systemui_module_narrative.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_module_narrative.md)
 
-## 以status bar为入口，查看各个模块所在位置。
+### 以status bar为入口，查看各个模块所在位置。
 - 请查看： [trace function.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/trace%20function.md)
  
-## 如何进行跨项目间的数据传输
+### 跨项目间的数据传输
  - 项目中之间数据传输是通过有序广播来实现接受和处理的 </br >请查看 ：
  [systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)
 
-## 如何弹系统级的dialog
+### 弹系统级的dialog
 - systemui apk 整个宽度为不大于100单位值，如果在这里弹出一个dialog是无法看到的，</br >因为其父布局的高度只有不到100单位值，
 如何弹出一个同父布局一个等级的dialog：</br >请查看：
 [system_dialog.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_dialog.md)
@@ -262,15 +262,17 @@
 	      今天给大家说一下android中   通过监听keycode值进行事件的处理：</br >请查看：
 [system_keycode.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_keycode.md)
 
-##  如何隐士启动一个activity
+##  隐士启动一个activity
 - 请查看： [system_intent.md]()
 
-##  如何实现鼠标右键的功能
+##  实现鼠标右键的功能
 请查看：[mouse_right_click.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/mouse_right_click.md)
-##  如何实现鼠标划过获取对应apk信息
+##  实现鼠标划过获取对应apk信息
 请查看：[get_apk_info.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/get_apk_info.md)
 ##  项目res资源文件调研
 
 ## 任务栏显示和隐藏的控制逻辑
 请查看：[StatusBar_Show_Hide.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/StatusBar_Show_Hide.md)
 
+## 通知栏的逻辑分析
+请查看：[NotificationLogic.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/NotificationLogic.md)
