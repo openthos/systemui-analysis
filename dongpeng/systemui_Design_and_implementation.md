@@ -257,22 +257,22 @@
 如何弹出一个同父布局一个等级的dialog：</br >请查看：
 [system_dialog.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_dialog.md)
 
-##  如何通过监听keycode值进行事件的处理
+###  通过监听keycode值进行事件的处理
 - 一个view 想要处理点击事件  一种是写一个onClick函数 ，一种是实现onClick监听事件
 	      今天给大家说一下android中   通过监听keycode值进行事件的处理：</br >请查看：
 [system_keycode.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/system_keycode.md)
 
-##  隐士启动一个activity
+###  隐士启动一个activity
 - 请查看： [system_intent.md]()
 
-##  实现鼠标右键的功能
+###  实现鼠标右键的功能
 请查看：[mouse_right_click.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/mouse_right_click.md)
-##  实现鼠标划过获取对应apk信息
+###  实现鼠标划过获取对应apk信息
 请查看：[get_apk_info.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/get_apk_info.md)
-##  项目res资源文件调研
+###  项目res资源文件调研
 
-## 任务栏显示和隐藏的控制逻辑
+### 任务栏显示和隐藏的控制逻辑
 请查看：[StatusBar_Show_Hide.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/StatusBar_Show_Hide.md)
 
-## 通知栏的逻辑分析
+### 通知栏的逻辑分析
 请查看：[NotificationLogic.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/NotificationLogic.md)
