@@ -4,7 +4,7 @@
 
   - WallpaperManager是如何实现调用WallpaperManagerService的函数
     - WallpaperManagerService extends IwallpaperManager.Stub
-    - WallpaperManager中内部类Globals中通过
+    - WallpaperManager中内部类Globals中通过mService =  IWallpaperManager.Stub.asInterface(b),获得 WallpaperManagerService实例，这样WallpaperManager就可以拿到WallpaperManagerService的引用mService。
     
       static class Globals extends IwallpaperManagerCallback.Stub{
 		     
@@ -16,4 +16,4 @@
           }
       }
       
-       mService =  IWallpaperManager.Stub.asInterface(b),获得 WallpaperManagerService实例，这样WallpaperManager就可以拿到WallpaperManagerService的引用mService。
+       
