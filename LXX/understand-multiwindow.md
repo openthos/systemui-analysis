@@ -1,4 +1,3 @@
-# 2017-03-28 总结
 
 ## 学习android5.1源码aidl相关知识（以IwallpaperManager.Stub为例）
 
