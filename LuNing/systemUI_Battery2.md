@@ -1,17 +1,17 @@
 #状态栏自定义电量功能实现总结
 ##1.剩余电量
-- 在BroadcastReceiver的onReceive()事件，接收到的Intent.ACTION_BATTERY_CHANGED，包括下面的信息：<br \>
-“status”（int类型）…状态，定义值是BatteryManager.BATTERY_STATUS_XXX<br \>
-“health”（int类型）…健康，定义值是BatteryManager.BATTERY_HEALTH_XXX<br \>
-“present”（boolean类型<br \>
-“level”（int类型）…电池剩余容量<br \>
-“scale”（int类型）…电池最大值。通常为100<br \>
-“icon-small”（int类型）…图标ID<br \>
-“plugged”（int类型）…连接的电源插座，定义值是BatteryManager.BATTERY_PLUGGED_XXX<br \>
-“voltage”（int类型）…mV<br \>
-“temperature”（int类型）…温度，0.1度单位。例如 表示197的时候，意思为19.7度<br \>
-“technology”（String类型）…电池类型，例如，Li-ion等等<br \>
-计算剩余电量百分比代码:<br \>
+- 在BroadcastReceiver的onReceive()事件，接收到的Intent.ACTION_BATTERY_CHANGED，包括下面的信息：    
+“status”（int类型）…状态，定义值是BatteryManager.BATTERY_STATUS_XXX   
+“health”（int类型）…健康，定义值是BatteryManager.BATTERY_HEALTH_XXX    
+“present”（boolean类型   
+“level”（int类型）…电池剩余容量  
+“scale”（int类型）…电池最大值。通常为100   
+“icon-small”（int类型）…图标ID    
+“plugged”（int类型）…连接的电源插座，定义值是BatteryManager.BATTERY_PLUGGED_XXX    
+“voltage”（int类型）…mV    
+“temperature”（int类型）…温度，0.1度单位。例如 表示197的时候，意思为19.7度    
+“technology”（String类型）…电池类型，例如，Li-ion等等    
+计算剩余电量百分比代码:
 ``` 
     int level = (int)(100f * intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0) / 
                  intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100));
