@@ -10,7 +10,7 @@
 
 
 ***
-- 2017年6月13日
+- 2017年6月14日
 
 StartupMenu移植到SystemUI后,出现莫名的bug:
   - StartupMenu的GrideView添加了背景.
