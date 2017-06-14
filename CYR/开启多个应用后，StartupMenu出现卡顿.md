@@ -7,3 +7,10 @@
 ## 执行计划：
   - 将StartupMenu放入SystemUI, 共用SystemUI的进程。
   - StartupMenu的进一步优化，罗俊欢来解决。
+
+
+***
+- 2017年6月13日
+StartupMenu移植到SystemUI后,出现莫名的bug:
+  - StartupMenu的GrideView添加了背景.
+  - 打开StartupMenu后再次点击StartupMenu造成Systemui进程死掉(之前没有移植前就存在, 杀死StartupMenu的进程)
