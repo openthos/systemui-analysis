@@ -11,6 +11,7 @@
 
 ***
 - 2017年6月13日
+
 StartupMenu移植到SystemUI后,出现莫名的bug:
   - StartupMenu的GrideView添加了背景.
   - 打开StartupMenu后再次点击StartupMenu造成Systemui进程死掉(之前没有移植前就存在, 杀死StartupMenu的进程)
