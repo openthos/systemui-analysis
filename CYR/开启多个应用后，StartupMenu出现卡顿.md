@@ -15,3 +15,11 @@
 StartupMenu移植到SystemUI后,出现莫名的bug:
   - StartupMenu的GrideView添加了背景.
   - 打开StartupMenu后再次点击StartupMenu造成Systemui进程死掉(之前没有移植前就存在, 杀死StartupMenu的进程)
+  
+  ***
+  
+  - 2017年6月15日
+    - 由于StartupMenu移植到Systemui后出现很多问题, (14日只是问题的一部分) 从根本上解决这些问题需要时间, 故停止该方案, 采取针对性方案;
+      - 1. 采用王之旭的一个进程保护方案, 就是当StartupMenu的进程死了, 通过服务将进程再次启动.
+      - 2. 禁止进程被杀死: 在ActivityManagerService   closeActivity(..)中进行判断 if (stack.isStartupMenuStack()) return ture;
+        就是不执行: mWindowManager.removeStack(stackId);
