@@ -10,6 +10,8 @@
   - I/Matthew -- > DEBUG:( 2390): KeyguardServiceDelegate -- > onScreenTurnedOff(int why)
   - I/Matthew -- > DEBUG( 2390): KeyguardServiceWrapper --> onScreenTurnedOff(int reason)
   - I/Matthew -- > DEBUG( 2516): KeyguardService --> onScreenTurnedOff
+  - I/Matthew -- > DEBUG( 2714): StatusBarKeyguardViewManager  -- > onScreenTurnedOff()
+  - I/Matthew  -- > DEBUG( 2714): PhoneStatusBar -- > onScreeenTurnedOff()
   - I/Matthew --> DEBUG( 2516): StatusBarKeyguardViewManager -- > showBounceOrKeyguard()
   - I/Matthew -- > DEBUG( 2516): PhoneStatusBar --- > showKeyguard()
   
@@ -21,6 +23,8 @@
   - I/Matthew -- > DEBUG( 2390): KeyguardServiceWrapper --> onScreenTurnedOff(int reason)
   - I/Matthew -- > DEBUG( 2500): KeyguardService --> onScreenTurnedOff
   - I/Matthew -- > DEBUG( 2500): KeyguardViewMediator -- > showLocked(Bundle options)
+  - I/Matthew -- > DEBUG( 2714): StatusBarKeyguardViewManager  -- > onScreenTurnedOff()
+  - I/Matthew  -- > DEBUG( 2714): PhoneStatusBar -- > onScreeenTurnedOff()
   - I/Matthew --> DEBUG( 2500): StatusBarKeyguardViewManager -- > showBounceOrKeyguard()
   - I/Matthew -- > DEBUG( 2500): PhoneStatusBar --- > showKeyguard()
 
