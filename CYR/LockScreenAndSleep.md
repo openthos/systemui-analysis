@@ -4,7 +4,8 @@
   - I/Matthew -- > DEBUG( 2516): KeyguardViewMediator -- > showLocked(Bundle options)
   - I/Matthew --> DEBUG( 2516): StatusBarKeyguardViewManager -- > showBounceOrKeyguard()
   - I/Matthew -- > DEBUG( 2516): PhoneStatusBar --- > showKeyguard()
-
+  - I/Matthew -- >  DEBUG( 2680): PhoneStatusBar   showStatusBarViewPoerSleep()
+  
   - I/Matthew -- > DEBUG( 2516): PowerManager -- > goToSleep(long time)
   - I/Matthew -- > DEBUG:( 2390): KeyguardServiceDelegate -- > onScreenTurnedOff(int why)
   - I/Matthew -- > DEBUG( 2390): KeyguardServiceWrapper --> onScreenTurnedOff(int reason)
@@ -14,6 +15,7 @@
   
   ***
 ### 休眠的代码流程
+  - I/Matthew -- >  DEBUG( 2680): PhoneStatusBar   showStatusBarViewPoerSleep()
   - I/Matthew -- > DEBUG( 2500): PowerManager -- > goToSleep(long time)
   - I/Matthew -- > DEBUG:( 2390): KeyguardServiceDelegate -- > onScreenTurnedOff(int why)
   - I/Matthew -- > DEBUG( 2390): KeyguardServiceWrapper --> onScreenTurnedOff(int reason)
@@ -21,3 +23,9 @@
   - I/Matthew -- > DEBUG( 2500): KeyguardViewMediator -- > showLocked(Bundle options)
   - I/Matthew --> DEBUG( 2500): StatusBarKeyguardViewManager -- > showBounceOrKeyguard()
   - I/Matthew -- > DEBUG( 2500): PhoneStatusBar --- > showKeyguard()
+
+***
+#### 解决问题方案:
+  - 从代码流程可以看出, 都是从PowerManager的 goToSleep进入休眠, 故: showStatusBarViewPowerSleep()方法中代码需要控制;
+  - 1. 通过 广播进行 对 flag控制, 然后进行控制流程.
+  - 2. 改变流程(具体实施, 待测)
