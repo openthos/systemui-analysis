@@ -35,3 +35,4 @@
   - 2. 改变流程(具体实施, 待测) 
   - 3. 休眠的主要方法在: PowerManagerService.java 中的: reallyGoToSleepNoUpdateLocked(SystemClock.uptimeMillis(), Process.SYSTEM_UID);
   - 4. 由于锁屏后的休眠和自动休眠是走的一个逻辑:PowerManager.GO_TO_SLEEP_REASON_TIMEOUT 故修改了锁屏后的休眠, 自动休眠也存在影响;
+  - 5. 目前已经区别了休眠和锁屏的区别, 要实现锁屏不进入休眠, 还 不形象自动休眠, 需要更多时间调研, 目前暂停在这里.
