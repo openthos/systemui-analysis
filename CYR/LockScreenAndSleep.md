@@ -33,3 +33,5 @@
   - 从代码流程可以看出, 都是从PowerManager的 goToSleep进入休眠, 故: showStatusBarViewPowerSleep()方法中代码需要控制;
   - 1. 通过 广播进行 对 flag控制, 然后进行控制流程. goToSleep  只能控制这里, 之后的onScreenTurnOff 还需要方法, (现象: 锁屏后, 停顿一会后休眠)
   - 2. 改变流程(具体实施, 待测) 
+  - 3. 休眠的主要方法在: PowerManagerService.java 中的: reallyGoToSleepNoUpdateLocked(SystemClock.uptimeMillis(), Process.SYSTEM_UID);
+  - 4. 由于锁屏后的休眠和自动休眠是走的一个逻辑:PowerManager.GO_TO_SLEEP_REASON_TIMEOUT 故修改了锁屏后的休眠, 自动休眠也存在影响;
