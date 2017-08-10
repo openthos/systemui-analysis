@@ -47,10 +47,11 @@ make -j<cups>
   - cd tools
   - 推荐参数：Ｎexus10, Android5.1.1 , Intel Atom(x86_64). noSkin
   - 启动：./emulator -avd openthos -system ../../../android_iso_img/system.img    (后面是：system.img的路径)
+  - (如果启动的镜像修改处没有改变，则选择添加　-data ../../../android_iso_img/userdata.img)
   
   ***
  ### 10.查看ｌｏｇ
-   - platform-tools: ./adb shell
+   - platform-tools: 
    - adb logcat >> DEBUG.log
    
   ##### end
