@@ -55,3 +55,22 @@
             mStatusBar.start();
       }```
 
+### NavigationBar导航栏
+  - PhoneStatusBar类 start()方法里面调用 addNavigationBar();
+   -- > prepareNavigationBarView();  最后
+      -- > WindowManager 调用 addView将 NavigationBarView添加到UI界面;
+      - -> Back  Home  Recent.
+
+  - PhoneStatusBar类中 prepareNavigationBarView()
+***
+
+### Android 8.0SystemUI视觉变化(arm版)
+  - 1. 通知栏消息长按可以自定义去设置．
+  - 2. 通知消息可以分组管理.
+  - 3. 通知栏的功能项减少：　移动数据 勿扰　转屏　省电　飞行 
+  - 4. 快速设置settings
+  
+### Android8.0的逻辑变化
+  - 目前只是看到：　PhoneStatusBar.java 和　BaseStatusBar.java去除．
+  - 增加StatusBar.java 和　CollapsedStatusBarFragment.java
+  
