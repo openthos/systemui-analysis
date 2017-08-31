@@ -15,3 +15,26 @@
     - 内部接口 Callbacks　(call back on the main thread)
     - IStatusBar.Stub接口的方法通过CommandQueue的Callbacks接口实现．
     - 所以BaseStatusBar又是IStatusBar.Stub远程的实现类．
+    
+  - 4. 实现抽象类BaseStatusBar.java的两个子类．
+    - 1. PhoneStatusBar.java
+      - android 8.０中替换类是　StatusBar.java
+    - 2. TableStatusBar.java(已去除)
+    
+  - 5. 实现SystemUI的类
+    - 1. KeyguardViewMediator.java
+    - 2. RingtongPlayer.java
+    - 3. VolumeUI.java
+    - 4. SystemBars.java
+    - 5. PowerUI.java
+    - 6. StorageNotification.java
+    
+***
+### SystemUI启动
+  - SystemUIService是在SystemServer.java中被启动.
+    mActivityManagerService.systemReady(new Runnable() { ~}
+      startSystemUI(context);
+  - SystemUIService的onCreate()调用SystemUIApplication的方法启动
+    SystemUI相关组件, startServicesIfNeeded() , 启动各种Service,
+    但是它们不是真正的Service, 是继承SystemUI.java这个抽象类, 复写
+    start()方法.
