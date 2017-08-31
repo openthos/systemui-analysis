@@ -38,3 +38,20 @@
     SystemUI相关组件, startServicesIfNeeded() , 启动各种Service,
     但是它们不是真正的Service, 是继承SystemUI.java这个抽象类, 复写
     start()方法.
+
+### UI组件启动
+  - 通过Handler发 mHandler.sendEmptyMessage消息, 分别调用
+    了 StartService() 和 continueStartService()两个方法.
+    然后, 通过回调 -- >  SystemBars的对象中;
+    -- > 调到PhoneStatusBar的start()方法. 同时PhoneStatusBar在
+    start()方法里面调用父类BaseStatusBar的start(); 
+    NavigationBar 和 QuickSettiingPanel初始化后, 添加到UI中;
+
+    ```SystemBars中关键代码:
+      createStatusBarFromConfig() {
+            ...
+            mStatusBar = (BaseStatusBar) cls newInstance();
+            ...
+            mStatusBar.start();
+      }```
+
