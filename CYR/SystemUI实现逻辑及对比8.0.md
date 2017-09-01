@@ -64,6 +64,23 @@
   - PhoneStatusBar类中 prepareNavigationBarView()
 ***
 
+### App与SystemUI交互(通知消息)
+  -App通过android.app.NotificationManager的Notify方法 调用NotificationManagerService的
+   SystemService的enqueNotificationWithTag()方法,再进入到enqueueNotificationInternal()方法
+  - 位置:
+    - frameworks/base/core/java/android/app/NotificaitonManager.java
+    - ...            /core/java/android/service/notification/NotificationListenerService.java
+    - ...           /core/java/com/android/server/notification/NotificationManagerService.java
+    - enqueueNotificationInternal()方法, -- > 限制只能提交 50个通知.
+    - if (notification.icon != 0) -- > 判断icon是否为空, 若不为空 则有效.
+    - 装完毕准备显示到状态栏, 之后就需要将相关的通知消息告诉所有监听者.
+    - notifyPostedLocked()中调用到notifyPosted()方法;
+    - ...  listener.onNotificationPosted(sbnHolder, rankUpdate);
+
+    - app清除(Cancel)通知
+      - 在NotificationManager之后, 经由NotificationManagerService处理和NotificationListenerService
+        的子类, 最后的处理方法变成了onNotificationRemoved.
+
 ### Android 8.0SystemUI视觉变化(arm版)
   - 1. 通知栏消息长按可以自定义去设置．
   - 2. 通知消息可以分组管理.
