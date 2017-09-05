@@ -1,4 +1,4 @@
-## 对比TaskBar 和　StartupMenu
+## 对比TaskBar 和 StartupMenu
   - 1. 实现的操作步骤.
   - 2. TaskBar的实现效果展示.
   - 3. TaskBar已经具备的功能．
