@@ -35,27 +35,25 @@
 ||||
 |Advanced features|||
 
-</ br>
+<br />
   - 2. TaskBar的实现效果展示
-  
-  </ br>
-  
+  <br />
   - 3. TaskBar已经具备的功能
     - 1.展示本机安装的应用
     - 2.固定常用应用到任务栏
     - 3.右键弹出菜单对单个应用的操作（固定到任务栏，卸载，查看应用信息等）
     
-  </ br>
-  
+  <br />
   - 4. TaskBar相对StartupMenu优缺点
     - 1.缺少一些应用排序方式（比如按安装时间，使用频率），但是TaskBar可以自定义过滤应用和置顶应用
     - 2.TaskBar弹出右键菜单的时候会TaskBar会隐藏，看起来很空旷
     - 3.TaskBar的右键菜单在鼠标移动的时候没有选中某一项的提示
     - 4.TaskBar比StartupMenu的展示风格更加多样化
-    
+  <br />  
   - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
+  <br />
   - 6.TaskBar源码移植到系统中的大概问题是否好解决．
     - TaskBar源码已经移植到android 7.1 系统上
-    
+  <br /> 
   - 7.评价 TaskBar效果
     - 1、整体界面用起来很舒畅
