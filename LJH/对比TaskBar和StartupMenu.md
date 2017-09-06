@@ -28,8 +28,11 @@
 ||Transparent start menu||
 ||Use masks for unthemed icons||
 ||Reset colors to default||
+||||
 |Recent apps|||
+||||
 |Freeform mode|||
+||||
 |Advanced features|||
     
   - 1. 实现的操作步骤.
