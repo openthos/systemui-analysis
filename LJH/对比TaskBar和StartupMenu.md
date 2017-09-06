@@ -47,5 +47,8 @@
     - 4.TaskBar比StartupMenu的展示风格更加多样化
     
   - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
-  - 6.TaskBar 源码移植到系统中的大概问题是否好解决．
+  - 6.TaskBar源码移植到系统中的大概问题是否好解决．
+    - TaskBar源码已经移植到android 7.1 系统上
+    
   - 7.评价 TaskBar效果
+    - 1、整体界面用起来很舒畅
