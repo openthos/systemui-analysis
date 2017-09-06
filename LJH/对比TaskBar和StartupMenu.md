@@ -53,6 +53,7 @@
     - 2.TaskBar弹出右键菜单的时候会TaskBar会隐藏，看起来很空旷
     - 3.TaskBar的右键菜单在鼠标移动的时候没有选中某一项的提示
     - 4.TaskBar比StartupMenu的展示风格更加多样化
+    - 5.TaskBar打开的应用不会在TaskBar上显示出来
   <br /> 
   
   - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
