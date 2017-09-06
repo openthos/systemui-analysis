@@ -5,11 +5,11 @@
     
 ||设置选项|功能|
 |---|---|---|
-|General settings|Start menu layout||
-||Position on screen||
-||Sear bar visibility||
-||configure apps in start menu||
-||Show scrollbar on start menu||
+|General settings|Start menu layout|设置start menu 展现的排列模式：list or grid|
+||Position on screen|设置start menu所在的位置以及方向（共8个方向）|
+||Sear bar visibility|是否显示搜索框以及设置输入键盘的类型（虚拟键盘和实际键盘）|
+||configure apps in start menu|设置应用展示的方式（过滤应用和置顶应用）|
+||Show scrollbar on start menu|设置Start menu右侧导航条的展示方式|
 ||Collapse TaskBar when selecting items||
 ||Automatically collapse TaskBar||
 ||Alternative position for collapse button||
@@ -17,7 +17,7 @@
 ||Launch on boot||
 ||System notification settings||
 ||||
-|Appearance|Theme||
+|Appearance|Theme|设置Start menu主题颜色（Dark Light）|
 ||Icon pack||
 ||Background tint||
 ||Accent color||
@@ -34,6 +34,23 @@
 |Freeform mode|||
 ||||
 |Advanced features|||
+
+  - 二. TaskBar的实现效果展示
+  - 三. TaskBar已经具备的功能
+    - 1.展示本机安装的应用
+    - 2.固定常用应用到任务栏
+    - 3.右键弹出菜单对单个应用的操作（固定到任务栏，卸载，查看应用信息等）
+  - 四. TaskBar相对StartupMenu优缺点
+    - 1.缺少一些应用排序方式（比如按安装时间，使用频率），但是TaskBar可以自定义过滤应用和置顶应用
+    - 2.TaskBar弹出右键菜单的时候会TaskBar会隐藏，看起来很空旷
+    - 3.TaskBar的右键菜单在鼠标移动的时候没有选中某一项的提示
+    - 4.TaskBar比StartupMenu的展示风格更加多样化
+    
+   
+    
+    
+    
+    
     
   - 1. 实现的操作步骤.
   - 2. TaskBar的实现效果展示.
