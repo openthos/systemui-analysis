@@ -35,28 +35,17 @@
 ||||
 |Advanced features|||
 
-  - 二. TaskBar的实现效果展示
-  - 三. TaskBar已经具备的功能
+  - 2. TaskBar的实现效果展示
+  - 3. TaskBar已经具备的功能
     - 1.展示本机安装的应用
     - 2.固定常用应用到任务栏
     - 3.右键弹出菜单对单个应用的操作（固定到任务栏，卸载，查看应用信息等）
-  - 四. TaskBar相对StartupMenu优缺点
+  - 4. TaskBar相对StartupMenu优缺点
     - 1.缺少一些应用排序方式（比如按安装时间，使用频率），但是TaskBar可以自定义过滤应用和置顶应用
     - 2.TaskBar弹出右键菜单的时候会TaskBar会隐藏，看起来很空旷
     - 3.TaskBar的右键菜单在鼠标移动的时候没有选中某一项的提示
     - 4.TaskBar比StartupMenu的展示风格更加多样化
     
-   
-    
-    
-    
-    
-    
-  - 1. 实现的操作步骤.
-  - 2. TaskBar的实现效果展示.
-  - 3. TaskBar已经具备的功能．
-  - 4. TaskBar相对StartupMenu缺失的功能．
-  - 5. TaskBar实现基本逻辑．
-  - 6. TaskBar增加相对StartupMenu缺失功能的实现及难易把握
-  - 7. TaskBar 源码移植到系统中的大概问题是否好解决．
-  - 8. 评价 TaskBar效果．
+  - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
+  - 6.TaskBar 源码移植到系统中的大概问题是否好解决．
+  - 7.评价 TaskBar效果
