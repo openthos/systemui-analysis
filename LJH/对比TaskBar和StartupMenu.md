@@ -1,5 +1,5 @@
 ## 对比TaskBar 和 StartupMenu
-  - 一. 使用的基本方法
+  - 1. 使用的基本方法
     - StartupMenu： 直接是集成在任务栏上，点击StartupMenu图标就可以弹出开始菜单，然后进行应用的选择打开，再次点击关闭。
     - TaskBar： TaskBar所具有的功能更多一点，你可以对其进行设置，界面更加美化。具体的设置内容  
     
@@ -36,6 +36,7 @@
 |Advanced features|||
 
 <br />
+
   - 2. TaskBar的实现效果展示
   
   <br />
