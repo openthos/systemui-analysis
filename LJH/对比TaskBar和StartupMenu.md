@@ -57,7 +57,7 @@
   <br /> 
   
   - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
-    1.从装机上来看，TaskBar应该也是一个launcher页面，这个对于openthos 5.1上自定义的launcher应该会有影响，集成估计比较困难
+    - 1.从装机上来看，TaskBar应该也是一个launcher页面，这个对于openthos 5.1上自定义的launcher应该会有影响，集成估计比较困难
   <br />
   
   - 6.TaskBar源码移植到系统中的大概问题是否好解决．
