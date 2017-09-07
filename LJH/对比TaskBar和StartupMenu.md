@@ -57,7 +57,10 @@
   <br /> 
   
   - 5.TaskBar增加相对StartupMenu缺失功能的实现及难易把握
-    - 1.从装机上来看，TaskBar应该也是一个launcher页面，这个对于openthos 5.1上自定义的launcher应该会有影响，集成估计比较困难
+    - 1.与桌面（Launcher）的关系
+    - 2.如何把打开的应用放到taskbar上
+    - 3.如何让taskbar在弹出右键菜单的时候不消失，点击后才消失
+    - 4.如何给弹出的右键菜单添加hover事件
   <br />
   
   - 6.TaskBar源码移植到系统中的大概问题是否好解决．
