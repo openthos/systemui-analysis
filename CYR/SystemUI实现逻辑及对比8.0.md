@@ -91,3 +91,40 @@
   - 目前只是看到：　PhoneStatusBar.java 和　BaseStatusBar.java去除．
   - 增加StatusBar.java 和　CollapsedStatusBarFragment.java
   
+    - 布局文件
+    - super_status_bar.xml(StatusBarWindowView)
+      - 主要的布局文件：
+      - FrameLayout/id-status_bar_container(5.1中没有)
+        - 该布局就是：占位布局
+        - 通过碎片的管理进行添加布局．
+        - CollapsedStatusBarFragment．java
+          - 在该碎片中：　填充布局
+          - status_bar.xml
+            - PhoneStatusBarView.java
+              - LinearLayout/id/status_bar_contents
+                  - AlphaOptimizedLinearLayout
+                  - id/system_icon_area
+                    - 布局: system_icons.xml
+                      - 自定义View:AlphaOptimizedLinearLayout /id/statusIcons
+                      - id/battery
+                      - id/signal_cluster
+　                   - clock.java
+      - include status_bar_expanded.xml
+      - NotificationPanelView/ id/notification_panel        
+
+      - status_bar_expanded.xml
+      - NotificationPanelView.java/ +id/notification_panel
+        - 布局：　keyguard_status_view
+        - NotificationQuikSettingsContainer.java id/notification_container_parent
+          - FrameLayout/ qs_frame(嵌入布局qs_panel)
+            - NotificationStackScrollLayout id/notification_stack_scoller
+              - keyguard_status_bar 
+
+        -qs_panel.xml
+        - QSContainerImpl.java /quick_settings_container
+          - QSPanel id/quick_settings_panel
+          - include quick_status_bar_expand_header
+            - 通知栏里面的icon
+          - include qs_footer
+          - include qs_detail
+            - include qs_detail_buttons
