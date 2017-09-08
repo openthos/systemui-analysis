@@ -68,3 +68,11 @@
     - TaskBar源码已经移植到android 7.1 系统上
   <br /> 
   
+  - 7.TaskBar的实现逻辑
+    - 1、在程序运行的时候会启动TaskbarService
+    - 2.在TaskbarService里将加载start menu的布局文件.通过drawTaskbar()的windowManager.addView(layout, params)将这个布局显示在界面
+        （layout：布局的资源文件，params设置这个资源文件显示的位置，大小等属性）
+    - 3.弹出的应用列表，搜索等内容是在StartMenuService里实现展示的。主要方法是drawStartMenu()。
+    - 4.打开Taskbar应用所出现的设置页面是属于这个app的，而显示在屏幕的start menu是属于window的。这个之间的通信通过BroadcastReceiver。
+       
+  
