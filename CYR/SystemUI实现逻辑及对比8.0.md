@@ -128,3 +128,16 @@
           - include qs_footer
           - include qs_detail
             - include qs_detail_buttons
+  - 执行方案：
+    - 1. StatusBarWindowView控制状态栏的位置　由bottom.Top -- Bottom
+    - 2. 调整点击事件的区域．PhoneStatusBarView.java
+    - 3. 怎么利用TaskBar
+      - 1. 目前TaskBar作为launch启动．利用TaskBar之后怎么调整lunch.
+      - 2. 任务栏的开发，在TaskBar上重新写一个任务栏，
+        - 让TaskBar即充当StartupMenu也充当任务栏且，可以触发通知栏．
+        - 这个方案就是将之前原生的任务栏废掉，但是在TaskBar怎么去控制通知栏是一个新尝试．
+      - 3. 任务栏的开发，在原有的基础上进行，则需要和TaskBar独立并存．
+        -　这个方案在处理通知栏就类似凤凰的系统在处理触发通知栏直接点击一块区域进行触发．
+      - 4.之前对status_bar的控制是在PhoneWindowManager中，原因是根据原生截屏的控制也在
+        - PhoneWindowManager中．
+    - 4. PowerSourceActivity这块需要自己按照openthos的逻辑进行添加.
