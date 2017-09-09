@@ -141,3 +141,11 @@
       - 4.之前对status_bar的控制是在PhoneWindowManager中，原因是根据原生截屏的控制也在
         - PhoneWindowManager中．
     - 4. PowerSourceActivity这块需要自己按照openthos的逻辑进行添加.
+    
+### NavigationBar 导航栏
+  - PhoneStatusBar类 start()方法里面调用 addNavigationBar();
+      -- > prepareNavigationBarView();  最后
+      -- > WindowManager 调用 addView将 NavigationBarView添加到UI界面;
+      - -> Back  Home  Recent.
+
+      PhoneStatusBar类中 prepareNavigationBarView()
