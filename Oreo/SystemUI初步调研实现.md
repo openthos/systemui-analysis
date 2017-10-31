@@ -83,7 +83,7 @@
   - 备注:
     - 暂时只了解这些类,有新发现再持续更新．
 
-###＃ 8.0 SystemUI任务栏的布局
+#### 8.0 SystemUI任务栏的布局
 
   - frameworks/base/packages/SystemUI/res/layout/
     - super_status_bar.xml
