@@ -17,11 +17,11 @@
   - frameworks/base/packages/SystemUI/src/com/android/systemui/StartupMenu
        - AppEntry.java //app模型类
        - DialogType.java //Dialog的几种类型
-       - ShowType.java　　
+       - ShowType.java　//enum对象，区别list/grid视图　
        - SortSelectPopupWindow.java　//time/click/name/default/排序选择
        - StartMenuAdapter.java  //继承BaseAdapter 右键菜单及监听
          - 通过isGrid = mType == ShowType.GRID判断区分list/gride而共用一个适配器．
-       - U.java　//工具类
+       - U.java　//工具类，现在更名为LaunchAppUtil.java
   - frameworks/base/packages/SystemUI/src/com/android/systemui/sql
        - SqliteOpenHelper.java  // 创建数据库/版本升级
        - SqliteOperate.java  // 数据库的增删改查
@@ -35,6 +35,13 @@
   - 启动方式(启动FreeForm Stack) 借用TaskBar.
     - U.launchApp(mContext, appInfo.getComponentName());
   - 常用列表(list) / app列表(grid) 代码中切换．
+  - 添加弹出和退出动画
+    ***
+          <style name="ShowDialog" >
+            <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+            <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+        </style>
+    ***
 
 ***
 
