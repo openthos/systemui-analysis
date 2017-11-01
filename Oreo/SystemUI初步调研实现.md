@@ -157,6 +157,35 @@
           - 该方法为public, 只要可以获取到PanelView对象就可以实现该方法.
           - NotificationPanelView extends PanelView
           - 则只要获取NotificationPanelView的对象即可，事情变的简单．
+          
 #### [任务栏图标锁定](https://github.com/openthos/systemui-analysis/blob/master/LJH/SystemUI%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E5%9B%BE%E6%A0%87%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90.md)
 
+### 任务栏其它快捷方式的实现
+
+***
+
+#### 输入法
+  - /frameworks/base/packages/SystemUI8.1/app/src/main/java/com/android/systemui/dialog/
+    - InputMethodDialog.java
+    
+
+#### 电源
+- /frameworks/base/packages/SystemUI8.1/app/src/main/java/com/android/systemui/dialog/
+    - BatterydDialog.java
+
+#### wifi
+- /frameworks/base/packages/SystemUI8.1/app/src/main/java/com/android/systemui/dialog/
+    - WifiDialog.java
+
+#### 音量
+- /frameworks/base/packages/SystemUI8.1/app/src/main/java/com/android/systemui/dialog/
+    - VolumeDialog.java
+
+#### 日历
+- /frameworks/base/packages/SystemUI8.1/app/src/main/java/com/android/systemui/dialog/
+    - CalendarDialog.java
+- 任务栏上的日期显示来源于一个自定义View
+  - /frameworks/base/packages/SystemUI8.1/app/src/main/java/com.android.systemui.dialog
+    - CalendarDisplayView.java
+    
 #### 持续更新　
