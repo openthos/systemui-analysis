@@ -195,4 +195,45 @@
   - /frameworks/base/packages/SystemUI8.1/app/src/main/java/com.android.systemui.dialog
     - CalendarDisplayView.java
     
+***
+
+### 关机界面
+  - frameworks/base/packages/SystemUI/src/com/android/systemui/power/
+    - PowerSourceActivity.java
+      - power_off
+```
+143     ┊   ┊   ┊   Intent intent = new Intent(Intent.ACTION_REQUEST_SHUTDOWN);
+144     ┊   ┊   ┊   intent.putExtra(Intent.EXTRA_KEY_CONFIRM, false);
+145     ┊   ┊   ┊   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+146     ┊   ┊   ┊   startActivity(intent); 
+```
+      - power_restart
+      
+```
+150     ┊   ┊   ┊   PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+151     ┊   ┊   ┊   pm.reboot("true"); 
+```
+      - power_lock
+      
+```
+155     ┊   ┊   ┊   DevicePolicyManager mDevicePolicyManager = (DevicePolicyManager)
+156             ┊   ┊   ┊   ┊   getSystemService(Context.DEVICE_POLICY_SERVICE);
+157     ┊   ┊   ┊   if (mDevicePolicyManager.isAdminActive(LockReceiver.getCn(this))) {
+158     ┊   ┊   ┊   ┊   mDevicePolicyManager.lockNow();
+159     ┊   ┊   ┊   } else {
+160     ┊   ┊   ┊   ┊   Intent intentLock = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+161     ┊   ┊   ┊   ┊   intentLock.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, LockReceiver.getCn(this));
+162     ┊   ┊   ┊   ┊   intentLock.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "lock screen");
+163     ┊   ┊   ┊   ┊   startActivity(intentLock);
+164     ┊   ┊   ┊   } 
+```
+      - power_sleep
+      
+ ```
+168     ┊   ┊   ┊   PowerManager powerManager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+169     ┊   ┊   ┊   powerManager.goToSleep(SystemClock.uptimeMillis());
+
+ ```
+  
+  
 #### 持续更新　
