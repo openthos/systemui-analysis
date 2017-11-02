@@ -54,8 +54,13 @@
 
 #### 8.0 任务栏设计
   - 1. 利用原生NavigationBar的基础.
+    - 5.1 利用的是Status Bar. 由于Status Bar的逻辑比较复杂且耦合性比较强
+    - 相反，NavigationBar的代码逻辑比较清晰，可以模仿进行替换一个布局. 
+    - 这样对以后的版本升级，会更方便．
   - 2. 新添加布局 oponthos status bar.
+    - 自己添加的布局，无论是后期的维护或扩展，可控性增强．
   - 3. 在StatusBar中使用addOpenthosStatusBarLayout替换createNavigationBar.
+    - 不改变原有的任何逻辑，只是将原有的放弃使用，使用自己的布局．
 
 #### 8.0 任务栏的结构
   - frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/phone/
