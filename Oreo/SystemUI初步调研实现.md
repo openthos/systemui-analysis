@@ -197,7 +197,14 @@
     
 ***
 
-### 关机界面
+### 关机界面实现
+
+***
+
+#### 关机界面的设计
+  - 目前是启动一个PowerSourceActivity.
+  
+#### 关机界面的代码结构
   - frameworks/base/packages/SystemUI/src/com/android/systemui/power/
     - PowerSourceActivity.java
       - power_off
