@@ -242,5 +242,11 @@
 
  ```
   
+ ### 关键代码                                                                    
+   - 锁屏的设计代码                                                              
+     - frameworks/base/packages/SystemUI/src/com/android/systemui/               
+     ┊ - LockReceiver.java                                                       
+     ┊   - 主要用于继承DeviceAdminReceiver.                                      
+     ┊   - 这个设计是借鉴的5.1的实现，而5.1的实现主要还是借鉴的锁屏app的实现逻辑．  
   
 #### 持续更新　
