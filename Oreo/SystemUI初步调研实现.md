@@ -131,6 +131,9 @@
   - frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/stack/
     - NotificationStackScrollLayout.java
       - 通知消息的主要逻辑．
+  - frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/phone/
+    - QSView.java
+      - 新增自定义View．主要用于实现qs.
 
 #### 通知栏的布局
   - frameworks/base/packages/SystemUI/res/layout/
@@ -164,6 +167,14 @@
           - 该方法为public, 只要可以获取到PanelView对象就可以实现该方法.
           - NotificationPanelView extends PanelView
           - 则只要获取NotificationPanelView的对象即可，事情变的简单．
+    - 隔离模式                      
+```                             
+     ┊┊   final ConnectivityManager mgr = (ConnectivityManager) mContext
+     ┊┊   ┊   ┊   .getSystemService(Context.CONNECTIVITY_SERVICE);
+     ┊┊   final EthernetManager ethManager = (EthernetManager) mContext
+     ┊┊   ┊   ┊ getSystemService(ContextETHERNET_SERVICE);                                                                  
+     ┊┊   mgr.setAirplaneMode(state);                   
+```                           
           
 #### [任务栏图标锁定](https://github.com/openthos/systemui-analysis/blob/master/LJH/SystemUI%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E5%9B%BE%E6%A0%87%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90.md)
 
@@ -241,8 +252,13 @@
 169     ┊   ┊   ┊   powerManager.goToSleep(SystemClock.uptimeMillis());
 
  ```
+ 
+#### 关机界面的布局
+  - frameworks/base/packages/SystemUI/res/layout/
+    - activity_power_source.xml                                            
+     ┊ - 鼠标移动获得焦点使用的属性:android:nextFocusRight="@id/"
   
- ### 关键代码                                                                    
+ #### 关键代码                                                                    
    - 锁屏的设计代码                                                              
      - frameworks/base/packages/SystemUI/src/com/android/systemui/               
      ┊ - LockReceiver.java                                                       
