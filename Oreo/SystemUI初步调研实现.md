@@ -13,6 +13,7 @@
   - 4. 将StartupMenu移植到SystemUI中．
     - 5.1中StartupMenu是SystemUI之外独立的，移植到SystemUI内部这样就可以避免了SystemUI和StartupMenu的交互．
   - 5. 修改dialog的弹出方式（改为从下往上弹出）
+    - 这也是使用Dialog实现的好处，可以控制弹出的方式及动画．
 
 #### 8.0 StartupMenu结构
   - frameworks/base/packages/SystemUI/src/com/android/systemui/dialog/
