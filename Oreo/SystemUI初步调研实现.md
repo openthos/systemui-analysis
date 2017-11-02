@@ -174,7 +174,13 @@
      ┊┊   final EthernetManager ethManager = (EthernetManager) mContext
      ┊┊   ┊   ┊ getSystemService(ContextETHERNET_SERVICE);                                                                  
      ┊┊   mgr.setAirplaneMode(state);                   
-```                           
+``` 
+    - 截屏模式
+      - 目前在arm上没有实现，按照5.1的实现逻辑是利用设备支持快捷截屏的代码.
+```                                               
+((InputManager)mContext.getSystemService(Context.INPUT_SERVICE)).sendKeyEvent(KeyEvent.KEYCODE_SYSRQ);
+```
+
           
 #### [任务栏图标锁定](https://github.com/openthos/systemui-analysis/blob/master/LJH/SystemUI%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E5%9B%BE%E6%A0%87%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90.md)
 
