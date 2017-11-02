@@ -290,4 +290,8 @@
 #### [任务栏图标锁定设计文档](https://github.com/openthos/systemui-analysis/blob/master/LJH/SystemUI%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E5%9B%BE%E6%A0%87%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90.md)
 
 #### [Oreo 8.0调研文档](https://github.com/openthos/systemui-analysis/blob/master/CYR/SystemUI%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E5%8F%8A%E5%AF%B9%E6%AF%948.0.md)
+
+
+#### [TaskBar调研文档](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E5%AF%B9%E6%AF%94TaskBar%E5%92%8CStartupMenu.md)
+
 #### 持续更新　
