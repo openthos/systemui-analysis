@@ -26,7 +26,7 @@
        - SqliteOpenHelper.java  // 创建数据库/版本升级
        - SqliteOperate.java  // 数据库的增删改查
        - StartMenuDatabaseField.java //索引
-　- 备注:
+  - 备注:
     - 1. sql是SystemUI的数据存储．
     - 2. U.java后期改为SystemUI的UtilSystemUI.java
     - 3. 适配器还需要增强，添加拖动功能．
