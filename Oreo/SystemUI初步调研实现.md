@@ -286,5 +286,6 @@
      ┊ - LockReceiver.java                                                       
      ┊   - 主要用于继承DeviceAdminReceiver.                                      
      ┊   - 这个设计是借鉴的5.1的实现，而5.1的实现主要还是借鉴的锁屏app的实现逻辑．  
-  
+
+#### [Oreo 8.0调研文档](https://github.com/openthos/systemui-analysis/blob/master/CYR/SystemUI%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E5%8F%8A%E5%AF%B9%E6%AF%948.0.md)
 #### 持续更新　
