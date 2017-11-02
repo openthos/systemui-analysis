@@ -5,8 +5,13 @@
 #### 8.0 StartupMenu设计
   - 1. 在原有5.1的基础上进行的修改.
   - 2. 借用TaskBar的启动方式．
+    - 8.0新增了多窗口，在StartupMenu打开应用时更改了启动方式
+    - 详细启动方法见LaunchAppUtil类，在启动的时候新增了启动Id FREEFORM_WORKSPACE_STACK_ID = 2
   - 3. 将StartupMenu以SystemUI的Dialog形式启动．
+    - 5.1上StartupMenu是以Activity形式存在的，每次启动的时候速度比较慢，与SystemUI的交互不在一个进程内
+    - 现阶段将StartupMenu放置在了SystemUI中，使其以dialog的形式存在，与SystemUI处于同一进程，交互方便，可以省去很多跨进程通信
   - 4. 将StartupMenu移植到SystemUI中．
+  - 5. 修改dialog的弹出方式（改为从下往上弹出）
 
 #### 8.0 StartupMenu结构
   - frameworks/base/packages/SystemUI/src/com/android/systemui/dialog/
