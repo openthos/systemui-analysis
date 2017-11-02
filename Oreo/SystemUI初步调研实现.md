@@ -11,6 +11,7 @@
     - 5.1上StartupMenu是以Activity形式存在的，每次启动的时候速度比较慢，与SystemUI的交互不在一个进程内
     - 现阶段将StartupMenu放置在了SystemUI中，使其以dialog的形式存在，与SystemUI处于同一进程，交互方便，可以省去很多跨进程通信
   - 4. 将StartupMenu移植到SystemUI中．
+    - 5.1中StartupMenu是SystemUI之外独立的，移植到SystemUI内部这样就可以避免了SystemUI和StartupMenu的交互．
   - 5. 修改dialog的弹出方式（改为从下往上弹出）
 
 #### 8.0 StartupMenu结构
@@ -131,8 +132,12 @@
 
 #### 通知栏的设计
   - 在status_bar_expanded.xml 中include 一个新布局.
+    - 由于5.1的实现在后期的工作中出现太多问题，则放弃5.1的修改方案，使用添加新布局方案.
+    - 在新布局中保有原有的通知消息的布局．
   - 将之前的qs_panel进行gone掉．
+    - 原生的qs逻辑过于复杂，将原生的隐藏，借用原生的功能实现的代码．
   - 新的布局中保有<NotificationStackScrollLayout/>布局．
+    - 通知消息的接收逻辑不变．
   
 #### 通知栏的结构
   - frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/phone/
