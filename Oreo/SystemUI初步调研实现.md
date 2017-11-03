@@ -86,7 +86,7 @@
         - 主要涉及方法: public void add(View statusBarView, int barHeight){}
           - 1. 控制SystemUI的宽度和通知栏宽度一样．
           - 2. 控制位置．Gravity.RIGHT | Gravity.TOP.
-    - StatusBarWindoView.java
+    - StatusBarWindowView.java
       - SystemUI布局中最外层的自定义View. 该类继承　FrameLayout.
       - StatusBar中进行初始化
         - 方法:inflateStatusBarWindow(Context context) {}
