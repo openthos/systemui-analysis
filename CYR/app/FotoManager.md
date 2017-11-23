@@ -84,4 +84,12 @@
       - 1. convertLL(double latLon)
       - 2. convertDate(long dateMin)
       - 3. convertLL(String string) throws RuntimeException {}
+      
+  - ./app/src/main/java/de/k3b/android/widget/AboutDialogPreference.java
+    - FotoManager的关于部分
+    - 主要通过webView进行；private static WebView setAboutText(Context context, WebView wv) {}
+    - 在String中存放html网页的代码
+    
+    
+
     
