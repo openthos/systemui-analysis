@@ -90,6 +90,10 @@
     - 主要通过webView进行；private static WebView setAboutText(Context context, WebView wv) {}
     - 在String中存放html网页的代码
     
-    
+ ***
+ #### Map定位功能暂时被去掉；
+ 
+ #### 图片编辑功能是通过图库进行的；
+    
 
     
