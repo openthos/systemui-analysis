@@ -77,3 +77,7 @@
 
     }
 ```
+    - 显示菜单中各种item
+      - protected void showLatlon(boolean noGeoInfo) {调用方法　show (boolean checked, int ... ids)}
+      //对可视的菜单项的处理基本就在这里；
+    -
