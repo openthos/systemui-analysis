@@ -1,8 +1,9 @@
-### TextEditor文本编辑器
+## TextEditor文本编辑器
 ***
-#### 前言
-  - 该富文本编辑器: 内核使用的是ace(https://githup.com/ajaxorg/ace) , 所以编译该项目需要先编辑ace内核。
-  - 前提: 先安装 node node.js npm
+
+### 前言
+  - 该富文本编辑器: 内核使用的是ace(https://githup.com/ajaxorg/ace) , 所以编译该项目需要先编辑ace内核。
+  - 前提: 先安装 node node.js npm
   - 方法: 
     - cd tools/assets/ace/
     - node ./Makefile.dryice.js
