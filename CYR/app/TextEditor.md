@@ -37,4 +37,30 @@
   - 原项目: https://github.com/jecelyin/920-text-editor-v2
   
 ### 项目逻辑代码分析
-  - 
+  - EditAreaView.java
+    - 富文本编辑器的实现都是通过extends　WebView.
+    
+    ```
+        WebSettings ws = getSettings();
+        ws.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        ws.setAllowContentAccess(true);
+        ws.setAllowFileAccess(true);
+        ws.setBuiltInZoomControls(false);
+        ws.setDefaultTextEncodingName("utf-8");
+        ws.setDisplayZoomControls(false);
+        ws.setSupportZoom(false);
+        ws.setLoadWithOverviewMode(false);
+
+        ws.setJavaScriptEnabled(true);
+        ws.setAppCacheEnabled(false);
+        ws.setDomStorageEnabled(true);
+        ws.setAppCacheMaxSize(1024 * 1024 * 80);
+        ws.setAppCachePath(context.getCacheDir().getPath());
+        //ws.setAllowFileAccess(true);
+        ws.setCacheMode(WebSettings.LOAD_DEFAULT);
+
+        addJavascriptInterface(new JavascriptApi(), "AndroidEditor");
+
+        setWebViewClient(new EditorViewClient());
+        setWebChromeClient(new EditorViewChromeClient());
+    ```
