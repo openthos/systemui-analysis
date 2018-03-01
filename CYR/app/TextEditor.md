@@ -39,7 +39,8 @@
 ### 项目逻辑代码分析
   - EditAreaView.java
     - 富文本编辑器的实现都是通过extends　WebView.
-    
+    - 基础配置如下:
+    
     ```
         WebSettings ws = getSettings();
         ws.setDefaultZoom(WebSettings.ZoomDensity.FAR);
@@ -64,3 +65,4 @@
         setWebViewClient(new EditorViewClient());
         setWebChromeClient(new EditorViewChromeClient());
     ```
+  - 
