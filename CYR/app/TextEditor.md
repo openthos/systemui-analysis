@@ -67,5 +67,15 @@
     ```
   - InputConnectionHacker.java
     - 该类 implements InputConnection
-      - InputConnectionl.java- 用于文本输入的接口
-     
+      - InputConnection.java- 用于文本输入的接口
+      - openthos 系统中在InputConnection中添加了 isLauncherFocus(boolean isFocus)方法
+        - 在InputConnectionHacker中也需要实现该方法；
+        
+  - MenuDialog.java
+    - 顶部菜单的dialog实现
+  - TabManager.java
+    - implements TabViewPager.OnPageChangeListener
+    - 对编辑栏的增加
+  - TabAdapter.java
+    - extends RecyclerView.Adapter
+    - 实现布局的
