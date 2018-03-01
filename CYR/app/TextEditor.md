@@ -65,4 +65,7 @@
         setWebViewClient(new EditorViewClient());
         setWebChromeClient(new EditorViewChromeClient());
     ```
-  - 
+  - InputConnectionHacker.java
+    - 该类 implements InputConnection
+      - InputConnectionl.java- 用于文本输入的接口
+     
