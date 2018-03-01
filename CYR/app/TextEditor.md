@@ -9,4 +9,25 @@
     - node ./Makefile.dryice.js
   - 常出现的问题:
     - 会出现一些问题: 比如Modules　thow error . 可以查看(https://github.com/nodejs/help/issues/663) 进行解决。
-  - 
+    
+### 整体结构
+  - 服务器代码位置: origin  git://192.168.0.185/TextEditor.git
+  - 项目工程(app)
+    - ui包
+      - 编辑器的主要界面的搭建。
+  - file_explore
+    - 文件浏览module用于打开/另存为/保存时，文件存储位置的浏览.
+  - common
+  - styles
+    - 这两个module主要是一些辅助。
+    
+***
+
+### 核心代码
+  - assets资源文件夹
+    - ace文件夹
+      - ace内核
+      - 这里都是js的文件
+    - css
+      - 文本编辑区的样式
+  - 这部分核心编辑区的开发需要web的知识。
