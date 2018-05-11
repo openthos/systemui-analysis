@@ -33,11 +33,14 @@
             mDATAObserver.stopWatching();
             mUserConfigObserver.stopWatching();
         }
+        // Timer不能重复调用来修改周期，只能停止之前的Timer和TimerTask，并重新创建，重新启动
+        // 如不重新创建，Timer会报状态已经启动的异常，TimerTask会报正在运行的异常
         mStatusTask.cancel();
         mStatusTimer.cancel();
         mStatusTask = new StatusTask();
         mStatusTimer = new Timer();
-        mStatusTimer.schedule(mStatusTask, period, period);
+        // schedule(TimerTask t, long delay)两参方法不周期
+        mStatusTimer.schedule(mStatusTask, delay, period);
     }
 ```
 - 3.发送Notification
