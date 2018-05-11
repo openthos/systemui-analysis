@@ -88,3 +88,11 @@ bindService为异步任务，可能还没绑定，就调用mISeafileService会�
         }
     }
 ```
+调用服务端方法需catch RemoteException
+```
+    try {
+        mISeafileService.getAppsInfo(tag);
+    } catch (RemoteException e) {
+        e.printStackTrace();
+    }
+```
