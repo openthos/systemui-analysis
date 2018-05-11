@@ -40,3 +40,33 @@
         mStatusTimer.schedule(mStatusTask, period, period);
     }
 ```
+- 3.发送Notification
+```
+    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+    // 设置标题
+    mBuilder.setContentTitle(getString(R.string.seafile_status_title));
+    // 设置小图标，显示在通知左侧，必须设置，否侧通知发不出去
+    mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+    mBuilder.setDefaults(NotificationCompat.DEFAULT_ALL);
+    // true则点击通知即消失
+    mBuilder.setAutoCancel(false);
+    
+    private void showNotification(String notice) {
+        // 默认设置内容为Builder.setContentText，文字不会换行，"\n"也不生效
+        // 使用BigTextStyle可设置多行文字，支持换行
+        mStyle = new NotificationCompat.BigTextStyle();
+        mStyle.bigText(notice);
+        mBuilder.setStyle(mStyle);
+        mNotification = mBuilder.build();
+        // flags通知为正在运行中
+        mNotification.flags |= Notification.FLAG_ONGOING_EVENT;
+        // when右上角时间，不设置的默认时间为通知第一次发出时的时间，即使之后再次notify时间也不变，
+        // 且会导致bug此通知与其它通知位置不断变换，设置when后，此通知会始终在最顶
+        mNotification.when = System.currentTimeMillis();
+        // 发送与刷新通知均使用notify
+        // 0为Notification的唯一标识，可任意设置，删除时使用根据标识cancel(0)
+        mNotificationManager.notify(0, mNotification);
+    }
+```
+- 4.
