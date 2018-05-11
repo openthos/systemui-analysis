@@ -72,4 +72,33 @@
         mNotificationManager.notify(0, mNotification);
     }
 ```
-- 4.
+- 4.文件监听FileObserver
+```
+    // 参数为需监听的目录，且只能监听一层，不能监听子目录下的文件变化（如有需要可递归监听）
+    StatusObserver mDATAObserver = new StatusObserver(mUserPath + "/" + SeafileUtils.DATA_SEAFILE_NAME);
+    // 开启监听
+    mDATAObserver.startWatching();
+    // 停止监听
+    mDATAObserver.stopWatching();
+    
+    private class StatusObserver extends FileObserver {
+  
+        public StatusObserver(String path) {
+            // path:监听的目录
+            super(path);
+        }
+        @Override
+        public void onEvent(int event, String path) {
+            // path:发生变化的文件
+            int action = event & FileObserver.ALL_EVENTS;
+            switch (action) {
+                case FileObserver.CREATE:
+                case FileObserver.MOVED_TO:
+                case FileObserver.MOVED_FROM:
+                case FileObserver.DELETE:
+                ...
+                break;
+            }
+        }
+    }
+```
