@@ -26,6 +26,7 @@
     ｝
     
     private void restartTimer(long period) {
+        // 根据传入的周期决定开启或停止文件监听
         if (period == TIMER_LONG) {
             mDATAObserver.startWatching();
             mUserConfigObserver.startWatching();
