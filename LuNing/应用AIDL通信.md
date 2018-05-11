@@ -57,3 +57,34 @@
         return mBinder;
     }
 ```
+## 客户端
+- 1.在Android.mk中引入服务端的aidl文件
+```
+    // 方法一：直接使用相对路径引入
+    LOCAL_SRC_FILES := \
+        $(call all-java-files-under, src) \
+        src/com/android/settings/EventLogTags.logtags \
+        ../OtoCloudService/src/org/openthos/seafile/ISeafileService.aidl
+         
+    // 方法二：将服务端的aidl文件拷贝到客户端目录下
+    LOCAL_SRC_FILES := $(call all-java-files-under, src) \
+        src/com/android/systemui/EventLogTags.logtags \
+        src/org/openthos/seafile/ISeafileService.aidl
+```
+- 2.与服务端绑定，
+bindService为异步任务，可能还没绑定，就调用mISeafileService会空指针，因此尽量不要在onCreate中bind的同时，在onCreate中调用mISeafileService
+```
+    SeafileServiceConnection mSeafileServiceConnection = new SeafileServiceConnection();
+    Intent intent = new Intent();
+    intent.setComponent(new ComponentName("org.openthos.seafile",
+            "org.openthos.seafile.SeafileService"));
+    getActivity().bindService(intent, mSeafileServiceConnection, Context.BIND_AUTO_CREATE);
+    
+    private class SeafileServiceConnection implements ServiceConnection {
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mISeafileService = ISeafileService.Stub.asInterface(service);
+        }
+        public void onServiceDisconnected(ComponentName name) {
+        }
+    }
+```
