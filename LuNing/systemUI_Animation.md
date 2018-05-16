@@ -1,4 +1,4 @@
-#Animation动画
+# Animation动画
 - 分类：Animations从总体上可以分为两大类<br \>
 Tweened Animations：该类Animations提供了旋转、移动、伸展和淡出等效果。Alpha——淡入淡出，Scale——缩放效果，Rotate——旋转，Translate——移动效果。<br \>
 Frame-by-frame Animations：这一类Animations可以创建一个Drawable序列，这些Drawable可以按照指定的时间间歇一个一个的显示。<br \>
