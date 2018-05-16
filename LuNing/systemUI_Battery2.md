@@ -29,9 +29,9 @@
         mPowerProfile = new PowerProfile(mContext);  
     }
 ``` 
-- Create()方法中主要做了两件事：<br \>
-(1) 获取了一个BatteryStatsService服务的对象。用于和BatteryStatsService进行通信。<br \>
-(2) 创建了一个PowerProfile文件对象。<br \>
+- Create()方法中主要做了两件事：  
+(1) 获取了一个BatteryStatsService服务的对象。用于和BatteryStatsService进行通信。  
+(2) 创建了一个PowerProfile文件对象。  
 我们知道Android系统中关于电量计算公式：耗电量=模块使用时间*　单位时间内的耗电量，模块使用时间,已经在ＢatteryStatsService中统计过了，单位时间的耗电量在PowerProfile文件定义好了，每个手机的power_profile文件都不一样，需要厂商自己定义，只需要根据各个厂商定义的这个文件来计算相关的耗电量即可。
 - BatteryStatsHelper的refreshStats()方法用来刷新计算的用电量信息，是BatteryStatsHelper类的关键接口，电量计算也是在该方法在中进行处理的，代码如下：
 ``` 
@@ -128,7 +128,7 @@
 ``` 
     mChargeTimeRemaining = mStats.computeChargeTimeRemaining(rawRealtimeUs);
 ```     
-- 在获取系统电量剩余时间或充电剩余时间时，由于计算过程较复杂，需要考虑到硬件、软件等，等待的时间较长，此时以上两个方法返回的值均为-1，所以此时为界面考虑设置了默认值（3小时30分钟），在获取到真实值后立即会刷新。<br \>
+- 在获取系统电量剩余时间或充电剩余时间时，由于计算过程较复杂，需要考虑到硬件、软件等，等待的时间较长，此时以上两个方法返回的值均为-1，所以此时为界面考虑设置了默认值（3小时30分钟），在获取到真实值后立即会刷新。
 
 ## 3.根据电池状态更换图标
 - 目前只提供了三种状态的电池图标，分别为充电中、高电量、低电量（<10%）。具体实现是通过判断电量剩余百分比和电池状态，为控件设置对应的图片，代码如下：
