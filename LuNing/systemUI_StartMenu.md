@@ -7,7 +7,7 @@ frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/StartMenuD
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/MyInstalledReceiver.java  
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java  
 - 1.2 功能介绍  
-StartMenu右侧应用右键点击后弹出框内有卸载功能，点击后跳转到应用卸载界面，进行卸载；<br \>
+StartMenu右侧应用右键点击后弹出框内有卸载功能，点击后跳转到应用卸载界面，进行卸载；
 - 1.3 功能实现  
 - 卸载按钮点击事件，Intent通过系统接口和应用报名跳转到应用详情界面，代码如下:  
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/StartMenuDialog.java  
