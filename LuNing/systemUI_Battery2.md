@@ -1,5 +1,5 @@
-#状态栏自定义电量功能实现总结
-##1.剩余电量
+# 状态栏自定义电量功能实现总结
+## 1.剩余电量
 - 在BroadcastReceiver的onReceive()事件，接收到的Intent.ACTION_BATTERY_CHANGED，包括下面的信息：    
 “status”（int类型）…状态，定义值是BatteryManager.BATTERY_STATUS_XXX   
 “health”（int类型）…健康，定义值是BatteryManager.BATTERY_HEALTH_XXX    
@@ -16,7 +16,7 @@
     int level = (int)(100f * intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0) / 
                  intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100));
 ``` 
-##2.剩余电量可使用时间
+## 2.剩余电量可使用时间
 - BatteryStatsHelper主要作用是用来计算所有应用和服务的用电量信息，使用BatteryStatsHelper接口的时候，必须在Activity或者Fragment初始化的时候，先new一个实例，再调用BatteryStatsHelper的create()来初始化它，同时在activity或者Fragment销毁的时候调用destroy()方法来销毁它。create()方法有两个，本次用的是Bundle参数的；
 ``` 
     public void create(Bundle icicle) {  
@@ -130,7 +130,7 @@
 ```     
 - 在获取系统电量剩余时间或充电剩余时间时，由于计算过程较复杂，需要考虑到硬件、软件等，等待的时间较长，此时以上两个方法返回的值均为-1，所以此时为界面考虑设置了默认值（3小时30分钟），在获取到真实值后立即会刷新。<br \>
 
-##3.根据电池状态更换图标
+## 3.根据电池状态更换图标
 - 目前只提供了三种状态的电池图标，分别为充电中、高电量、低电量（<10%）。具体实现是通过判断电量剩余百分比和电池状态，为控件设置对应的图片，代码如下：
 ``` 
     if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
