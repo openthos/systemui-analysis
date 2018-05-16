@@ -1,4 +1,4 @@
-#StartMenu电源键功能实现总结
+# StartMenu电源键功能实现总结
 - 控件位置：DocumentsUI/res/layout-sw720dp-land/start_activity.xml 定义onClick点击事件powerOff（View）;
 - powerOff实现在DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java
 ``` 
