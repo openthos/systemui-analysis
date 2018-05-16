@@ -1,5 +1,6 @@
-#StartMenu部分功能实现总结
-##1.application右键卸载
+# StartMenu部分功能实现总结
+
+## 1.application右键卸载
 - 1.1 location<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuAdapter.java<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/StartMenuDialog.java<br \>
@@ -18,7 +19,7 @@ frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/StartMenuD
 ``` 
 - 在清单文件静态注册广播(android.intent.action.PACKAGE_REMOVED)，监听到应用卸载后，根据Intent携带的包名信息从数据库删除整条数据;关于广播的介绍请查看董鹏的：[systemui_broadcast.md](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/systemui_broadcast.md)<br \>
 
-##2.常用软件限制个数8个
+## 2.常用软件限制个数8个
 - 2.1 location<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java<br \>
 - 2.2 功能介绍<br \>
@@ -26,7 +27,7 @@ StartMenu左侧常用软件限制个数最多8个，按点击数从上到下排�
 - 2.3 功能实现<br \>
 - 从数据库获取应用信息集合后，根据点击次数排序，取点击数最多的前8个应用，展示到常用软件列表；<br \>
 
-##3.常用软件限制个数8个
+## 3.常用软件限制个数8个
 - 3.1 location<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/MySqliteOpenHelper.java<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java<br \>
@@ -44,7 +45,7 @@ frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/MySqliteOp
 ``` 
 - 选择从此列表移除此应用，根据点击listview的下标，获取应用包名，查找数据库，将此应用对应的click值置为0；列表刷新；<br \>
 
-##4.StartMenu打开延迟bug
+## 4.StartMenu打开延迟bug
 - 4.1 location<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/StartupMenuActivity.java<br \>
 frameworks/base/packages/DocumentsUI/src/com/android/documentsui/util/MySQLReceiver.java<br \>
