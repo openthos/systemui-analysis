@@ -3,7 +3,7 @@
 - 在布局SystemUI/status_bar.xml中查找到Home键控件为自定义KeyButtonView,属性keyCode="100003"，类似Button的android:onClick=""，区分不同控件的按键事件;
 - core/java/android/view/KeyEvent.java用于定义不同KeyButtonView的keyCode，查找到keyCode=“100003”对应变量为KEYCODE_CUSTOMIZE_HOME;
 - policy/src/com/android/internal/policy/impl/PhoneWindowManager.java中对按键事件进行处理;按键事件首先通过PhoneWindowManager的interceptKeyBeforeDispatching(WindowState win, KeyEvent event, int policyFlags)方法被拦截，根据int keyCode = event.getKeyCode()，将事件分发到应用层，一些系统事件：HOME,MENU,SEARCH,会在这里做下预处理;
-  当keyCode = KEYCODE_CUSTOMIZE_HOME时Handler发送并接受消息，在startHomeManager()方法中做详细实现;<br \>
+  当keyCode = KEYCODE_CUSTOMIZE_HOME时Handler发送并接受消息，在startHomeManager()方法中做详细实现;
 - startHomeManager()方法包括回到桌面和恢复桌面功能实现;
 - 将桌面窗口最小化，实现回到桌面。首先获取最近启动的任务
 ``` 
