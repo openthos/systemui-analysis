@@ -4,21 +4,21 @@ Tweened Animations：该类Animations提供了旋转、移动、伸展和淡出�
 Frame-by-frame Animations：这一类Animations可以创建一个Drawable序列，这些Drawable可以按照指定的时间间歇一个一个的显示。<br \>
 - 使用TweenedAnimations的步骤：
 - 代码中：<br \>
-  1.创建一个AnimationSet对象（Animation子类）；<br \> 
+  1.创建一个AnimationSet对象（Animation子类）； <br \> 
 ```
     AnimationSet animationSet = new AnimationSet(true); 
 ```
-　　2.增加需要创建相应的Animation对象；<br \> 
+　　2.增加需要创建相应的Animation对象；<br \>
 ```
     AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0); 
 ```
 　　3.更加项目的需求，为Animation对象设置相应的数据；<br \>
-```
+  ```
     //设置动画执行的时间（单位：毫秒）  
     alphaAnimation.setDuration(1000);  
 ```
 　　4.将Animatin对象添加到AnimationSet对象当中；<br \>
-```
+  ```
     animationSet.addAnimation(alphaAnimation);  
 ```
 　　5.使用控件对象开始执行AnimationSet;<br \>
