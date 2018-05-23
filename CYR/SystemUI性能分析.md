@@ -22,7 +22,7 @@
 //这个循环一直再运行
 ```
 
-#### 2. 电池电量的变化
+#### 2. 电池电量和wifi的变化
 ```
  949                 if (charging || pluggedIn || level == 0) {
  950                     mBatteryButton.setImageDrawable(mContext.getDrawable(
@@ -38,7 +38,9 @@
  960                             R.drawable.statusbar_battery_low));
  961                 }
 //电量发生变化，这里就一直接收，然后 setImageDrawable
+//wifi的情况其实也是一样
 ```
+
 #### 3. 时间的变化
   - 这个刷新，应该属于正常，若时间充足可以再优化一版！
   
