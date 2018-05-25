@@ -138,6 +138,8 @@ index 5760fef..8a8e3e9 100755
   
   
 ### 重点分析代码
+  - 位置: core/jni/android_os_Debug.cpp
+  - 函数： android_os_Debug_getPssPid
 ```
  515     sprintf(tmp, "/proc/%d/smaps", pid);
  516     fp = fopen(tmp, "r");
