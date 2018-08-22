@@ -78,9 +78,12 @@
  ***
  
 #### 右侧快捷方式
-  - 输入法
+  - 输入法 （com.android.systemui.dialog.InputMethodDialog）
   -
   -
+  
+  ***
+  ***
  
  
  
