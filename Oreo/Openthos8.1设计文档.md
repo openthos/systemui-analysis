@@ -14,8 +14,8 @@
 ### 开始菜单
 
 #### 设计方式
-  － 采用dialog中加载自定义View的方式
-  － 开始菜单的主体部分是StartupMenuView(com.android.systemui.startupmenu.StartupMenuView),
+  - 采用dialog中加载自定义View的方式
+  - 开始菜单的主体部分是StartupMenuView(com.android.systemui.startupmenu.StartupMenuView),
      弹出方式是在StartupMenuDialog（com.android.systemui.dialog.StartupMenuDialog）,
      启动位置是在OpenthosStatusBarView（com.android.systemui.statusbar.phone.OpenthosStatusBarView）.
   
