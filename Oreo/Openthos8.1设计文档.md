@@ -18,4 +18,37 @@
   - 开始菜单的主体部分是StartupMenuView(com.android.systemui.startupmenu.StartupMenuView),
      弹出方式是在StartupMenuDialog（com.android.systemui.dialog.StartupMenuDialog）,
      启动位置是在OpenthosStatusBarView（com.android.systemui.statusbar.phone.OpenthosStatusBarView）.
+  -  数据信息存储数据库SqliteOperateHelper(com.android.systemui.startupmenu.SqliteOperateHelper),此类主要是创建数据库，以及一些增删改查的方法。还有就是查询系统安装应用数据。本类的查询采用单线程池的方式，避免出现数据库死锁的问题
+  - 右键菜单以及任务栏弹出的右键菜单类MenuDialog(com.android.systemui.dialog.MenuDialog)
+  - 处理长按事件，点击事件，鼠标左右键的方法（同时适配鼠标左右键以及不支持鼠标左右键的时候）（com.android.systemui.startupmenu.AppAdapter）
   
+  ***
+  
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            if (MotionEvent.ACTION_DOWN == event.getAction()) {
+                mDownX = (int) event.getRawX();
+                mDownY = (int) event.getRawY(); ／／记录点击位置，方便长按事件时使用
+                switch (event.getButtonState()) {
+                    case MotionEvent.BUTTON_PRIMARY:
+                        ／／无论是否支持鼠标右键都会触发的操作，此处不进行逻辑操作，放到onclick事件中进行
+                        break;
+                    case MotionEvent.BUTTON_SECONDARY:
+                        ......
+                        return true; //return true后不会再执行onLongClick和onClick监听
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public void onClick(View v) {
+            ／／点击操作
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            .....
+            return true;   //return true后不会再执行onClick监听
+        }
+  ***
