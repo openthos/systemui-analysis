@@ -38,7 +38,7 @@
                         ......
                         return true; //return true后不会再执行onLongClick和onClick监听
                 }
-            }
+            } 
             return false;
         }
 
@@ -53,3 +53,60 @@
             return true;   //return true后不会再执行onClick监听
         }
   ***
+
+### 任务栏
+
+#### 应用图标显示
+ - 自定义View TaskBarButtonView(com.android.systemui.statusbar.view.TaskBarButtonView)
+ - 新创建图标时需要传入应用的packageName，应用的具体信息通过AppOperateManager的getAppInfo（String）来获取。
+ - 应用图标的显示和隐藏主要有以下方法触发
+ 
+ ***
+    
+    @Override
+    public void changeStatusBarIcon(int taskId, ComponentName cmp, boolean keep) {
+        ／／taskId 打开或者关闭应用的id
+        ／／cmp 打开或者获得焦点的应用的ComponentName，关闭应用时返回为null
+        ／／keep true 应用打开或者获得焦点。false 应用关闭
+        android.util.Log.i("ljh", "taskId " + taskId + " keep " + keep + " cmp" + cmp);
+        if (!keep || cmp == null) {
+            iconClose(taskId);
+            return;
+        }
+        bindIconToTaskId(taskId, cmp);
+    }
+ ***
+ 
+#### 右侧快捷方式
+  - 输入法
+  -
+  -
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
