@@ -20,7 +20,8 @@
      启动位置是在OpenthosStatusBarView（com.android.systemui.statusbar.phone.OpenthosStatusBarView）.
   -  数据信息存储数据库SqliteOperateHelper(com.android.systemui.startupmenu.SqliteOperateHelper),此类主要是创建数据库，以及一些增删改查的方法。还有就是查询系统安装应用数据。本类的查询采用单线程池的方式，避免出现数据库死锁的问题
   - 右键菜单以及任务栏弹出的右键菜单类MenuDialog(com.android.systemui.dialog.MenuDialog)
-  - 处理长按事件，点击事件，鼠标左右键的方法（同时适配鼠标左右键以及不支持鼠标左右键的时候）（com.android.systemui.startupmenu.AppAdapter）
+  
+#### 监听处理（同时适配鼠标左右键以及不支持鼠标左右键的时候）（com.android.systemui.startupmenu.AppAdapter）
   
   ***
   
