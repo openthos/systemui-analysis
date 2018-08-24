@@ -1,5 +1,7 @@
 ## Openthos 8.1 和 Openthos 5.1 SystemUI的设计界面基本相同
 
+[Openthos8.1待解决问题](https://github.com/openthos/systemui-analysis/blob/master/LJH/Openthos%208.1%20%E6%9C%AA%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98.md)
+
 ### 不同点
  - Openthos 8.1的任务栏以及通知栏现在都是自定义的
  - Openthos 8.1的SystemUI先采用的是以Dialog形式弹出，5.1时使用的是windowManage窗口形式弹出
