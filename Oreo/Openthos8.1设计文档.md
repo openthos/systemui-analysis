@@ -63,6 +63,7 @@
  
  ***
     
+    //(com.android.systemui.statusbar.phone.StatusBar)
     @Override
     public void changeStatusBarIcon(int taskId, ComponentName cmp, boolean keep) {
         ／／taskId 打开或者关闭应用的id
@@ -78,11 +79,54 @@
  ***
  
 #### 右侧快捷方式
+  - 主要触发类（com.android.systemui.statusbar.phone.OpenthosStatusBarView）,布局文件（res/layout/openthos_status_bar）
   - 输入法 （com.android.systemui.dialog.InputMethodDialog）
-  -
-  -
+  - 电池（com.android.systemui.dialog.BatteryDialog）
+  - 音量（com.android.systemui.dialog.VolumeDialog）
+  - wifi（com.android.systemui.dialog.WifiDialog）
+  - 日期（com.android.systemui.dialog.CalendarDialog）
   
   ***
+  
+        //自动监听输入法改变任务栏上的图标
+        
+        //注册监听设置中数据库输入法的改变
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.DEFAULT_INPUT_METHOD),
+                false,
+                mInputMethodSettingsObserver,
+                UserHandle.USER_ALL);
+
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.SELECTED_INPUT_METHOD_SUBTYPE),
+                false,
+                mInputMethodSettingsObserver,
+                UserHandle.USER_ALL);
+                
+        private final ContentObserver mInputMethodSettingsObserver = new ContentObserver(mHandler) {
+            @Override
+            public void onChange(boolean selfChange) {
+                if (mOpenthosStatusBarView != null) {
+                    mOpenthosStatusBarView.updateInputMethodIcon();
+                }
+            }
+        };
+    
+    ／／更新图标变化
+    public void updateInputMethodIcon() {
+        List<InputMethodInfo> inputMethodList = mInputMethodManager.getInputMethodList();
+        String currentInputMethodId = Settings.Secure.getString(
+                getContext().getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
+        for (InputMethodInfo im : inputMethodList) {
+            if (im.getId().equals(currentInputMethodId)) {
+                if (currentInputMethodId.equals(SYSTEM_INPUT_METHOD_ID)) {//os input
+                    mInputView.setImageResource(R.drawable.statusbar_switch_input_method);
+                    return;
+                } // other input methods;
+                mInputView.setImageDrawable(im.loadIcon(getContext().getPackageManager()));
+            }
+        }
+    }
   ***
  
  
