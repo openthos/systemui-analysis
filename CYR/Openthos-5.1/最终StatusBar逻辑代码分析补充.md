@@ -30,3 +30,16 @@ final Context context = mContext;                                               
                 stackIdList.add(stackInfoList.get(i).stackId);
             }                                                                                                                                                  
 ```
+
+```
+ArrayList<StackInfo> getAllStackInfosLocked() {
+        ArrayList<StackInfo> list = new ArrayList<StackInfo>();
+        for (int displayNdx = 0; displayNdx < mActivityDisplays.size(); ++displayNdx) {
+            ArrayList<ActivityStack> stacks = mActivityDisplays.valueAt(displayNdx).mStacks;
+            for (int ndx = stacks.size() - 1; ndx >= 0; --ndx) {
+                list.add(getStackInfo(stacks.get(ndx)));
+            }
+        }
+        return list;
+    }
+```
