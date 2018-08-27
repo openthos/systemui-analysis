@@ -148,3 +148,5 @@ import com.android.internal.statusbar.IStatusBarService;**
         return new Rect(posX, posY, posX + width, posY + height);
     }
 <hr>
+
+### [后期StatusBar重要变动]()
