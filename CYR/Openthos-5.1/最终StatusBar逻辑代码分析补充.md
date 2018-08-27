@@ -43,3 +43,32 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
         return list;
     }
 ```
+
+### InputMethod的icon切换
+  - packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java
+  - code:
+```
+// When monitor input method data change from systemui or settings,
+    // update icon on status bar
+    private class SettingsObserverInput extends ContentObserver {
+        private Context mContext;
+        public SettingsObserverInput(Handler handler, Context context) {
+            super(handler);
+            mContext = context;
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateInputIcon();
+        }
+
+        public void registerObserver() {
+            final ContentResolver cr = mContext.getContentResolver();
+            cr.registerContentObserver(
+                  Settings.Secure.getUriFor(Settings.Secure.DEFAULT_INPUT_METHOD), false, this);
+            cr.registerContentObserver(Settings.Secure.getUriFor(
+                  Settings.Secure.SELECTED_INPUT_METHOD_SUBTYPE), false, this);                                                                            }                                                                                                                                                                                                                                                                                                     public void unregisterObserver() {                                                                                                                     mContext.getContentResolver().unregisterContentObserver(this);
+        }                                                                                                                                              }
+```
+  
+  
