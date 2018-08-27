@@ -1,4 +1,4 @@
-####<center>StatusBar一些逻辑流程
+#### StatusBar一些逻辑流程
 ***
 **布局文件：status_bar.xml**
 **&ensp;&ensp;布局中分析：
