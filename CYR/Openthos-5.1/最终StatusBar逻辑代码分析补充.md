@@ -28,46 +28,5 @@ final Context context = mContext;                                               
                     stackInfoList.get(i).bounds.right >= metrics.widthPixels &&                                                                                        stackInfoList.get(i).bounds.bottom >= metrics.heightPixels)) {
                     continue;                                                                                                                                      }
                 stackIdList.add(stackInfoList.get(i).stackId);
-            }                                                                                                                                                  Rect mini = new Rect(0, 0, 1, 1);
-            Rect defaultWindowSize = new Rect(200,200,800,600);
-            Rect actualWindowSize = new Rect();                                                                                                                                                                                                             Rect outOfScreen = new Rect();
-            if (mIsMini) {
-                Iterator iter = mTreeMap.entrySet().iterator();
-                while (iter.hasNext()) {                                                                                                                                                                                                                            try {
-                        Map.Entry entry = (Map.Entry) iter.next();
-                        Integer id = (Integer) entry.getKey();
-                        Rect rect = (Rect) entry.getValue();
-                        ActivityManagerNative.getDefault().relayoutWindow(id, rect);
-                        ActivityManagerNative.getDefault().setFocusedStack(id);
-                        mIsMini = false;
-                    } catch (RemoteException e) {
-                        Log.e("umic", "Maxmize failed", e);
-                    }                                                                                                                                                                                                                                           }
-                mTreeMap.clear();
-            } else {                                                                                                                                                                                                                                            mTreeMap.clear();
-                for (int id : stackIdList) {
-                    try {
-                        mWindowManager.getStackBounds(id, actualWindowSize);
-                        if (actualWindowSize.left < metrics.widthPixels &&
-                            actualWindowSize.top < metrics.heightPixels) {
-                            outOfScreen.left = actualWindowSize.left + 2 * metrics.widthPixels;
-                            outOfScreen.top = actualWindowSize.top + 2 * metrics.heightPixels;
-                            outOfScreen.right = actualWindowSize.right + 2 * metrics.widthPixels;
-                            outOfScreen.bottom = actualWindowSize.bottom + 2 * metrics.heightPixels;
-                            Rect r = new Rect(actualWindowSize.left, actualWindowSize.top,
-                                              actualWindowSize.right, actualWindowSize.bottom);
-                            mTreeMap.put(id, r);
-                            ActivityManagerNative.getDefault().saveInfoInStatusbarActivity(id,
-                                                                            actualWindowSize);
-                            ActivityManagerNative.getDefault().relayoutWindow(id, outOfScreen);
-                            mIsMini = true;
-                        }
-                    } catch (RemoteException e) {
-                        Log.e("umic", "Minimize failed", e);
-                    }
-                }
-            }
-        } catch (ActivityNotFoundException e) {
-            Slog.w(TAG, "No activity to handle assist action.", e);
-        }
+            }                                                                                                                                                  
 ```
