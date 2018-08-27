@@ -9,7 +9,10 @@
     - policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     - core/java/android/app/IActivityManager.java
     - core/java/android/app/ActivityManagerNative.java
-    - 涉及的method: getAllStackInfos();
+    - services/core/java/com/android/server/am/ActivityManagerService.java
+      - 涉及的method: getAllStackInfos();
+    - services/core/java/com/android/server/am/ActivityStackSupervisor.java
+      - 涉及的method: getAllStackInfosLocked()
   - code:
 ```
 final Context context = mContext;                                                                                                                  final DisplayMetrics metrics = context.getResources().getDisplayMetrics();
@@ -68,4 +71,3 @@ final Context context = mContext;                                               
             Slog.w(TAG, "No activity to handle assist action.", e);
         }
 ```
-
