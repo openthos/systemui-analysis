@@ -70,5 +70,6 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
                   Settings.Secure.SELECTED_INPUT_METHOD_SUBTYPE), false, this);                                                                            }                                                                                                                                                                                                                                                                                                     public void unregisterObserver() {                                                                                                                     mContext.getContentResolver().unregisterContentObserver(this);
         }                                                                                                                                              }
 ```
-  
+## Status bar 的显示/隐藏
+  - [show/hide](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/StatusBar_Show_Hide.md)
   
