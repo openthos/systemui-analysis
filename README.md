@@ -7,4 +7,6 @@
 - [OtoTaskManager分析文档](https://github.com/openthos/systemui-analysis/blob/master/CYR/Openthos-5.1/TextEditor%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90.md)
 
 # Systemui-analysis-8.1
+  - [8.1StartupMenu和StatusBar的最初设计](https://github.com/openthos/systemui-analysis/blob/master/LJH/Openthos8.1/Openthos8.1%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md)
+  
  
