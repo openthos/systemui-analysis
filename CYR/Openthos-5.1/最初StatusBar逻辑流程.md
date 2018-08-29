@@ -1,27 +1,21 @@
 #### 最初StatusBar一些逻辑流程
 ***
 **布局文件：status_bar.xml**
-**&ensp;&ensp;布局中分析：
-①keyCode实现监听器：systemui:keyCode="100003"
-这就类似一个执行监听的标识码，在KeyEvent中则对keyCode进行赋值，KeyEvent中则都是底层的源码。
-然后在KeyButtonView中进行事件的监听。
-②KeyButtonView则是一个继承于imageView的自定义View，extends imageView
-构造器方法：
+  - 布局中分析：
+  - ①keyCode实现监听器：systemui:keyCode="100003" 这就类似一个执行监听的标识码，在KeyEvent中则对keyCode进行赋值，KeyEvent中则都是底层的源码。然后在KeyButtonView中进行事件的监听。
+  - ②KeyButtonView则是一个继承于imageView的自定义View，extends imageView 构造器方法：
     public ButtonView(Context context) {
         super(context);
     }当然，也存在两个，三个的参数。
-学习资源：[自定义类继承ImageView 实现多点图片触碰的拖动和缩放](http://hbxflihua.iteye.com/blog/1485032)
-③KeyButtonView中有个onTouchEvent事件：
-参数event：参数event为手机屏幕触摸事件封装类的对象，其中封装了该事件的所有信息，例如触摸的位置、触摸的类型以及触摸的时间等。该对象会在用户触摸手机屏幕时被创建。
-返回值：该方法的返回值机理与键盘响应事件，同样是当已经完整处理了该事件且不希望其他回调方法再次处理时返回true，否则返回false.**
+    - 学习资源：[自定义类继承ImageView 实现多点图片触碰的拖动和缩放](http://hbxflihua.iteye.com/blog/1485032)
+    - ③KeyButtonView中有个onTouchEvent事件： 参数event：参数event为手机屏幕触摸事件封装类的对象，其中封装了该事件的所有信息，例如触摸的位置、触摸的类型以及触摸的时间等。该对象会在用户触摸手机屏幕时被创建。
+    - 返回值：该方法的返回值机理与键盘响应事件，同样是当已经完整处理了该事件且不希望其他回调方法再次处理时返回true，否则返回false.**
 **主要监听事件：
-1.屏幕被按下：MotionEvent.ACTION_DOWN
-如果在应用程序中需要处理屏幕被按下的事件，只需重新该回调方法，然后在方法中进行动作的判断即可。
-2.在屏幕中拖动：MotionEvent.ACTION_MOVE
-该方法还负责处理触控笔在屏幕上滑动的事件，同样是调用MotionEvent.getAction()方法来判断动作值是否为MotionEvent.ACTION_MOVE再进行处理
-3.屏幕被抬起：MotionEvent.ACTION_UP
-当触控笔离开屏幕时触发的事件，该事件同样需要onTouchEvent方法来捕捉，然后在方法中进行动作判断。当MotionEvent.getAction()的值为MotionEvent.ACTION_UP时，表示是屏幕被抬起的事件。
-&ensp;&ensp;在每次触发事件后，都要执行不同的sendEvent方法。例如：**
+  - 1.屏幕被按下：MotionEvent.ACTION_DOWN如果在应用程序中需要处理屏幕被按下的事件，只需重新该回调方法，然后在方法中进行动作的判断即可。
+  - 2.在屏幕中拖动：MotionEvent.ACTION_MOVE该方法还负责处理触控笔在屏幕上滑动的事件，同样是调用MotionEvent.getAction()方法来判断动作值是否为MotionEvent.ACTION_MOVE再进行处理.
+  - 3.屏幕被抬起：MotionEvent.ACTION_UP当触控笔离开屏幕时触发的事件，该事件同样需要onTouchEvent方法来捕捉，然后在方法中进行动作判断。当MotionEvent.getAction()的值为MotionEvent.ACTION_UP时，表示是屏幕被抬起的事件。
+  - 在每次触发事件后，都要执行不同的sendEvent方法。
+  - 例如:
 
     void sendEvent(int action, int flags, long when) {
         final int repeatCount = (flags & KeyEvent.FLAG_LONG_PRESS) != 0 ? 1 : 0;
