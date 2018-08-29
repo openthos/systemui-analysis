@@ -24,9 +24,7 @@
   - 右键菜单以及任务栏弹出的右键菜单类MenuDialog(com.android.systemui.dialog.MenuDialog)
   
 #### 监听处理（同时适配鼠标左右键以及不支持鼠标左右键的时候）（com.android.systemui.startupmenu.AppAdapter）
-  
-  ***
-  
+  ```
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (MotionEvent.ACTION_DOWN == event.getAction()) {
@@ -54,7 +52,7 @@
             .....
             return true;   //return true后不会再执行onClick监听
         }
-  ***
+  ```
 
 ### 任务栏
 
@@ -63,8 +61,7 @@
  - 新创建图标时需要传入应用的packageName，应用的具体信息通过AppOperateManager的getAppInfo（String）来获取。
  - 应用图标的显示和隐藏主要有以下方法触发
  
- ***
-    
+ ```
     //(com.android.systemui.statusbar.phone.StatusBar)
     @Override
     public void changeStatusBarIcon(int taskId, ComponentName cmp, boolean keep) {
@@ -76,9 +73,47 @@
             iconClose(taskId);
             return;
         }
-        bindIconToTaskId(taskId, cmp);
+        bindIconToTaskId(taskId, cmp); //创建图标
     }
- ***
+ ```
+ - 其他操作
+   - 关闭应用
+   ```
+   public void closeApp(String packageName) {
+        try {
+            TaskBarIcon buttonView = mShowIcons.get(packageName);
+            if (buttonView != null) {
+                ActivityManager.getService().removeTask(buttonView.getTaskId());
+            }
+        } catch (Exception e) {
+        }
+    }
+    ```
+    - 固定到任务栏
+    ```
+    public void addToTaskbar(String packageName) {
+        TaskBarIcon buttonView = mShowIcons.get(packageName);
+        if (buttonView == null) {
+            buttonView = new TaskBarIcon(mContext, packageName);
+            mActivityLayout.addView(buttonView);
+            mShowIcons.put(packageName, buttonView);
+        }
+        buttonView.locked();
+    }
+    ```
+    - 从任务栏移除
+    ```
+    public void removeFromTaskbar(String packageName) {
+        TaskBarIcon buttonView = mShowIcons.get(packageName);
+        if (buttonView != null) {
+            if (!buttonView.isRun()) {
+                mActivityLayout.removeView(buttonView);
+                mShowIcons.remove(packageName);
+            }
+            buttonView.unlocked();
+        }
+    }
+    ```
  
 #### 右侧快捷方式
   - 主要触发类（com.android.systemui.statusbar.phone.OpenthosStatusBarView）,布局文件（res/layout/openthos_status_bar）
@@ -131,9 +166,35 @@
     }
   ***
  #### 应用操作方法
+   - com.android.systemui.startupmenu.utils.AppOperateManager
+     - 打开应用（openApplication）
+     - 以手机模式运行（runPhoneMode）
+     - 以桌面模式运行（runDesktopMode）
+     - 固定到任务栏（addToTaskBar）
+     - 解除固定 (removeFromTaskbar)
+   - com.android.systemui.statusbar.view.TaskBarIcon
+     - 启动应用或者重新获得焦点
+     ```
+     private void startRun() {
+        try {
+            IActivityManager am = ActivityManager.getService();
+            if (isRun()) {
+                am.setFocusedTask(mTaskId);
+            } else {
+                mOperateManager.openApplication(getAppInfo().getComponentName());
+            }
+            setFocusInApplications(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+     }
+     ```
+   - com.android.  
+     -
+     -
  
- 
- 
+   
+
  
  
  
