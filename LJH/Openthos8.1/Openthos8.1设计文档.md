@@ -59,6 +59,7 @@
 #### 应用图标显示
  - 自定义View TaskBarButtonView(com.android.systemui.statusbar.view.TaskBarButtonView)
  - 新创建图标时需要传入应用的packageName，应用的具体信息通过AppOperateManager的getAppInfo（String）来获取。
+ - [应用最小化以及其它操作触发改变任务栏的原理（changeStatusBarIcon）](https://github.com/openthos/multiwin-analysis/blob/master/multiwindow/lh/%E4%BB%BB%E5%8A%A1%E6%A0%8F%E9%9C%80%E6%B1%82.md)
  - 通知任务栏图标刷新
  ```
     //(com.android.systemui.statusbar.phone.StatusBar)
@@ -75,7 +76,6 @@
         bindIconToTaskId(taskId, cmp); //创建图标
     }
  ```
- - [应用最小化以及其它操作触发改变任务栏的原理（changeStatusBarIcon）](https://github.com/openthos/multiwin-analysis/blob/master/multiwindow/lh/%E4%BB%BB%E5%8A%A1%E6%A0%8F%E9%9C%80%E6%B1%82.md)
  - 其他操作
    - 绑定图标
    ```
@@ -192,7 +192,7 @@
         }
     }
   ***
- #### 应用操作方法
+ #### 应用其它操作方法
    - com.android.systemui.startupmenu.utils.AppOperateManager
      - 打开应用（openApplication）
      - 以手机模式运行（runPhoneMode）
@@ -216,12 +216,6 @@
         }
      }
      ```
-
-#### 应用最小化
-   
-   - 应用最小化会触发 (com.android.systemui.statusbar.phone.StatusBar)中的changeStatusBarIcon()方法，根据得到的返回值进行任务栏图标显示
- 
-   
 
  
  
