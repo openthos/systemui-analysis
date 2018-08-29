@@ -151,8 +151,6 @@ import com.android.internal.statusbar.IStatusBarService;**
 
 ### [后期StatusBar重要变动](https://github.com/openthos/systemui-analysis/blob/master/CYR/Openthos-5.1/%E6%9C%80%E7%BB%88StatusBar%E9%80%BB%E8%BE%91%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E8%A1%A5%E5%85%85.md)
 
-### [通知栏字体刷新问题解决方案](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E9%80%9A%E7%9F%A5%E6%A0%8F%E8%AF%AD%E8%A8%80%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98.md)
-
 
 
 
