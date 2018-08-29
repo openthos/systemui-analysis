@@ -1,5 +1,6 @@
 ## TextEditor开源软件分析
 ***
+  - [920编辑器调研](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E9%80%9A%E7%9F%A5%E6%A0%8F%E8%AF%AD%E8%A8%80%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98.md)
 ### 版本控制
   - origin git://192.168.0.185/openthos/oto-TextEditor(fetch)
   - origin git://192.168.0.185/openthos/oto-TextEditor(push)
