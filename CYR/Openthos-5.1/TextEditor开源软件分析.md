@@ -86,3 +86,7 @@
   - TabAdapter.java
     - extends RecyclerView.Adapter
     - 实现布局的
+    
+### 文件文本选择
+  - [OtoEileSelect设计文档](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E9%80%9A%E7%9F%A5%E6%A0%8F%E8%AF%AD%E8%A8%80%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98.md)
+
