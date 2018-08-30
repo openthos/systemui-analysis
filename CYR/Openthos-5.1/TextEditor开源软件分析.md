@@ -89,5 +89,5 @@
     - 实现布局的
     
 ### 文件文本选择
-  - [OtoEileSelect设计文档](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E9%80%9A%E7%9F%A5%E6%A0%8F%E8%AF%AD%E8%A8%80%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98.md)
+  - [OtoEileSelect设计文档](https://github.com/openthos/systemui-analysis/blob/master/LJH/%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E6%96%87%E6%A1%A3.md)
 
