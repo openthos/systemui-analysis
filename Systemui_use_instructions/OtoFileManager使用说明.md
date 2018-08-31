@@ -34,6 +34,10 @@
 
 - [点此查看云服务](https://github.com/openthos/desktop-analysis/blob/master/instructions/seafile.md)
 
+## 网上邻居
+
+- [点此查看网上邻居](https://github.com/openthos/desktop-analysis/blob/master/instructions/%E7%BD%91%E4%B8%8A%E9%82%BB%E5%B1%85.md)
+
 ## FileManager 功能点
 
 - [点此查看功能点](https://github.com/openthos/desktop-analysis/blob/master/instructions/filemanager_gongnengdian.md)
