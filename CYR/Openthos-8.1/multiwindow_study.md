@@ -38,14 +38,29 @@ eebc793273fbee736516ee95c393e2ebc6781cf9
       - services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java
       - services/core/java/com/android/server/am/ActivityManagerService.java
       - 上面的类主要就是围绕AIDL的调用，目的是在AMS中调用changeStatusBarIcon, 实现是在StatusBar中。
-      - AMS调用的时机，选择在finishActivity中/setResumedActivityUncheckLocked(...)/
+      - AMS调用的时机，选择在finishActivity中/setResumedActivityUncheckLocked(...)/removeTask.
+      - status bar 改变icon
+      - 代码如下： 细节: 两个Map集合在bindIconToTaskId就是 task与icon绑定。
+ ```
+ public void changeStatusBarIcon(int taskId, ComponentName cmp, boolean keep) {
+         if (!keep || cmp == null) {
+             iconClose(taskId);
+             return;
+         }
+
+         if (mIconMap.get(taskId) != null) {
+             setFocusedIcon(taskId);
+             //setFocused
+         } else {
+             bindIconToTaskId(taskId, cmp);
+         }
+     }
+ ```
  ```
  StatusBarManagerInternal statusBarManager =
                                     LocalServices.getService(StatusBarManagerInternal.class);
  ```
-    - icon改变
-      - 
-    
-    
+#### 8.1最小化的实现逻辑
+  - 
     
 
