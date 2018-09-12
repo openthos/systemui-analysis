@@ -61,6 +61,38 @@ eebc793273fbee736516ee95c393e2ebc6781cf9
                                     LocalServices.getService(StatusBarManagerInternal.class);
  ```
 #### 8.1最小化的实现逻辑
-  - 
+  - [7.0关于多窗口的比较详细的理论知识](https://blog.csdn.net/guoqifa29/article/details/54863237)
+  - code分析
+    - core/java/android/app/Activity.java:5890:    
+    - core/java/android/app/IActivityManager.aidl
+    - AMS同过aidl接口实现在Activity中调用AMS的moveTaskBackwards(..);
+    - ActivityManagerNative.getDefault().moveTaskBackwards(getTaskId());
+    - ## moveTaskBack的逻辑；
+    - core/java/android/view/Window.java
+    - 在内部接口中interface WindowControllerCallback中添加moveTaskBack()
+    - 在Activity中实现该接口,在moveTaskBack中调用ActivityManagerNative.getDefault.moveTaskBackwards(..).
+    - core/java/com/android/internal/widget/DecorCaptionView.java  
+    - 在该类中实现点击的miniWindow,   callback.moveTaskBack();
+    - 最终的实现是:  
+      - AMS中 moveTaskBackwards中 task.reparent方法，将taskId放入另一个stack.
+      
+### 建立一个Stack BACKGROUND_STACK_ID
+  - 这个stack的特点就是 不显示，满足最小化的状态.
+  - 在ActivityManager中定义（类比系统的stack）
+  - 在AMS和ActivityStack中使用(类比系统的stack)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
     
 
