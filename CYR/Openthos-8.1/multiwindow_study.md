@@ -21,3 +21,31 @@ eebc793273fbee736516ee95c393e2ebc6781cf9
       - mDimLayerForResize.setBounds(mWindowDragBounds);
  ***
  
+## 窗口最小化的实现
+***
+### status bar上icon的改变
+```
+4a5bf9dc2ebf0c947360c462fac7251ed4655f20
+```
+### 分析code
+  - 1. changeStatusBarIcon的实现
+    - 主要分两个逻辑: AIDL调用和status bar图标的实现
+    - AIDL调用
+      - core/java/com/android/internal/statusbar/IStatusBar.aidl
+      - packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java
+      - packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java
+      - services/core/java/com/android/server/statusbar/StatusBarManagerService.java
+      - services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java
+      - services/core/java/com/android/server/am/ActivityManagerService.java
+      - 上面的类主要就是围绕AIDL的调用，目的是在AMS中调用changeStatusBarIcon, 实现是在StatusBar中。
+      - AMS调用的时机，选择在finishActivity中/setResumedActivityUncheckLocked(...)/
+ ```
+ StatusBarManagerInternal statusBarManager =
+                                    LocalServices.getService(StatusBarManagerInternal.class);
+ ```
+    - icon改变
+      - 
+    
+    
+    
+
