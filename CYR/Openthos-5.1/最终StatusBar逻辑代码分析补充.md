@@ -43,6 +43,10 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
         return list;
     }
 ```
+#### 增加keyCode的触发逻辑 
+  - KeyEvent.java  定义: KEYCODE_CUSTOMIZE_HOME
+  - status_bar.xml 定义: systemui:keycode="1000003"
+  - 在PhoneWindowManager中调用
 
 ### InputMethod的icon切换
   - packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java
