@@ -10,3 +10,14 @@
     patch为frameworks层实现multiwindow和SystemUI基本功能的代码，前12个patch主要为5.1已实现的SystemUI整体代码移植，主要为对界面的重构、基本功能实现、资源文件引入，类结构清晰，重点类不多，后续会做具体介绍；后面的patch包括少部分multiwindow功能完善，以及大部分SystemUI bug修改；
     
 - 4.从简单bug入手，深入理解代码；
+
+## 重点类  
+- OpenthosStatusBarView.java  
+  status整体布局，包括左侧开始菜单按钮，中间应用图标栏，右侧通知栏和home键；  
+  控制各个图标的初始化，点击事件，重点为点击事件，弹出对应的菜单；
+- StatusBar.java  
+  实现应用图标弹出菜单中的对应功能，实现导航栏图标的状态更新和菜单功能；
+- dialog package  
+  所有dialog所在package;
+- startupmenu package
+  startupmenu相关类所在package;
