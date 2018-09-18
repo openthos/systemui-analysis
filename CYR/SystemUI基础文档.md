@@ -79,6 +79,54 @@
   - StatusBar加图标AddIcons	
     - Icons排列规则	
     - QuickSettingPanel快捷开关	
+      - QSTitleHost.Java中定义快捷开关的各个标题createTiles()：代码如下
+ ```
+273     private QSTile<?> createTile(String tileSpec) {
+274         if (tileSpec.equals("screenshot")) return new ScreenshotTile(this);
+275         else if (tileSpec.equals("isolationmode")) return new IsolationModeTile(this);
+276         else if (tileSpec.equals("projection")) return new ProjectionTile(this);
+277         else if (tileSpec.equals("setting")) return new SettingTile(this);
+278         else if (tileSpec.equals("wifi")) return new WifiTile(this);
+279         else if (tileSpec.equals("bt")) return new BluetoothTile(this);
+280         else if (tileSpec.equals("inversion")) return new ColorInversionTile(this);
+281         else if (tileSpec.equals("cell")) return new CellularTile(this);
+282         else if (tileSpec.equals("airplane")) return new AirplaneModeTile(this);
+283         else if (tileSpec.equals("rotation")) return new RotationLockTile(this);
+284         else if (tileSpec.equals("flashlight")) return new FlashlightTile(this);
+285         else if (tileSpec.equals("location")) return new LocationTile(this);
+286         else if (tileSpec.equals("cast")) return new CastTile(this);
+287         else if (tileSpec.equals("hotspot")) return new HotspotTile(this);
+288         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
+289         else throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
+290     }
+
+ ```
+ 　　- 此方法在recreateTiles() 中调用，而recreateTiles() 又是在QSTitleHost的构造器中被调用，
+QSTitleHost被构造好之后，为QSPanel对象配置QSTitleHost和标题；然后给顶部状态View设置QSPanel；
+　　　- 最后为QSTitleHost设置CallBack回调方法。
+```
+1050         mQSPanel = (QSPanel) mStatusBarWindow.findViewById(R.id.quick_settings_panel);
+1051         if (mQSPanel != null) {
+1052             final QSTileHost qsh = new QSTileHost(mContext, this,
+1053                     mBluetoothController, mLocationController, mRotationLockController,
+1054                     mNetworkController, mZenModeController, mHotspotController,
+1055                     mCastController, mFlashlightController,
+1056                     mUserSwitcherController, mKeyguardMonitor,
+1057                     mSecurityController, mScreenshotController, mSettingController);
+1058             mQSPanel.setHost(qsh);
+1059             mQSPanel.setTiles(qsh.getTiles());
+1060             mBrightnessMirrorController = new BrightnessMirrorController(mStatusBarWindow);
+1061             mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
+1062             qsh.setCallback(new QSTileHost.Callback() {
+1063                 @Override
+1064                 public void onTilesChanged() {
+1065                     mQSPanel.setTiles(qsh.getTiles());
+1066                 }
+1067             });
+1068         }
+
+```
+![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/qs.png)
   - ScreenShot事件流程
     - Android原生截屏是同时按下 电源键 和 音量减，开始截屏，
     - Android源码中对按键的捕获位于文件PhoneWindowManager.java (\frameworks\base\policy\src\com\android\internal\policy\impl) 中；我们可以在interceptKeyBeforeQueueing()中看到，按下截屏组合键之后，进入interceptScreenshotChord()方法
