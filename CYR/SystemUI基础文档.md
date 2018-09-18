@@ -56,7 +56,18 @@
       - SystemUI大部分功能之间相互独立:
       - 比如RecentPanel、TakeScreenshotService等均是按需启动，并在完成其既定任务后退出，这与普通的Activity以及Service别无二致。
       - 比较特殊的是状态栏、导航栏等组件的启动方式。它们运行于一个称之为SystemUIService的一个Service之中。因此讨论状态栏与导航栏的启动过程其实就是SystemUIService的启动过程。
-    - SystemUI启动	
+    - SystemUI启动
+      - SystemUI常驻于系统，通过代码和结构分析，通过Service实现，关键Service：SystemUIService是在SystemServer.java中被启动的.
+      - mActivityManagerService.systemReady(new Runnable() {...  startSystemUi(context)})
+      - 然后，调用：mCallbacks.onNoService()；
+      - 回到SystemBars 的对象中；这里调用关键方法：createStatusBarFromConfig()；
+      - base/packages/SystemUI/res/values/config.xml
+      - 这里面的取值：R.string.config_statusBarComponent实际就是PhoneStatusBar；
+      - 这样就调到了PhoneStatusBar的start()方法。
+      - 同时PhoneStatusBar在start()方法里面也调用了父类BaseStatusBar的start()；
+      - 从这里一些列，将NavigationBar和QuickSettingPanel初始化好，添加到UI中。
+      - SystemBar.java
+        - createStatusBarFromConfig()
     - NavigationBar导航栏	
   - RecentsActivity最近的APP	
     - 第三方APP访问Recent	
