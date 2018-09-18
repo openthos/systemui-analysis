@@ -101,6 +101,9 @@
 1257     }
 
 ```
+
+![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/shortScreen.png)
+
   - APP与SystemUI交互	
     - APP通知到PhoneStatusBar	
     - APP清除(Cancel)通知	
