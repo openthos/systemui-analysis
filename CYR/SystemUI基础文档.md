@@ -79,7 +79,28 @@
   - StatusBar加图标AddIcons	
     - Icons排列规则	
     - QuickSettingPanel快捷开关	
-  - ScreenShot事件流程	
+  - ScreenShot事件流程
+    - Android原生截屏是同时按下 电源键 和 音量减，开始截屏，
+    - Android源码中对按键的捕获位于文件PhoneWindowManager.java (\frameworks\base\policy\src\com\android\internal\policy\impl) 中；我们可以在interceptKeyBeforeQueueing()中看到，按下截屏组合键之后，进入interceptScreenshotChord()方法
+    - code
+```
+1243     private void interceptScreenshotChord() {
+1244         if (mScreenshotChordEnabled
+1245                 && mScreenshotChordVolumeDownKeyTriggered && mScreenshotChordPowerKeyTriggered
+1246                 && !mScreenshotChordVolumeUpKeyTriggered) {
+1247             final long now = SystemClock.uptimeMillis();
+1248             if (now <= mScreenshotChordVolumeDownKeyTime + SCREENSHOT_CHORD_DEBOUNCE_DELAY_MILLIS
+1249                     && now <= mScreenshotChordPowerKeyTime
+1250                             + SCREENSHOT_CHORD_DEBOUNCE_DELAY_MILLIS) {
+1251                 mScreenshotChordVolumeDownKeyConsumed = true;
+1252                 cancelPendingPowerKeyAction();
+1253 
+1254                 mHandler.postDelayed(mScreenshotRunnable, getScreenshotChordLongPressDelay());
+1255             }
+1256         }
+1257     }
+
+```
   - APP与SystemUI交互	
     - APP通知到PhoneStatusBar	
     - APP清除(Cancel)通知	
