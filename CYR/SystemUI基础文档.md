@@ -39,7 +39,8 @@
       - frameworks/base/packages/SystemUI/res/layout/status_bar_expanded_header.xml
       - frameworks/base/packages/SystemUI/res/layout/qs_panel.xml
 
-    - SystemUI类图：
+    - SystemUI类图
+      - ![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/systemui.png)
   - 执行流程	
     - SystemUI启动	
     - NavigationBar导航栏	
