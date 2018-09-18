@@ -87,6 +87,7 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
     - [窗口的切换]()
     - 窗口的穿透就是再上层window执行点击事件，然后事件响应到下面的window。
     - 5.1提交的解决commitId: 66c66ca953b688f1a896a9c1147f70765edd871e and e1a72539072b5a961e1b78754a602cbdf1f2db61
+    - 根据这个问题分析几个逻辑流程：
     - StackTapPointerEventListener.java
       - onPointerEvent方法，在ACTION_DOWN中执行
         - mService.mH.obtainMessage(H.TAP_OUTSIDE_STACK, (int) mDownX, (int) mDownY,mDcAndMe).sendToTarget();
@@ -111,9 +112,9 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
 307         return false;
 308     }
 ```
-    
-    
-    
+  - 在StackTapPointerEventListener中进行判断是否执行－－> send TAP_OUTSIDE_STACK.
+  - WMS中进行处理TAP_OUTSIDE_STACK
+    - mActivityManager.setFocusedStack(stackId);## 焦点切换
   
   
   
