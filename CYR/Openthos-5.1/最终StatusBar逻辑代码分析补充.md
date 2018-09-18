@@ -77,3 +77,47 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
 ## Status bar 的显示/隐藏
   - [show/hide](https://github.com/openthos/systemui-analysis/blob/master/doc/summary/StatusBar_Show_Hide.md)
   
+## 窗口穿透bug的解决
+  - 前提: 理解WMS
+    - WMS是窗口的管理者，它负责窗口的启动、添加和删除，另外窗口的大小和层级也是由WMS进行管理的。
+    - 窗口管理的核心成员有DisplayContent、WindowToken和WindowState。
+    - [窗口的启动]()
+    - [窗口的添加]()
+    - [窗口的删除]()
+    - [窗口的切换]()
+    - 窗口的穿透就是再上层window执行点击事件，然后事件响应到下面的window。
+    - 5.1提交的解决commitId: 66c66ca953b688f1a896a9c1147f70765edd871e and e1a72539072b5a961e1b78754a602cbdf1f2db61
+    - StackTapPointerEventListener.java
+      - onPointerEvent方法，在ACTION_DOWN中执行
+        - mService.mH.obtainMessage(H.TAP_OUTSIDE_STACK, (int) mDownX, (int) mDownY,mDcAndMe).sendToTarget();
+        - 在window中弹出一个dialog的window, dialog的window超出父window的边界，这时，点击dialog的window进行穿透到后面的window.
+        - 解决方案是针对dialog的几种window针对处理，作为判断条件进行拦截。
+        - DisplayContent.java实现window的内容区域
+```
+293     boolean touchExludeRegion(int x, int y) {
+294         WindowState win = mService.mCurrentFocus;
+295         if (win != null && (
+296             win.getAttrs().type == WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG ||
+297             win.getAttrs().type == WindowManager.LayoutParams.TYPE_SYSTEM_ALERT ||
+298             win.getAttrs().type == WindowManager.LayoutParams.TYPE_PHONE ||
+299             win.getAttrs().type == WindowManager.LayoutParams.TYPE_APPLICATION_PANEL)) {
+300             for (int i = getWindowList().size() - 1; i >= 0; i--) {
+301                 final WindowState wins = getWindowList().get(i);
+302                 if (wins != null && wins.getFrameLw().contains(x, y)) {
+303                     return true;
+304                 }
+305             }
+306         }
+307         return false;
+308     }
+```
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
