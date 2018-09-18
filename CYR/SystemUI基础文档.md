@@ -83,3 +83,8 @@
   - APP与SystemUI交互	
     - APP通知到PhoneStatusBar	
     - APP清除(Cancel)通知	
+      - 与"新增通知"类似的流程是"删除通知"，发起点在NotificationManager，之后经由NotificationManagerService处理和NotificationListenerService传递，最后到达各个继承自NotificationListenerService的子类中，只不过最后的处理方法变成了onNotificationRemoved
+      - ![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/cancelNotification.png)
+      - 简单来看，NotificationListenerService在系统通知的消息传递过程中，起到了代理的作用。
+      - 继承自NotificationListenerService的类作为client端，真正的server端则是NotificationManagerService，由它负责整个Notification的控制与管理。NotificationManagerService将处理之后的结果通过NotificationListenerService返回给client端，
+      - 最终各个client端(BaseStatusBar)通过onNotificationPosted()和onNotificationRemoved()方法拿到系统通知状态变更的相关信息。
