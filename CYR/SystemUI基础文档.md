@@ -68,7 +68,11 @@
       - 从这里一些列，将NavigationBar和QuickSettingPanel初始化好，添加到UI中。
       - SystemBar.java
         - createStatusBarFromConfig()
+      - !()[https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/%E6%97%B6%E5%BA%8F%E5%9B%BE.png]
     - NavigationBar导航栏	
+      - PhoneStatusBar类的start()方法里面调用 addNavigationBar() ; 
+      - 流程如上图，第 9 步；然后此方法内调用 prepareNavigationBarView()；
+      - 最后 WindowManager调addView将NavigationBarView添加到 UI 界面。
   - RecentsActivity最近的APP	
     - 第三方APP访问Recent	
   - StatusBar加图标AddIcons	
