@@ -41,7 +41,21 @@
 
     - SystemUI类图
       - ![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/systemui.png)
-  - 执行流程	
+      - 状态的核心类是BaseStatusBar，这个类是一个抽象类。它的start()方法(继承自SystemUI)定义了状态栏启动时的具体步骤。
+      - BaseStatusBar继承自SystemUI，SystemUI被SystemUIService调用，SystemUIService继承Service，所以StatuBar也是一个Service。
+      - BaseStatusBar实现了CommandQueue.Callbacks接口，同时可以发现CommandQueue继承自IStatusBar.Stub远程接口，而IStatusBar.Stub接口的方法则通过CommandQueue的Callbacks接口实现，所以说BaseStatusBar又是IStatusBar.stub远程接口的实现类。　　
+      - 我们说BaseStatusBar是抽象类，那么IStatusBar.stub接口中方法的实现该如何实现呢？很简单，我们可以通过StatuBar的两个子类：PhoneStatusBar和TabletStatusBar来实现。
+      - 另外KeyguardViewMediator, RingtonePlayer, VolumeUI, SystemBars, PowerUI, StorageNotification, Recents 这几个UI组件也继承自 SystemUI
+    - 执行流程
+      - SystemUI是为用户提供系统级别的信息显示与交互的一套UI组件，因此它所实现的功能包罗万象:
+      - 屏幕顶端的状态栏、
+      - 底部的导航栏、
+      - 图片壁纸以及RecentPanel（近期使用的APP列表）都属于SystemUI的范畴。
+      - SystemUI中还有一个名为TakeScreenshotService的服务，用于在用户按下音量下键与电源键时进行截屏操作。
+      - SystemUI还提供了PowerUI和RingtonePlayer两个服务。前者负责监控系统的剩余电量并在必要时为用户显示低电警告，后者则依托AudioService为向其他应用程序提供播放铃声的功能。
+      - SystemUI大部分功能之间相互独立:
+      - 比如RecentPanel、TakeScreenshotService等均是按需启动，并在完成其既定任务后退出，这与普通的Activity以及Service别无二致。
+      - 比较特殊的是状态栏、导航栏等组件的启动方式。它们运行于一个称之为SystemUIService的一个Service之中。因此讨论状态栏与导航栏的启动过程其实就是SystemUIService的启动过程。
     - SystemUI启动	
     - NavigationBar导航栏	
   - RecentsActivity最近的APP	
