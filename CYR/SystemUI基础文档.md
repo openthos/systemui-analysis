@@ -154,6 +154,16 @@ QSTitleHost被构造好之后，为QSPanel对象配置QSTitleHost和标题；然
 
   - APP与SystemUI交互	
     - APP通知到PhoneStatusBar	
+      - App通过android.app.NotificationManager的Notify方法 调用NotificationManagerService的 SystemService的enqueNotificationWithTag()方法,再进入到enqueueNotificationInternal()方法
+      - code
+      - frameworks/base/core/java/android/app/NotificaitonManager.java
+      - ...            /core/java/android/service/notification/NotificationListenerService.java
+      - ...           /core/java/com/android/server/notification/NotificationManagerService.java
+      - enqueueNotificationInternal()方法, -- > 限制只能提交 50个通知.
+      - if (notification.icon != 0) -- > 判断icon是否为空, 若不为空 则有效.
+      - 装完毕准备显示到状态栏, 之后就需要将相关的通知消息告诉所有监听者.
+      - notifyPostedLocked()中调用到notifyPosted()方法;
+      - ...  listener.onNotificationPosted(sbnHolder, rankUpdate);
     - APP清除(Cancel)通知	
       - 与"新增通知"类似的流程是"删除通知"，发起点在NotificationManager，之后经由NotificationManagerService处理和NotificationListenerService传递，最后到达各个继承自NotificationListenerService的子类中，只不过最后的处理方法变成了onNotificationRemoved
       - ![](https://github.com/openthos/systemui-analysis/blob/master/CYR/icon/cancelNotification.png)
