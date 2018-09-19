@@ -82,8 +82,8 @@ ArrayList<StackInfo> getAllStackInfosLocked() {
     - WMS是窗口的管理者，它负责窗口的启动、添加和删除，另外窗口的大小和层级也是由WMS进行管理的。
     - 窗口管理的核心成员有DisplayContent、WindowToken和WindowState。
     - [窗口的添加](https://github.com/openthos/systemui-analysis/blob/master/CYR/Openthos-8.1/%E7%AA%97%E5%8F%A3%E7%9A%84%E6%B7%BB%E5%8A%A0.md)
-    - [窗口的删除]()
-    - [窗口的切换]()
+    - [窗口的删除](https://github.com/openthos/systemui-analysis/blob/master/CYR/Openthos-8.1/%E7%AA%97%E5%8F%A3%E7%9A%84%E5%88%A0%E9%99%A4.md)
+    - 本补丁涉及-窗口的切换
     - 窗口的穿透就是再上层window执行点击事件，然后事件响应到下面的window。
     - 5.1提交的解决commitId: 66c66ca953b688f1a896a9c1147f70765edd871e and e1a72539072b5a961e1b78754a602cbdf1f2db61
     - 根据这个问题分析几个逻辑流程：
