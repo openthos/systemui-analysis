@@ -101,9 +101,9 @@
 290     }
 
  ```
- 　　- 此方法在recreateTiles() 中调用，而recreateTiles() 又是在QSTitleHost的构造器中被调用，
+  - 此方法在recreateTiles() 中调用，而recreateTiles() 又是在QSTitleHost的构造器中被调用，
 QSTitleHost被构造好之后，为QSPanel对象配置QSTitleHost和标题；然后给顶部状态View设置QSPanel；
-　　　- 最后为QSTitleHost设置CallBack回调方法。
+  - 最后为QSTitleHost设置CallBack回调方法。
 ```
 1050         mQSPanel = (QSPanel) mStatusBarWindow.findViewById(R.id.quick_settings_panel);
 1051         if (mQSPanel != null) {
