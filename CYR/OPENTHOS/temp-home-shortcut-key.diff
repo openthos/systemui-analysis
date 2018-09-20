@@ -1,0 +1,171 @@
+diff --git a/core/java/com/android/internal/statusbar/IStatusBar.aidl b/core/java/com/android/internal/statusbar/IStatusBar.aidl
+index ca0e45b..30d616b 100644
+--- a/core/java/com/android/internal/statusbar/IStatusBar.aidl
++++ b/core/java/com/android/internal/statusbar/IStatusBar.aidl
+@@ -67,6 +67,7 @@ oneway interface IStatusBar
+     void toggleKeyboardShortcutsMenu(int deviceId);
+     void setStatusBarVisibility(int visibility);
+     void changeStatusBarIcon(int taskId, in ComponentName cmp, boolean keep);
++    void startupMenuPanel();
+ 
+     /**
+      * Notifies the status bar that an app transition is pending to delay applying some flags with
+diff --git a/core/java/com/android/internal/statusbar/IStatusBarService.aidl b/core/java/com/android/internal/statusbar/IStatusBarService.aidl
+index 82eb1ab..d4f779f 100644
+--- a/core/java/com/android/internal/statusbar/IStatusBarService.aidl
++++ b/core/java/com/android/internal/statusbar/IStatusBarService.aidl
+@@ -30,6 +30,7 @@ import com.android.internal.statusbar.NotificationVisibility;
+ interface IStatusBarService
+ {
+     void expandNotificationsPanel();
++    void startupMenuPanel();
+     void collapsePanels();
+     void togglePanel();
+     void disable(int what, IBinder token, String pkg);
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java b/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java
+index ba51a2a..253e929 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/CommandQueue.java
+@@ -84,6 +84,7 @@ public class CommandQueue extends IStatusBar.Stub {
+     private static final int MSG_SET_TOP_APP_HIDES_STATUS_BAR  = 37 << MSG_SHIFT;
+     private static final int MSG_SET_STATUS_BAR_VISIBILITY     = 38 << MSG_SHIFT;
+     private static final int MSG_CHANGE_STATUS_BAR_ICON        = 39 << MSG_SHIFT;
++    private static final int MSG_CHANGE_STATUS_BAR_START       = 40 << MSG_SHIFT;
+ 
+     public static final int FLAG_EXCLUDE_NONE = 0;
+     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
+@@ -143,6 +144,7 @@ public class CommandQueue extends IStatusBar.Stub {
+         default void remQsTile(ComponentName tile) { }
+         default void clickTile(ComponentName tile) { }
+ 
++        default void startupMenuPanel() {}
+         default void handleSystemKey(int arg1) { }
+         default void handleShowGlobalActionsMenu() { }
+         default void handleShowShutdownUi(boolean isReboot, String reason) { }
+@@ -347,6 +349,12 @@ public class CommandQueue extends IStatusBar.Stub {
+         }
+     }
+ 
++    public void startupMenuPanel() {
++        synchronized (mLock) {
++            mHandler.obtainMessage(MSG_CHANGE_STATUS_BAR_START).sendToTarget();
++        }
++    }
++
+     public void setStatusBarVisibility(int visibility) {
+         synchronized (mLock) {
+             mHandler.removeMessages(MSG_SET_STATUS_BAR_VISIBILITY);
+@@ -586,6 +594,11 @@ public class CommandQueue extends IStatusBar.Stub {
+                                     msg.arg1, (ComponentName) msg.obj, msg.arg2 != 0);
+                     }
+                     break;
++		case MSG_CHANGE_STATUS_BAR_START:
++		    for (int i = 0; i< mCallbacks.size(); i++) {
++		        mCallbacks.get(i).startupMenuPanel();
++		    }
++		    break;
+                 case MSG_SET_STATUS_BAR_VISIBILITY:
+                     for (int i = 0; i < mCallbacks.size(); i++) {
+                         mCallbacks.get(i).setStatusBarVisibility(msg.arg1);
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
+index 5107445..d06c4f2 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
+@@ -216,6 +216,11 @@ public class OpenthosStatusBarView extends PanelBar {
+         });
+     }
+ 
++    //Show dialog Panel by 'HOME' key.
++    public void showDialogPanel(BaseDialog dialog) {
++	showDialog(mStartupMenu, dialog);
++    }
++
+     private void showDialog(View view, BaseDialog dialog) {
+         if (view == null) {
+             return;
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java
+index 0301558..a65716e 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java
+@@ -2272,6 +2272,10 @@ public class StatusBar extends SystemUI implements DemoMode,
+         mQSPanel.clickTile(tile);
+     }
+ 
++    public void startupMenuPanel() {
++        mOpenthosStatusBarView.showDialogPanel(getStartupMenuDialog());
++    }
++
+     private boolean packageHasVisibilityOverride(String key) {
+         return mNotificationData.getVisibilityOverride(key) == Notification.VISIBILITY_PRIVATE;
+     }
+diff --git a/services/core/java/com/android/server/policy/PhoneWindowManager.java b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+index ba31a77..9223c87 100644
+--- a/services/core/java/com/android/server/policy/PhoneWindowManager.java
++++ b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+@@ -3387,7 +3387,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+                 return -1;
+             }
+         }
+-
++        // shortcut to home show startupMenu.
++        if (keyCode == KeyEvent.KEYCODE_HOME) {
++            if (down) {
++                IStatusBarService service = getStatusBarService();
++                if (service != null) {
++	                try {
++	                    service.startupMenuPanel();
++	                } catch (RemoteException e) {}
++                }
++            }
++        }
+         // Cancel any pending meta actions if we see any other keys being pressed between the down
+         // of the meta key and its corresponding up.
+         if (mPendingMetaAction && !KeyEvent.isMetaKey(keyCode)) {
+diff --git a/services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java b/services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java
+index 3201084..ebc465a 100644
+--- a/services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java
++++ b/services/core/java/com/android/server/statusbar/StatusBarManagerInternal.java
+@@ -48,6 +48,7 @@ public interface StatusBarManagerInternal {
+     void setStatusBarVisibility(int visibility);
+ 
+     void changeStatusBarIcon(int taskId, ComponentName cmp, boolean keep);
++    void startupMenuPanel();
+ 
+     /**
+      * Notifies the status bar that an app transition is pending to delay applying some flags with
+diff --git a/services/core/java/com/android/server/statusbar/StatusBarManagerService.java b/services/core/java/com/android/server/statusbar/StatusBarManagerService.java
+index 990fea9..6cf7d95 100644
+--- a/services/core/java/com/android/server/statusbar/StatusBarManagerService.java
++++ b/services/core/java/com/android/server/statusbar/StatusBarManagerService.java
+@@ -287,6 +287,15 @@ public class StatusBarManagerService extends IStatusBarService.Stub {
+         }
+ 
+         @Override
++	    public void startupMenuPanel() {
++	        if (mBar != null) {
++	            try {
++	                mBar.startupMenuPanel();
++		        } catch (RemoteException ex) {}
++            }
++	    }
++
++        @Override
+         public void setStatusBarVisibility(int visibility) {
+             if (mBar != null) {
+                 try {
+@@ -388,6 +397,15 @@ public class StatusBarManagerService extends IStatusBarService.Stub {
+     }
+ 
+     @Override
++    public void startupMenuPanel() {
++        if (mBar != null) {
++            try {
++	            mBar.startupMenuPanel();
++            } catch (RemoteException ex) {}
++        }
++    }
++
++    @Override
+     public void collapsePanels() {
+         enforceExpandStatusBar();
+ 

@@ -1,0 +1,94 @@
+diff --git a/core/java/android/app/IActivityManager.aidl b/core/java/android/app/IActivityManager.aidl
+index 215bb07..deadac6 100644
+--- a/core/java/android/app/IActivityManager.aidl
++++ b/core/java/android/app/IActivityManager.aidl
+@@ -118,6 +118,7 @@ interface IActivityManager {
+     List<ActivityManager.RunningTaskInfo> getTasks(int maxNum, int flags);
+     void moveTaskToFront(int task, int flags, in Bundle options);
+     void moveTaskBackwards(int task);
++    void startHomeManager();
+     int getTaskForActivity(in IBinder token, in boolean onlyRoot);
+     ContentProviderHolder getContentProvider(in IApplicationThread caller,
+             in String name, int userId, boolean stable);
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
+index 5107445..cf2e91b 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/phone/OpenthosStatusBarView.java
+@@ -24,6 +24,8 @@ import com.android.systemui.dialog.InputMethodDialog;
+ import com.android.systemui.dialog.StartupMenuDialog;
+ import com.android.systemui.dialog.VolumeDialog;
+ import com.android.systemui.dialog.WifiDialog;
++import android.app.IActivityManager;
++import android.app.ActivityManager;
+ 
+ import com.android.systemui.R;
+ 
+@@ -160,9 +162,14 @@ public class OpenthosStatusBarView extends PanelBar {
+                     showDialog(mCalendarView, mCalendarDialog);
+                     break;
+                 case R.id.iv_home_status_bar:
+-                    Intent home = new Intent(Intent.ACTION_MAIN);
+-                    home.addCategory(Intent.CATEGORY_HOME);
+-                    getContext().startActivity(home);
++                    //Intent home = new Intent(Intent.ACTION_MAIN);
++                    //home.addCategory(Intent.CATEGORY_HOME);
++                    //getContext().startActivity(home);
++		    try {
++                        ActivityManager.getService().startHomeManager();
++                    } catch (Exception e) {
++		        e.printStackTrace();
++		    }
+                     break;
+                 case R.id.ll_scroll_icon_contents:
+                     //Handle events
+diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
+index da946d7..e3f2b4f 100644
+--- a/services/core/java/com/android/server/am/ActivityManagerService.java
++++ b/services/core/java/com/android/server/am/ActivityManagerService.java
+@@ -181,6 +181,7 @@ import static com.android.server.am.TaskRecord.LOCK_TASK_AUTH_LAUNCHABLE_PRIV;
+ import static com.android.server.am.TaskRecord.LOCK_TASK_AUTH_PINNABLE;
+ import static com.android.server.am.TaskRecord.REPARENT_KEEP_STACK_AT_FRONT;
+ import static com.android.server.am.TaskRecord.REPARENT_LEAVE_STACK_IN_PLACE;
++import static com.android.server.am.TaskRecord.REPARENT_MOVE_STACK_TO_FRONT;
+ import static com.android.server.wm.AppTransition.TRANSIT_ACTIVITY_OPEN;
+ import static com.android.server.wm.AppTransition.TRANSIT_ACTIVITY_RELAUNCH;
+ import static com.android.server.wm.AppTransition.TRANSIT_NONE;
+@@ -10588,6 +10589,38 @@ public class ActivityManagerService extends IActivityManager.Stub
+     }
+ 
+     @Override
++    public void startHomeManager() {
++        try{
++            final Context context = mContext;
++            final PackageManager mPackageManager = context.getPackageManager();
++            final ActivityManager mActivityManager = (ActivityManager)
++                            context.getSystemService(Context.ACTIVITY_SERVICE);
++            List<StackInfo> stackInfoList = getAllStackInfos();
++	    //TaskRecord target = mLastResumedActivity.getTask();
++            for (int i = 0; i < stackInfoList.size(); i++) {
++                //exclude launcher
++		if (stackInfoList.get(i).stackId != 0) {
++                    int[] targets = stackInfoList.get(i).taskIds;
++                    for (int j = 0; j < targets.length; j ++) {
++                        TaskRecord target = mStackSupervisor.anyTaskForIdLocked(targets[j]);
++                        if (target != null && stackInfoList.get(i).stackId != BACKGROUND_STACK_ID) {
++                            target.reparent(BACKGROUND_STACK_ID, !ON_TOP,
++                                    REPARENT_LEAVE_STACK_IN_PLACE, !ANIMATE, !DEFER_RESUME, "minimize");
++                        } else {
++			    if (target != null && stackInfoList.get(i).stackId != FREEFORM_WORKSPACE_STACK_ID) {
++                                target.reparent(FREEFORM_WORKSPACE_STACK_ID, ON_TOP,
++                                        REPARENT_KEEP_STACK_AT_FRONT, ANIMATE, !DEFER_RESUME, "minimize");
++			    }
++			}
++		    }
++		}
++	    }
++        } catch(Exception e) {
++            e.printStackTrace();
++        }
++    }
++
++    @Override
+     public int createStackOnDisplay(int displayId) throws RemoteException {
+         enforceCallingPermission(MANAGE_ACTIVITY_STACKS, "createStackOnDisplay()");
+         synchronized (this) {
