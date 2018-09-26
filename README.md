@@ -21,4 +21,4 @@
  ## 工作前学习
    - [高效率熟悉SystemUI-8.1](https://github.com/openthos/systemui-analysis/blob/master/LuNing/SystemUI%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93.md)
    - [SystemUI基础文档-全面(aosp)](https://github.com/openthos/systemui-analysis/blob/master/CYR/SystemUI%E5%9F%BA%E7%A1%80%E6%96%87%E6%A1%A3.md)
-   - [Power Manager理论文档]()
+   - [Power Manager理论文档](https://github.com/openthos/systemui-analysis/blob/master/CYR/PowerManager%E7%90%86%E8%AE%BA%E6%96%87%E6%A1%A3.md)
