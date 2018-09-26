@@ -1,0 +1,248 @@
+diff --git a/core/java/android/os/PowerManager.java b/core/java/android/os/PowerManager.java
+index 8307d9b..a6778a5 100644
+--- a/core/java/android/os/PowerManager.java
++++ b/core/java/android/os/PowerManager.java
+@@ -99,6 +99,7 @@ import android.util.Log;
+  * permission in an {@code &lt;uses-permission&gt;} element of the application's manifest.
+  * </p>
+  */
++// Is PMS proxy.
+ public final class PowerManager {
+     private static final String TAG = "PowerManager";
+ 
+@@ -582,6 +583,7 @@ public final class PowerManager {
+      *
+      * @removed Requires signature permission.
+      */
++    // go to sleep state
+     public void goToSleep(long time) {
+         goToSleep(time, GO_TO_SLEEP_REASON_APPLICATION, 0);
+     }
+@@ -633,6 +635,7 @@ public final class PowerManager {
+      *
+      * @removed Requires signature permission.
+      */
++    // wake up state.
+     public void wakeUp(long time) {
+         try {
+             mService.wakeUp(time);
+@@ -939,6 +942,8 @@ public final class PowerManager {
+          */
+         public void acquire() {
+             synchronized (mToken) {
++                //To apply for lock, then have wakelock.
++                //When handle wake os state, use electcity resource.
+                 acquireLocked();
+             }
+         }
+diff --git a/services/core/java/com/android/server/SystemServiceManager.java b/services/core/java/com/android/server/SystemServiceManager.java
+index fda6479..70bff04 100644
+--- a/services/core/java/com/android/server/SystemServiceManager.java
++++ b/services/core/java/com/android/server/SystemServiceManager.java
+@@ -102,9 +102,11 @@ public class SystemServiceManager {
+         }
+ 
+         // Register it.
++        // Register it to list.
+         mServices.add(service);
+ 
+         // Start it.
++        // Start service.
+         try {
+             service.onStart();
+         } catch (RuntimeException ex) {
+diff --git a/services/core/java/com/android/server/power/Notifier.java b/services/core/java/com/android/server/power/Notifier.java
+index 1349926..d07afa5 100644
+--- a/services/core/java/com/android/server/power/Notifier.java
++++ b/services/core/java/com/android/server/power/Notifier.java
+@@ -239,6 +239,7 @@ final class Notifier {
+     /**
+      * Notifies that the device is changing wakefulness.
+      */
++    // screen start.
+     public void onWakefulnessChangeStarted(int wakefulness, int reason) {
+         if (DEBUG) {
+             Slog.d(TAG, "onWakefulnessChangeStarted: wakefulness=" + wakefulness
+@@ -249,6 +250,7 @@ final class Notifier {
+         // set everything up or the user to begin interacting with applications.
+         final boolean interactive = PowerManagerInternal.isInteractive(wakefulness);
+         if (interactive) {
++            // step to AMS
+             handleWakefulnessChange(wakefulness, interactive, reason);
+         } else {
+             mLastReason = reason;
+@@ -282,6 +284,7 @@ final class Notifier {
+         mHandler.post(new Runnable() {
+             @Override
+             public void run() {
++                // step to AMS onWakefulnessChanged
+                 mActivityManagerInternal.onWakefulnessChanged(wakefulness);
+             }
+         });
+diff --git a/services/core/java/com/android/server/power/PowerManagerService.java b/services/core/java/com/android/server/power/PowerManagerService.java
+index 9371222..aa7420f 100644
+--- a/services/core/java/com/android/server/power/PowerManagerService.java
++++ b/services/core/java/com/android/server/power/PowerManagerService.java
+@@ -442,7 +442,9 @@ public final class PowerManagerService extends SystemService
+         mHandler = new PowerManagerHandler(mHandlerThread.getLooper());
+ 
+         synchronized (mLock) {
++            //control cpu state.
+             mWakeLockSuspendBlocker = createSuspendBlockerLocked("PowerManagerService.WakeLocks");
++            // control display state.
+             mDisplaySuspendBlocker = createSuspendBlockerLocked("PowerManagerService.Display");
+             mDisplaySuspendBlocker.acquire();
+             mHoldingDisplaySuspendBlocker = true;
+@@ -450,7 +452,7 @@ public final class PowerManagerService extends SystemService
+             mHalInteractiveModeEnabled = true;
+ 
+             mWakefulness = WAKEFULNESS_AWAKE;
+-
++            //native init resource.
+             nativeInit();
+             nativeSetAutoSuspend(false);
+             nativeSetInteractive(true);
+@@ -484,21 +486,23 @@ public final class PowerManagerService extends SystemService
+         synchronized (mLock) {
+             mSystemReady = true;
+             mAppOps = appOps;
+-            mDreamManager = getLocalService(DreamManagerInternal.class);
+-            mDisplayManagerInternal = getLocalService(DisplayManagerInternal.class);
+-            mPolicy = getLocalService(WindowManagerPolicy.class);
+-            mBatteryManagerInternal = getLocalService(BatteryManagerInternal.class);
++            mDreamManager = getLocalService(DreamManagerInternal.class);//screen protect
++            mDisplayManagerInternal = getLocalService(DisplayManagerInternal.class);//display show
++            mPolicy = getLocalService(WindowManagerPolicy.class);//widnow policy
++            mBatteryManagerInternal = getLocalService(BatteryManagerInternal.class);//battery
+ 
+             PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+             mScreenBrightnessSettingMinimum = pm.getMinimumScreenBrightnessSetting();
+             mScreenBrightnessSettingMaximum = pm.getMaximumScreenBrightnessSetting();
+             mScreenBrightnessSettingDefault = pm.getDefaultScreenBrightnessSetting();
+ 
++            // get light / speed / battery state server.
+             SensorManager sensorManager = new SystemSensorManager(mContext, mHandler.getLooper());
+ 
+             // The notifier runs on the system server's main looper so as not to interfere
+             // with the animations and other critical functions of the power manager.
+             mBatteryStats = BatteryStatsService.getService();
++            // send broadcast to pws wake lock.
+             mNotifier = new Notifier(Looper.getMainLooper(), mContext, mBatteryStats,
+                     mAppOps, createSuspendBlockerLocked("PowerManagerService.Broadcasts"),
+                     mPolicy);
+@@ -506,6 +510,7 @@ public final class PowerManagerService extends SystemService
+             mWirelessChargerDetector = new WirelessChargerDetector(sensorManager,
+                     createSuspendBlockerLocked("PowerManagerService.WirelessChargerDetector"),
+                     mHandler);
++            // moniter to os setting changing, such as light / time / battery state.
+             mSettingsObserver = new SettingsObserver(mHandler);
+ 
+             mLightsManager = getLocalService(LightsManager.class);
+@@ -999,11 +1004,13 @@ public final class PowerManagerService extends SystemService
+     private void wakeUpInternal(long eventTime, int uid) {
+         synchronized (mLock) {
+             if (wakeUpNoUpdateLocked(eventTime, uid)) {
++                // step to updatePowerStateLocked
+                 updatePowerStateLocked();
+             }
+         }
+     }
+ 
++    // key code.
+     private boolean wakeUpNoUpdateLocked(long eventTime, int uid) {
+         if (DEBUG_SPEW) {
+             Slog.d(TAG, "wakeUpNoUpdateLocked: eventTime=" + eventTime + ", uid=" + uid);
+@@ -1029,6 +1036,7 @@ public final class PowerManagerService extends SystemService
+             }
+ 
+             mLastWakeTime = eventTime;
++            // wakefulness = mWakefulness
+             setWakefulnessLocked(WAKEFULNESS_AWAKE, 0);
+ 
+             userActivityNoUpdateLocked(
+@@ -1177,6 +1185,7 @@ public final class PowerManagerService extends SystemService
+             mWakefulness = wakefulness;
+             mWakefulnessChanging = true;
+             mDirty |= DIRTY_WAKEFULNESS;
++            // phoneWindowManager method startedWakingUp.
+             mNotifier.onWakefulnessChangeStarted(wakefulness, reason);
+         }
+     }
+@@ -1196,7 +1205,9 @@ public final class PowerManagerService extends SystemService
+      * each time something important changes, and ensure that we do it the same
+      * way each time.  The point is to gather all of the transition logic here.
+      */
++    // core method to update battery state.
+     private void updatePowerStateLocked() {
++        //update state about battery.
+         if (!mSystemReady || mDirty == 0) {
+             return;
+         }
+@@ -2952,6 +2963,7 @@ public final class PowerManagerService extends SystemService
+ 
+         @Override // Binder call
+         public void wakeUp(long eventTime) {
++            //permission
+             if (eventTime > SystemClock.uptimeMillis()) {
+                 throw new IllegalArgumentException("event time must not be in the future");
+             }
+@@ -2962,6 +2974,7 @@ public final class PowerManagerService extends SystemService
+             final int uid = Binder.getCallingUid();
+             final long ident = Binder.clearCallingIdentity();
+             try {
++                // step to wakeUpInternal
+                 wakeUpInternal(eventTime, uid);
+             } finally {
+                 Binder.restoreCallingIdentity(ident);
+diff --git a/services/java/com/android/server/SystemServer.java b/services/java/com/android/server/SystemServer.java
+index 334cdf6..b4e81e2 100644
+--- a/services/java/com/android/server/SystemServer.java
++++ b/services/java/com/android/server/SystemServer.java
+@@ -148,13 +148,14 @@ public final class SystemServer {
+     private SystemServiceManager mSystemServiceManager;
+ 
+     // TODO: remove all of these references by improving dependency resolution and boot phases
++    //1.boot AMS WMS PMS
+     private PowerManagerService mPowerManagerService;
+     private ActivityManagerService mActivityManagerService;
+     private DisplayManagerService mDisplayManagerService;
+     private PackageManagerService mPackageManagerService;
+     private PackageManager mPackageManager;
+     private ContentResolver mContentResolver;
+-
++            WindowManagerService wm = null;
+     private boolean mOnlyCore;
+     private boolean mFirstBoot;
+ 
+@@ -306,6 +307,7 @@ public final class SystemServer {
+      * the other functions.
+      */
+     private void startBootstrapServices() {
++        //2.boot service.
+         // Wait for installd to finish starting up so that it has a chance to
+         // create critical directories such as /data/user with the appropriate
+         // permissions.  We need this to complete before we initialize other services.
+@@ -321,6 +323,7 @@ public final class SystemServer {
+         // Native daemons may be watching for it to be registered so it must be ready
+         // to handle incoming binder calls immediately (including being able to verify
+         // the permissions for those calls).
++        //3. init pms/ams
+         mPowerManagerService = mSystemServiceManager.startService(PowerManagerService.class);
+ 
+         // Now that the power manager has been started, let the activity manager
+@@ -399,7 +402,6 @@ public final class SystemServer {
+         ConnectivityService connectivity = null;
+         NetworkScoreService networkScore = null;
+         NsdService serviceDiscovery= null;
+-        WindowManagerService wm = null;
+         BluetoothManagerService bluetooth = null;
+         UsbService usb = null;
+         SerialService serial = null;
+@@ -1016,6 +1018,7 @@ public final class SystemServer {
+ 
+         try {
+             // TODO: use boot phase
++            // 4.os ready work.
+             mPowerManagerService.systemReady(mActivityManagerService.getAppOpsService());
+         } catch (Throwable e) {
+             reportWtf("making Power Manager Service ready", e);
