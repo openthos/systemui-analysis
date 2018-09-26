@@ -33,3 +33,8 @@
 ### 释放锁 release 
        - 在应用持有wakelock锁执行完相应的事物之后，要及时调用release()，来执行释放wakelock操作，否则会导致设备保持唤醒，
        迟迟进入不了睡眠状态，严重影响手机功耗。正常情况下，每个wakelock的acquire都应该对应一个release操作，release操作和acquire流程相似。
+
+...更详细看blog;
+***
+### 大致流程的diff文件
+  - [Power Manager](https://github.com/openthos/systemui-analysis/blob/master/CYR/OPENTHOS/power_manager.diff)
