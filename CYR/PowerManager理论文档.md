@@ -38,3 +38,32 @@
 ***
 ### 大致流程的diff文件
   - [Power Manager](https://github.com/openthos/systemui-analysis/blob/master/CYR/OPENTHOS/power_manager.diff)
+  
+### openthos-8.1的实现
+  - StatusManagerService.java
+  
+```
+    /**  
+     * Allows the status bar to reboot the device.
+     */
+    @Override
+    public void reboot(boolean safeMode) {
+        Log.i("Smaster -->", "reboot --> status bar");
+        enforceStatusBarService();
+        long identity = Binder.clearCallingIdentity();
+        try {
+            mHandler.post(() -> { 
+                // ShutdownThread displays UI, so give it a UI context.
+                if (safeMode) {
+                    ShutdownThread.rebootSafeMode(getUiContext(), true);
+                } else {
+                    ShutdownThread.reboot(getUiContext(),
+                            PowerManager.SHUTDOWN_USER_REQUESTED, false);
+                }
+            });
+        } finally {
+            Binder.restoreCallingIdentity(identity);
+        }
+    }
+
+```
