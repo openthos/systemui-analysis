@@ -20,7 +20,10 @@
   - BASE_COMMAND stop 停止
   - BASE_COMMAND list-remote -s http://dev.openthos.org/ -u dev01@openthos.org -p 123
 列出所有资料库的Name和ID，包括帐号的信息（如token);但如果用户在网页端创建了中文名称的library，Name将无法识别,所以现在获取library列表采用官方client源码中的发送网络请求的方式；
-  - ![(https://github.com/openthos/systemui-analysis/blob/master/ImageView/lilst_remote_success.png)]
+  - list-remote正常:
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/lilst_remote_success.png)
+  - list-remote异常：
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/lilst_remote_error.png)
   
 ### 官方seaf-cli文档：
 https://seacloud.cc/group/3/wiki/seafile-cli-manual.md
