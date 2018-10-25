@@ -1,10 +1,10 @@
-## 准备
+## 准备:
   - tar xvf /system/opt/sea.tar.bz -C /data 解压sea目录
   - chmod -R 777 /data/sea (新版本跳过这两步)
   - busybox mkdir -m 777 -p /data/sea/sdcard/seafile 用于挂载DATA本地目录
   - busybox mount --bind /sdcard/seafile /data/sea/sdcard/seafile 挂载，使seaf-cli可操作DATA,GUI操作的DATA在/sdcard/seafile/帐号/DATA
   
-## seaf-cli命令（不考虑proot）
+## seaf-cli命令（不考虑proot）:
 ### 在帐号登录前完成：
   - busybox mkdir -m 777 /data/seafile-config 创建client配置文件夹
   - seaf-cli init -d /data/seafile-config 初始化配置文件
