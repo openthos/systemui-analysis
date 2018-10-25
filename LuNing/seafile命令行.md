@@ -13,7 +13,7 @@
 ### 帐号登录后：
   - seaf-cli list-remote -s http://dev.openthos.org/ -u dev01@openthos.org -p 123
 列出所有资料库的Name和ID，包括帐号的信息（如token);但如果用户在网页端创建了中文名称的library，Name将无法识别,所以现在获取library列表采用官方client源码中的发送网络请求的方式；
-  - seaf-cli create -n DATA -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 如帐号中没有DATA或UserConfig资料库，则创建；
+  - seaf-cli create -n DATA -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 创建library；
   - seaf-cli download -l [library id] -s http://dev.openthos.org/ -u dev01@openthos.org -p 123 下载指定library
   - seaf-cli sync -l [library id] -d [library本地路径] -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 同步library
   - seaf-cli desync -d [library本地路径] 解除同步
