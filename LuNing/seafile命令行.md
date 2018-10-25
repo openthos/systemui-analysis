@@ -13,8 +13,8 @@
   - BASE_COMMAND start 启动
   
 ### 帐号登录后：
-  
-  - BASE_COMMAND create -n DATA -s http:\//dev.openthos.org\/ -u dev01@openthos.org -tk [token] 创建library；
+  - BASE_COMMAND get-token -s http://dev.openthos.org/ -u dev01@openthos.org -p 123 获取token
+  - BASE_COMMAND create -n DATA -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 创建library；
   - BASE_COMMAND sync -l [library id] -d [library本地路径] -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 同步library
   - BASE_COMMAND desync -d [library本地路径] 解除同步
   - BASE_COMMAND stop 停止
