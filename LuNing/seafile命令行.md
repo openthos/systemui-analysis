@@ -2,7 +2,7 @@
   - su -c tar xvf /system/opt/sea.tar.bz -C /data 解压sea目录
   - su -c chmod -R 777 /data/sea 修改权限
   - su -c busybox mkdir -m 777 -p /data/sea/sdcard/seafile 用于挂载DATA本地目录
-  - su -c busybox mount --bind /sdcard/seafile /data/sea/sdcard/seafile 挂载，使seaf-cli可操作DATA,GUI操作的DATA在/sdcard/seafile/帐号/DATA
+  - su -c busybox mount --bind /sdcard/seafile /data/sea/sdcard/seafile 挂载，使seaf-cli可操作DATA，GUI操作的DATA在/sdcard/seafile/帐号/DATA
   
 ## seaf-cli命令:
  - BASE_COMMAND = su -c ./data/sea/proot.sh -b /data/seafile-config:/data/seafile-config seaf-cli 需要proot
