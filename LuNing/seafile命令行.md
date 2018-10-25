@@ -23,7 +23,7 @@
   - list-remote正常:
   ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/lilst_remote_success.png)
   - list-remote异常：
-  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/lilst_remote_error.png)
+  ![](https://github.com/openthos/systemui-analysis/blob/master/ImageView/list_remote_error.png)
   
 ### 官方seaf-cli文档：
 https://seacloud.cc/group/3/wiki/seafile-cli-manual.md
