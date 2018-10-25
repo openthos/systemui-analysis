@@ -18,3 +18,6 @@
   - seaf-cli sync -l [library id] -d [library本地路径] -s http://dev.openthos.org/ -u dev01@openthos.org -tk [token] 同步library
   - seaf-cli desync -d [library本地路径] 解除同步
   - seaf-cli stop 停止
+  
+### 官方seaf-cli文档：
+https://seacloud.cc/group/3/wiki/seafile-cli-manual.md
