@@ -2,18 +2,15 @@
 Settings模块中的获取系统信息和系统配置升级的实现
 ######
 &ensp;&ensp;关于实现：
-1.
-**Location：
-**Settings/src/com/android/settings/DeviceInfoSettings.java
-2.代码实现主要是通过在java中嵌入Linux的指令来实现，通过指令来获取系统信息，然后通过读取文件字符的形式来获取需要的信息。
-&ensp;&ensp;核心代码：`pro = runtime.exec("cat /proc/cpuinfo");`
+1.**Location：**Settings/src/com/android/settings/DeviceInfoSettings.java  
+2.代码实现主要是通过在java中嵌入Linux的指令来实现，通过指令来获取系统信息，然后通过读取文件字符的形式来获取需要的信息。  
+&ensp;&ensp;核心代码：`pro = runtime.exec("cat /proc/cpuinfo");`  
 3.**系统配置升级：**当用户点击系统配置升级的按钮，首次进入是勾选Default的勾选框，用户点击确定，则通过默认url进行升级和path进行下载，且将路经保存在SharePrefence中，OTA的程序则可以从我的数据库中进行获取信息，这样完成配置更新。
 若用户去除勾选，则用户自定义的URL和Path进行实现升级和下载。
 ***
 #####
 SystemUI模块中锁定任务栏和模式运行的实现
-######
-&ensp;&ensp;关于实现：
+######&ensp;&ensp;关于实现：  
 1.**Location:**  
 SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBar.java  
 DocumentUI/src/com/android/documentui/util/StartMenuDialog.java  
@@ -21,17 +18,16 @@ SystemUI/src/com/android/systemui/statusbar/policy/ActivityKeyView.java
 2.**StatusBar锁定：**在StartMenuDialog中发送一个锁定的广播信息，然后在PhoneStatusBar中进行广播的注册和接收然后将其锁定。在实现过程中，也要注意：①不可重复锁定(使用Set集合存放)②锁定后重启系统仍然保存(使用SharePreference进行存储)③底部解除锁定后仍可再次锁定(解除事件发生发送广播改变集合和存储)④点击运行事件后，要发送广播给MySQLReceiver进行改变数据库⑤解除锁定后要改变数据库这样才可以避免重启，解锁后的图标再出现。  
 3.**模式运行**是鼠标右击进行选择手机模式和电脑模式进行运行，主要实现是通过在StartMenuDialog中进行事件触发，然后发送flag:`intent.addFlags(Intent.FLAG_ACTIVITY_RUN_PHONE_MODE);`&ensp;但是要注意：在Intent中定义FLAG_ACTIVITY_RUN_PHONE_MODE且要保证独一无二。ActivityStackSupervisor进行接收StartMenuDialog中的flag信息且调用DisplayMetrics中的函数，在DisplayMetrics中进行尺寸的设置。  
 4.**图片替换:**这部分任务则并不存在难度，自己在实现的过程中有些想法可以更好更快：①要锁定图标的位置(锁定位置可以通过Studio使用快捷键 Ctrl+shift+f and Ctrl+f来检索关键词，也可以使用指令：grep -r 'name' *)②判断设置，有时候设置是在不同的drawable资源中③对于布局总问题，不要一味认为是图片的原因，有时候要考虑布局的代码。
-######
-&ensp;&ensp;实践经验与感悟
+######&ensp;&ensp;实践经验与感悟
 &ensp;&ensp;**SystemUI工作:  
 **在工作中，要考虑全面，就如：StatusBar中的锁定要考虑5个方面。所以再入手写代码前，自己要把所有的问题列举出来，然后一个任务任务的去实现且在实现一个任务后要进行提交代码，避免全部实现任务耽误过多的时间导致不能及时更新代码，最后出现提交补丁冲突，给别人的工作带来麻烦。书写代码要严格按照公司的要求，格式的规范化可以给自己和别人节省时间。再有就是：面对底层看不懂的代码，要耐心分析，不如：PhoneStatusBar有四千多行代码，要进行模块化分析，一部分，一部分进行解刨，并且要及时写下注释。
 ######&ensp;&ensp;仍待解决
 &ensp;在众多应用选择模式运行中，存在不正常的问题，例如：百度云选择手机模式会和StartMenuDialog的尺寸位置一样。
 ***
-#####未来任务开展的意见
-1.对于代码书写规格希望能有一套标准的文档就和git的使用一样，作为一个刚进入团队的成员来感受，每次修改代码格式耽误很多时间，页耽误了别人的时间，希望以后有成型的文档，那样再来的新人会节省很多时间。
-2.在项目完成中，希望能更注重团队的力量，定期进行交流和技术难题分析，不要因任务的分工来把小组成员孤立化。
-3.程序员工作是消耗精力和体力的工作，希望定期利用周末在清华大学校园里面举办一些活动。
+#####未来任务开展的意见  
+1.对于代码书写规格希望能有一套标准的文档就和git的使用一样，作为一个刚进入团队的成员来感受，每次修改代码格式耽误很多时间，页耽误了别人的时间，希望以后有成型的文档，那样再来的新人会节省很多时间。  
+2.在项目完成中，希望能更注重团队的力量，定期进行交流和技术难题分析，不要因任务的分工来把小组成员孤立化。  
+3.程序员工作是消耗精力和体力的工作，希望定期利用周末在清华大学校园里面举办一些活动。  
 4.项目中的代码注释太少，阅读困难。
 ***
 #####学习资源
