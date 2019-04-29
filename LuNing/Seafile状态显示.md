@@ -68,7 +68,7 @@
         // when右上角时间，不设置的默认时间为通知第一次发出时的时间，即使之后再次notify时间也不变，
         // 且会导致bug此通知与其它通知位置不断变换，设置when后，此通知会始终在最顶
         mNotification.when = System.currentTimeMillis();
-        // 发送与刷新通知均使用notify
+        // 发送与刷新通知均使用notify 
         // 0为Notification的唯一标识，可任意设置，删除时使用根据标识cancel(0)
         mNotificationManager.notify(0, mNotification);
     }
