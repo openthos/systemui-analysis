@@ -7,7 +7,7 @@ SystemUI各模块UI设计、实现|负责
 StartupMenu|刘晓旭
 日历|王之旭
 通知中心|罗浩
-StatusBarView、输入法、电源、WiFi、音量|董鹏
+StatusBar、输入法、电源、WiFi、音量|董鹏
 
 ### 已完成
   - SystemUI 任务栏 UI更改完成 ---董鹏 2020-01-03
